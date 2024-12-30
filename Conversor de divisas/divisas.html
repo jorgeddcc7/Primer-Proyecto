@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Divisas</title>
+    <link rel="stylesheet" href="divisas.css">
+</head>
+<body>
+    <a href="http://127.0.0.1:5500/distancias.html" class="link__distancia" target="_blank">Estimador de tiempo de entrega</a>
+    <a href="http://127.0.0.1:5500/index.html" class="link__incoterms" target="_blank">Calculadora de INCOTERMS</a>
+
+    <div class="container">
+        <h1>Conversor de Divisas</h1>
+        <!-- Formulario para ingresar los datos -->
+        <div class="form-group">
+            <label for="cantidad">Cantidad a convertir:</label>
+            <input type="number" id="cantidad" placeholder="Introduce cantidad" required>
+        </div>
+
+        <div class="form-group">
+            <label for="deDivisa">De:</label>
+            <select id="deDivisa">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="aDivisa">A:</label>
+            <select id="aDivisa">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            </select>
+        </div>
+        <!-- Botón para realizar la conversión -->
+        <button id="convertir">Convertir</button>
+        <!-- Resultado -->
+        <p id="resultado"></p>
+    </div>
+
+    <script src="divisas.js"></script>
+</body>
+</html>

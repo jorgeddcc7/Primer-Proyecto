@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Incoterms</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Incoterms</h1>
+        </header>
+
+        <a href="http://127.0.0.1:5500/distancia/distancia.html" class="link__distancia" target="_blank">Estimador de tiempo de entrega</a>
+        <a href="http://127.0.0.1:5500/divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
+
+        <div id="formulario">
+            <!-- Campos existentes -->
+            <div class="input-group">
+                <label for="precio-base">Precio base (EUR):</label>
+                <input type="number" id="precio-base" placeholder="Ej. 500">
+            </div>
+            <div class="input-group">
+                <label for="transporte-local">Transporte local (EUR):</label>
+                <input type="number" id="transporte-local" placeholder="Ej. 50">
+            </div>
+            <div class="input-group">
+                <label for="seguro">Seguro (EUR):</label>
+                <input type="number" id="seguro" placeholder="Ej. 20">
+            </div>
+            <div class="input-group">
+                <label for="transporte-internacional">Transporte internacional (EUR):</label>
+                <input type="number" id="transporte-internacional" placeholder="Ej. 100">
+            </div>
+            <!-- Nuevo campo: Aduana de exportación -->
+            <div class="input-group">
+                <label for="aduana-exportacion">Aduana de exportación (EUR):</label>
+                <input type="number" id="aduana-exportacion" placeholder="Ej. 15">
+            </div>
+            <!-- Nuevo campo: Aduana de importación -->
+            <div class="input-group">
+                <label for="aduana-importacion">Aduana de importación (EUR):</label>
+                <input type="number" id="aduana-importacion" placeholder="Ej. 15">
+            </div>
+            <!-- Nuevo campo: Carga -->
+            <div class="input-group">
+                <label for="carga">Carga (EUR):</label>
+                <input type="number" id="carga" placeholder="Ej. 25">
+            </div>
+            <!-- Nuevo campo: Descarga -->
+            <div class="input-group">
+                <label for="descarga">Descarga (EUR):</label>
+                <input type="number" id="descarga" placeholder="Ej. 25">
+            </div>
+        </div>
+        
+
+        <!-- Checkbox para activar los incoterms marítimos -->
+        <div class="checkbox-container">
+            <label for="es-marítimo">
+                <input type="checkbox" id="es-marítimo"> Es transporte marítimo
+            </label>
+        </div>
+
+        <div class="incoterm-bar">
+            <label for="incoterm-slider">Selecciona el Incoterm:</label>
+            <input type="range" id="incoterm-slider" min="0" max="6" step="1" value="0">
+            <div class="incoterm-labels" id="incoterm-labels">
+                <!-- Aquí se generarán dinámicamente los incoterms -->
+            </div>
+        </div>
+
+        <button id="calcular">Calcular</button>
+        
+        <p id="precio-final">Precio final: €0.00</p>
+    </div>
+
+    <script src="calculadora.js"></script>
+</body>
+</html>

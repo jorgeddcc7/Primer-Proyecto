@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimador tiempo de entrega</title>
+    <link rel="stylesheet" href="distancias.css">
+</head>
+<body>
+    <a href="http://127.0.0.1:5500/index.html" class="link__calculadora" target="_blank">Calculadora de INCOTERMS</a>
+    <a href="http://127.0.0.1:5500/divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
+
+
+    <div id="tiempo-entrega" class="seccion-calculo">
+        <h2>Estimador de Tiempo de Entrega</h2>
+        <table>
+            <tr>
+                <td><label for="origen">País de origen:</label></td>
+                <td>
+                    <select id="origen">
+                        <option value="España">España</option>
+                        <option value="Francia">Francia</option>
+                        <option value="Alemania">Alemania</option>
+                        <option value="Reino Unido">Reino Unido</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="México">México</option>
+                        <option value="China">China</option>
+                        <option value="India">India</option>
+                        <option value="Japón">Japón</option>
+                        <option value="Sudáfrica">Sudáfrica</option>
+                        <option value="Argentina">Argentina</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="destino">País de destino:</label></td>
+                <td>
+                    <select id="destino">
+                        <option value="España">España</option>
+                        <option value="Francia">Francia</option>
+                        <option value="Alemania">Alemania</option>
+                        <option value="Reino Unido">Reino Unido</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="México">México</option>
+                        <option value="China">China</option>
+                        <option value="India">India</option>
+                        <option value="Japón">Japón</option>
+                        <option value="Sudáfrica">Sudáfrica</option>
+                        <option value="Argentina">Argentina</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="transporte">Modo de transporte:</label></td>
+                <td>
+                    <select id="transporte">
+                        <option value="terrestre">Terrestre</option>
+                        <option value="maritimo">Marítimo</option>
+                        <option value="aereo">Aéreo</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button id="calcular-tiempo" class="boton-calcular">Calcular</button>
+        <p id="resultado-tiempo"></p>
+    </div>
+
+    <script src="distancias.js"></script>
+</body>
+</html>

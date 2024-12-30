@@ -1,0 +1,199 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Links */
+.link__distancia {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #0003;
+    transition: all 0.3s ease;
+}
+
+.link__distancia:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.link__distancia i {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.link__divisas {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #0003;
+    transition: all 0.3s ease;
+}
+
+.link__divisas:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.link__divisas i {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 30px;
+}
+
+/* Encabezado */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #007bff;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Estilo de los formularios */
+#formulario {
+    display: grid;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+}
+
+/* Barra de incoterms */
+.incoterm-bar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.incoterm-bar input[type="range"] {
+    width: 90%;
+    margin: 0 auto;
+    appearance: none;
+    height: 8px;
+    border-radius: 5px;
+    background: #007bff;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.incoterm-bar input[type="range"]:focus {
+    background: #0056b3;
+}
+
+.incoterm-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.incoterm-labels span {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Botón */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Precio final */
+#precio-final {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #007bff;
+}
+
+/* Estilo para el checkbox */
+.checkbox-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Scroll */
+::-webkit-scrollbar {
+    width: 10px; /* o el tamaño que prefieras */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #056bd8; /* Color del "dedo" del scrollbar */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #bbc7f7; /* Color del fondo del track */
+}
