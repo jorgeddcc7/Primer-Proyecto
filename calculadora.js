@@ -31,7 +31,7 @@ function calcularPrecio() {
             break;
 
         case 4: // DAP
-            precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion;
+            precioTotal += transporteLocal + transporteInternacional + carga + aduanaExportacion;
             break;
 
         case 5: // DPU
@@ -39,7 +39,7 @@ function calcularPrecio() {
             break;
 
         case 6: // DDP
-            precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion + aduanaImportacion + impuestos;
+            precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion + aduanaImportacion;
             break;
 
         case 7: // FOB
@@ -63,7 +63,7 @@ function calcularPrecio() {
     }
 
     // Mostrar el precio final
-    document.getElementById('precio-final').textContent = `Precio final: €${precioTotal.toFixed(2)}`;
+    document.getElementById('precio-final').textContent = `Precio final: ${precioTotal.toFixed(2)}€`;
 }
 
 // Función para actualizar los incoterms dinámicamente

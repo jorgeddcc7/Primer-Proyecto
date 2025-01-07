@@ -141,11 +141,16 @@ body {
 
 /* Resultado del tiempo estimado */
 #resultado-tiempo {
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 10px;
+    font-size: 19px;
+    padding: 5px;
     font-weight: bold;
     text-align: center;
     color: #333;
+    background-color: #cae0f8;
+    border: 1px solid #0056b3;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #0056b399;
     opacity: 0; /* Inicia invisible */
     transform: translateY(-50px) scale(0.8); /* Comienza desde arriba y pequeño */
     display: none; /* No ocupa espacio hasta que se haga visible */
