@@ -169,3 +169,32 @@ body {
         transform: translateY(0) scale(1); /* Termina en su posición original y tamaño normal */
     }
 }
+
+@media (max-width: 1280px) {
+    .link__calculadora, .link__divisas {
+        position: absolute;
+        top: 0;
+    }
+    .seccion-calculo {
+        max-width: 700px;
+        margin-top: 50px;
+    }
+}
+@media (max-width: 500px) {
+    .link__calculadora {
+        position: absolute;
+        top: 37px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        width: fit-content;
+    }
+    .link__divisas {
+        left: 50%;
+        transform: translateX(-50%);
+        width: fit-content;
+    }
+    .seccion-calculo {
+        margin-top: 72px;
+    }
+}
