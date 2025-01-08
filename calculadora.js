@@ -121,5 +121,12 @@ inputs.forEach(input => {
     });
 });
 
-console.log('Aduana de importación', aduanaImportacion);
-console.log('Aduana de exportacion', aduanaExportacion);
+// Actualizar aria-live cuando se recalcula el precio
+function calcularPrecio() {
+    const precioBase = parseFloat(document.getElementById('precio-base').value) || 0;
+    // (Lógica anterior del cálculo...)
+
+    // Anunciar el cambio del precio
+    const precioFinalElemento = document.getElementById('precio-final');
+    precioFinalElemento.textContent = `Precio final: ${precioTotal.toFixed(2)}€`;
+}
