@@ -8,12 +8,13 @@ function calcularPrecio() {
     const carga = parseFloat(document.getElementById('carga').value) || 0;
     const descarga = parseFloat(document.getElementById('descarga').value) || 0;
 
-    const incotermIndex = document.getElementById('incoterm-slider').value;
+    const incotermIndex = parseInt(document.getElementById('incoterm-slider').value);
 
+    // Definir `precioTotal` aquí y luego agregar costos
     let precioTotal = precioBase;
 
     // Lógica para calcular el precio según el incoterm seleccionado
-    switch (parseInt(incotermIndex)) {
+    switch (incotermIndex) {
         case 0: // EXW
             precioTotal += 0;
             break;
@@ -66,6 +67,7 @@ function calcularPrecio() {
     document.getElementById('precio-final').textContent = `Precio final: ${precioTotal.toFixed(2)}€`;
 }
 
+
 // Función para actualizar los incoterms dinámicamente
 function actualizarIncoterms() {
     const esMaritimo = document.getElementById('es-marítimo').checked;
@@ -111,22 +113,22 @@ function moverAlSiguienteInput(event) {
     }
 }
 
-// Añadir evento de 'Enter' a todos los inputs
+function moverAlSiguienteInput(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Evita que el formulario se envíe al presionar Enter
+
+        const inputs = Array.from(document.querySelectorAll('input')); // Todos los inputs
+        const indexActual = inputs.indexOf(event.target); // Índice del input actual
+
+        // Si no es el último input, mover al siguiente
+        if (indexActual >= 0 && indexActual < inputs.length - 1) {
+            inputs[indexActual + 1].focus();
+        }
+    }
+}
+
+// Añadir evento de "keydown" a todos los inputs
 const inputs = document.querySelectorAll('input');
 inputs.forEach(input => {
-    input.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            moverAlSiguienteInput(event);
-        }
-    });
+    input.addEventListener('keydown', moverAlSiguienteInput);
 });
-
-// Actualizar aria-live cuando se recalcula el precio
-function calcularPrecio() {
-    const precioBase = parseFloat(document.getElementById('precio-base').value) || 0;
-    // (Lógica anterior del cálculo...)
-
-    // Anunciar el cambio del precio
-    const precioFinalElemento = document.getElementById('precio-final');
-    precioFinalElemento.textContent = `Precio final: ${precioTotal.toFixed(2)}€`;
-}
