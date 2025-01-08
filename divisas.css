@@ -141,3 +141,34 @@ button:hover {
     border-radius: 8px;
     box-shadow: 0 0 5px #0056b399;
 }
+
+
+@media (max-width: 1280px) {
+    .link__incoterms, .link__distancia {
+        position: absolute;
+        top: 0;
+    }
+    .container {
+        max-width: 700px;
+        margin-top: 50px;
+    }
+}
+@media (max-width: 500px) {
+    .link__incoterms {
+        position: absolute;
+        top: 37px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        width: fit-content;
+    }
+    .link__distancia {
+        left: 50%;
+        transform: translateX(-50%);
+        width: fit-content;
+        white-space: nowrap;
+    }
+    .container {
+        margin-top: 72px;
+    }
+}

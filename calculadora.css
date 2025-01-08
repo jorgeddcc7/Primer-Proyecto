@@ -223,3 +223,20 @@ button:hover {
         max-width: 400px;
     }
 }
+@media (max-width: 500px) {
+    .link__distancia {
+        position: absolute;
+        top: 37px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        width: fit-content;
+    }
+    .link__divisas {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .container {
+        margin-top: 72px;
+    }
+}
