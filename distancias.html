@@ -13,117 +13,141 @@
     <a href="index.html" class="link__calculadora" target="_blank">Calculadora de INCOTERMS</a>
     <a href="divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
 
+    <div class="page-container">
+        <!-- Contenido principal -->
+        <div id="tiempo-entrega" class="seccion-calculo">
+            <h2>Estimador de Tiempo de Entrega</h2>
+            <div class="adsense-container-left">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-6775666300374227"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <table>
+                <tr>
+                    <td><label for="origen">País de origen:</label></td>
+                    <td>
+                        <select id="origen">
+                            <option value="Alemania">Alemania</option>
+                            <option value="Arabia Saudita">Arabia Saudita</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Bélgica">Bélgica</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Canadá">Canadá</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Corea del Sur">Corea del Sur</option>
+                            <option value="Dinamarca">Dinamarca</option>
+                            <option value="Egipto">Egipto</option>
+                            <option value="Emiratos Árabes Unidos">Emiratos Árabes Unidos</option>
+                            <option value="España">España</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Filipinas">Filipinas</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Irlanda">Irlanda</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italia">Italia</option>
+                            <option value="Japón">Japón</option>
+                            <option value="Kazajistán">Kazajistán</option>
+                            <option value="Malasia">Malasia</option>
+                            <option value="México">México</option>
+                            <option value="Noruega">Noruega</option>
+                            <option value="Nueva Zelanda">Nueva Zelanda</option>
+                            <option value="Países Bajos">Países Bajos</option>
+                            <option value="Perú">Perú</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Reino Unido">Reino Unido</option>
+                            <option value="Singapur">Singapur</option>
+                            <option value="Sudáfrica">Sudáfrica</option>
+                            <option value="Suecia">Suecia</option>
+                            <option value="Suiza">Suiza</option>
+                            <option value="Taiwán">Taiwán</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="destino">País de destino:</label></td>
+                    <td>
+                        <select id="destino">
+                            <option value="Alemania">Alemania</option>
+                            <option value="Arabia Saudita">Arabia Saudita</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Bélgica">Bélgica</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Canadá">Canadá</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Corea del Sur">Corea del Sur</option>
+                            <option value="Dinamarca">Dinamarca</option>
+                            <option value="Egipto">Egipto</option>
+                            <option value="Emiratos Árabes Unidos">Emiratos Árabes Unidos</option>
+                            <option value="España">España</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Filipinas">Filipinas</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Irlanda">Irlanda</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italia">Italia</option>
+                            <option value="Japón">Japón</option>
+                            <option value="Kazajistán">Kazajistán</option>
+                            <option value="Malasia">Malasia</option>
+                            <option value="México">México</option>
+                            <option value="Noruega">Noruega</option>
+                            <option value="Nueva Zelanda">Nueva Zelanda</option>
+                            <option value="Países Bajos">Países Bajos</option>
+                            <option value="Perú">Perú</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Reino Unido">Reino Unido</option>
+                            <option value="Singapur">Singapur</option>
+                            <option value="Sudáfrica">Sudáfrica</option>
+                            <option value="Suecia">Suecia</option>
+                            <option value="Suiza">Suiza</option>
+                            <option value="Taiwán">Taiwán</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="transporte">Modo de transporte:</label></td>
+                    <td>
+                        <select id="transporte">
+                            <option value="terrestre">Terrestre</option>
+                            <option value="maritimo">Marítimo</option>
+                            <option value="aereo">Aéreo</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button id="calcular-tiempo" class="boton-calcular">Calcular</button>
+            <p id="resultado-tiempo"></p>
+        </div>
 
-    <div id="tiempo-entrega" class="seccion-calculo">
-        <h2>Estimador de Tiempo de Entrega</h2>
-        <table>
-            <tr>
-                <td><label for="origen">País de origen:</label></td>
-                <td>
-                    <select id="origen">
-                        <option value="Alemania">Alemania</option>
-                        <option value="Arabia Saudita">Arabia Saudita</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Australia">Australia</option>
-                        <option value="Bélgica">Bélgica</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canadá">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="China">China</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Corea del Sur">Corea del Sur</option>
-                        <option value="Dinamarca">Dinamarca</option>
-                        <option value="Egipto">Egipto</option>
-                        <option value="Emiratos Árabes Unidos">Emiratos Árabes Unidos</option>
-                        <option value="España">España</option>
-                        <option value="Estados Unidos">Estados Unidos</option>
-                        <option value="Filipinas">Filipinas</option>
-                        <option value="Francia">Francia</option>
-                        <option value="Hong Kong">Hong Kong</option>
-                        <option value="India">India</option>
-                        <option value="Indonesia">Indonesia</option>
-                        <option value="Irlanda">Irlanda</option>
-                        <option value="Israel">Israel</option>
-                        <option value="Italia">Italia</option>
-                        <option value="Japón">Japón</option>
-                        <option value="Kazajistán">Kazajistán</option>
-                        <option value="Malasia">Malasia</option>
-                        <option value="México">México</option>
-                        <option value="Noruega">Noruega</option>
-                        <option value="Nueva Zelanda">Nueva Zelanda</option>
-                        <option value="Países Bajos">Países Bajos</option>
-                        <option value="Perú">Perú</option>
-                        <option value="Qatar">Qatar</option>
-                        <option value="Reino Unido">Reino Unido</option>
-                        <option value="Singapur">Singapur</option>
-                        <option value="Sudáfrica">Sudáfrica</option>
-                        <option value="Suecia">Suecia</option>
-                        <option value="Suiza">Suiza</option>
-                        <option value="Taiwán">Taiwán</option>
-                    </select>
-                    
-                </td>
-            </tr>
-            <tr>
-                <td><label for="destino">País de destino:</label></td>
-                <td>
-                    <select id="destino">
-                        <option value="Alemania">Alemania</option>
-                        <option value="Arabia Saudita">Arabia Saudita</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Australia">Australia</option>
-                        <option value="Bélgica">Bélgica</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canadá">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="China">China</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Corea del Sur">Corea del Sur</option>
-                        <option value="Dinamarca">Dinamarca</option>
-                        <option value="Egipto">Egipto</option>
-                        <option value="Emiratos Árabes Unidos">Emiratos Árabes Unidos</option>
-                        <option value="España">España</option>
-                        <option value="Estados Unidos">Estados Unidos</option>
-                        <option value="Filipinas">Filipinas</option>
-                        <option value="Francia">Francia</option>
-                        <option value="Hong Kong">Hong Kong</option>
-                        <option value="India">India</option>
-                        <option value="Indonesia">Indonesia</option>
-                        <option value="Irlanda">Irlanda</option>
-                        <option value="Israel">Israel</option>
-                        <option value="Italia">Italia</option>
-                        <option value="Japón">Japón</option>
-                        <option value="Kazajistán">Kazajistán</option>
-                        <option value="Malasia">Malasia</option>
-                        <option value="México">México</option>
-                        <option value="Noruega">Noruega</option>
-                        <option value="Nueva Zelanda">Nueva Zelanda</option>
-                        <option value="Países Bajos">Países Bajos</option>
-                        <option value="Perú">Perú</option>
-                        <option value="Qatar">Qatar</option>
-                        <option value="Reino Unido">Reino Unido</option>
-                        <option value="Singapur">Singapur</option>
-                        <option value="Sudáfrica">Sudáfrica</option>
-                        <option value="Suecia">Suecia</option>
-                        <option value="Suiza">Suiza</option>
-                        <option value="Taiwán">Taiwán</option>
-                    </select>
-                        
-                </td>
-            </tr>
-            <tr>
-                <td><label for="transporte">Modo de transporte:</label></td>
-                <td>
-                    <select id="transporte">
-                        <option value="terrestre">Terrestre</option>
-                        <option value="maritimo">Marítimo</option>
-                        <option value="aereo">Aéreo</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
-        <button id="calcular-tiempo" class="boton-calcular">Calcular</button>
-        <p id="resultado-tiempo"></p>
+        <!-- Columna derecha (Anuncio) -->
+        <div class="adsense-container-right">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6775666300374227"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </div>
 
     <script src="distancias.js"></script>

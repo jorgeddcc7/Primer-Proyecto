@@ -132,3 +132,6 @@ const inputs = document.querySelectorAll('input');
 inputs.forEach(input => {
     input.addEventListener('keydown', moverAlSiguienteInput);
 });
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775666300374227"
+    crossorigin="anonymous"></script>
