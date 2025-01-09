@@ -29,3 +29,6 @@ document.getElementById('convertir').addEventListener('click', function() {
         resultadoDiv.style.display = 'block'; // Mostrar el mensaje de error
     }
 });
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775666300374227"
+    crossorigin="anonymous"></script>
