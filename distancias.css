@@ -198,3 +198,11 @@ body {
         margin-top: 72px;
     }
 }
+
+/* Anuncios */
+.adsense-container-left {
+    margin-bottom: -10px    ;
+}
+.adsense-container-right {
+    margin-top: 20px;
+}
