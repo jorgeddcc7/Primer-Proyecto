@@ -195,7 +195,7 @@ button:hover {
 }
 
 ::-webkit-scrollbar-track {
-    background: #bbc7f7; /* Color del fondo del track */
+    background: #fff; /* Color del fondo del track */
 }
 
 @media (max-width: 1280px) {
@@ -239,4 +239,30 @@ button:hover {
     .container {
         margin-top: 72px;
     }
+}
+
+/* TABLA INCOTERMS */
+.tabla-incoterms {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-incoterms th, .tabla-incoterms td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-incoterms th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.tabla-incoterms tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabla-incoterms tr:hover {
+    background-color: #f1f1f1;
 }

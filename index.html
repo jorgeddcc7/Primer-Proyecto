@@ -13,7 +13,13 @@
     <div class="container">
         <header>
             <h1>Calculadora de Incoterms</h1>
+            <p>
+                Utiliza esta herramienta para calcular los costos relacionados con diferentes términos de comercio internacional. 
+                <a href="#tabla-incoterms">Incoterms</a>
+            </p>
         </header>
+
+        <!-- Anuncio en la parte superior -->
         <div class="adsense-container">
             <ins class="adsbygoogle"
                 style="display:block"
@@ -24,12 +30,16 @@
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>        
+        </div>
+
+        <!-- Enlaces útiles -->
         <a href="distancias.html" class="link__distancia" target="_blank">Estimador tiempo de entrega</a>
         <a href="divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
 
-        <div id="formulario">
-            <!-- Campos existentes -->
+        <!-- Formulario de cálculo -->
+        <section id="formulario">
+            <h2>Datos para el cálculo</h2>
+            <p>Introduce los costos relacionados con tu envío y selecciona el Incoterm correspondiente para calcular el precio final.</p>
             <div class="input-group">
                 <label for="precio-base">Precio base (EUR):</label>
                 <input type="number" id="precio-base" placeholder="Ej. 500" required>
@@ -46,44 +56,45 @@
                 <label for="transporte-internacional">Transporte internacional (EUR):</label>
                 <input type="number" id="transporte-internacional" placeholder="Ej. 100">
             </div>
-            <!-- Nuevo campo: Aduana de exportación -->
             <div class="input-group">
                 <label for="aduana-exportacion">Aduana de exportación (EUR):</label>
                 <input type="number" id="aduana-exportacion" placeholder="Ej. 15">
             </div>
-            <!-- Nuevo campo: Aduana de importación -->
             <div class="input-group">
                 <label for="aduana-importacion">Aduana de importación (EUR):</label>
                 <input type="number" id="aduana-importacion" placeholder="Ej. 15">
             </div>
-            <!-- Nuevo campo: Carga -->
             <div class="input-group">
                 <label for="carga">Carga (EUR):</label>
                 <input type="number" id="carga" placeholder="Ej. 25">
             </div>
-            <!-- Nuevo campo: Descarga -->
             <div class="input-group">
                 <label for="descarga">Descarga (EUR):</label>
                 <input type="number" id="descarga" placeholder="Ej. 25">
             </div>
-        </div>
-        
+        </section>
 
-        <!-- Checkbox para activar los incoterms marítimos -->
+        <!-- Checkbox para transporte marítimo -->
         <div class="checkbox-container">
             <label for="es-marítimo">
                 <input type="checkbox" id="es-marítimo"> Es transporte marítimo
             </label>
         </div>
 
+        <!-- Selector de Incoterms -->
         <div class="incoterm-bar">
             <label for="incoterm-slider">Selecciona el Incoterm:</label>
             <input type="range" id="incoterm-slider" min="0" max="6" step="1" value="0">
             <div class="incoterm-labels" id="incoterm-labels">
-                <!-- Aquí se generarán dinámicamente los incoterms -->
+                <!-- Etiquetas generadas dinámicamente -->
             </div>
         </div>
 
+        <!-- Botón de cálculo y resultado -->
+        <button id="calcular">Calcular</button>
+        <p id="precio-final">Precio final: €0.00</p>
+
+        <!-- Segundo bloque de anuncios -->
         <div class="adsense-container">
             <ins class="adsbygoogle"
                 style="display:block"
@@ -95,10 +106,78 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
+
+        <section id="tabla-incoterms">
+            <h2>Tabla de Incoterms</h2>
+            <p>A continuación, se muestran los diferentes Incoterms con sus significados y responsabilidades para el vendedor y el comprador:</p>
+            <table class="tabla-incoterms">
+                <thead>
+                    <tr>
+                        <th>Incoterm</th>
+                        <th>Significado</th>
+                        <th>Responsabilidad del Vendedor</th>
+                        <th>Responsabilidad del Comprador</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EXW</td>
+                        <td>Ex Works</td>
+                        <td>El vendedor entrega la mercancía en sus instalaciones. El comprador asume todos los costos y riesgos desde el origen.</td>
+                        <td>Asume transporte, seguro, aduanas de exportación e importación.</td>
+                    </tr>
+                    <tr>
+                        <td>FCA</td>
+                        <td>Free Carrier</td>
+                        <td>El vendedor entrega la mercancía al transportista designado por el comprador en un lugar acordado.</td>
+                        <td>Asume transporte principal, seguro, y costos adicionales desde el transportista.</td>
+                    </tr>
+                    <tr>
+                        <td>CPT</td>
+                        <td>Carriage Paid To</td>
+                        <td>El vendedor paga el transporte hasta un destino acordado, pero el riesgo se transfiere al comprador cuando se entrega al transportista.</td>
+                        <td>Asume riesgos y costos posteriores a la entrega al transportista.</td>
+                    </tr>
+                    <tr>
+                        <td>CIP</td>
+                        <td>Carriage and Insurance Paid To</td>
+                        <td>El vendedor paga transporte y seguro hasta el destino acordado.</td>
+                        <td>Asume riesgos desde el momento en que la mercancía se entrega al transportista.</td>
+                    </tr>
+                    <tr>
+                        <td>DAP</td>
+                        <td>Delivered at Place</td>
+                        <td>El vendedor entrega la mercancía en el lugar acordado, pero no incluye los costos de importación.</td>
+                        <td>Asume costos de aduana de importación.</td>
+                    </tr>
+                    <tr>
+                        <td>DDP</td>
+                        <td>Delivered Duty Paid</td>
+                        <td>El vendedor asume todos los costos y riesgos hasta el destino final, incluyendo aranceles y aduanas.</td>
+                        <td>Solo debe recibir la mercancía.</td>
+                    </tr>
+                    <tr>
+                        <td>FOB</td>
+                        <td>Free on Board</td>
+                        <td>El vendedor asume costos y riesgos hasta que la mercancía esté a bordo del buque.</td>
+                        <td>Asume transporte marítimo, seguro y costos adicionales.</td>
+                    </tr>
+                    <tr>
+                        <td>CFR</td>
+                        <td>Cost and Freight</td>
+                        <td>El vendedor paga transporte marítimo hasta el puerto de destino, pero no incluye seguro.</td>
+                        <td>Asume riesgos y costos desde el momento en que la mercancía está a bordo del buque.</td>
+                    </tr>
+                    <tr>
+                        <td>CIF</td>
+                        <td>Cost, Insurance and Freight</td>
+                        <td>El vendedor paga transporte y seguro marítimo hasta el puerto de destino.</td>
+                        <td>Asume costos adicionales y riesgos posteriores al transporte marítimo.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
         
-        <button id="calcular">Calcular</button>
-        
-        <p id="precio-final">Precio final: €0.00</p>
     </div>
 
     <script src="calculadora.js"></script>
