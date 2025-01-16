@@ -8,6 +8,7 @@
 body {
     background-color: #f4f7fc;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -94,6 +95,29 @@ body {
     color: #007bff;
     font-size: 28px;
     margin-bottom: 10px;
+    text-align: center;
+}
+
+.descripcion {
+    max-width: 700px;
+    margin: 0px auto;
+    background-color: #fff;
+    padding: 7px;
+    border: 1px solid #4c5b6a;
+    border-radius: 10px;
+}
+
+.descripcion h3 {
+    color: #494949;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.descripcion p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
     text-align: center;
 }
 
@@ -200,9 +224,38 @@ body {
 }
 
 /* Anuncios */
-.adsense-container-left {
-    margin-bottom: -10px    ;
+.adsense-container {
+    position: fixed;
+    top: 100px; /* Empieza a una distancia de 100px desde la parte superior */
+    width: 250px; /* Tamaño fijo para los anuncios */
+    height: 250px;
+    border-radius: 8px;
+    z-index: 1; /* Asegura que los anuncios estén por encima del contenido */
 }
-.adsense-container-right {
-    margin-top: 20px;
+
+/* Anuncio a la izquierda */
+.adsense-container.left {
+    left: 10px; /* Ubicado a la izquierda */
+}
+
+/* Anuncio a la derecha */
+.adsense-container.right {
+    right: 10px; /* Ubicado a la derecha */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .adsense-container {
+        width: 100%;
+        height: auto;
+        max-width: 320px;
+        top: auto;
+        bottom: 10px;
+    }
+
+    .adsense-container.left,
+    .adsense-container.right {
+        position: static; /* Los anuncios se vuelven estáticos en pantallas más pequeñas */
+        margin-top: 20px;
+    }
 }

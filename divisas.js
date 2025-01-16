@@ -5,13 +5,16 @@ document.getElementById('convertir').addEventListener('click', function() {
 
     // Verificar que se haya ingresado una cantidad y las divisas estén seleccionadas
     if (cantidad && deDivisa && aDivisa) {
-        var url = `https://api.exchangerate-api.com/v4/latest/${deDivisa}`;
+        // Usamos el APP_ID de Open Exchange Rates
+        var url = `https://openexchangerates.org/api/latest.json?app_id=492f4442cd0745a2a719f3b6d656574d`;
 
         // Realizar la solicitud a la API
         fetch(url)
             .then(response => response.json())
             .then(data => {
+                // Obtenemos la tasa de cambio desde la respuesta de la API
                 var tasaCambio = data.rates[aDivisa];
+                // Realizamos la conversión
                 var resultado = (cantidad * tasaCambio).toFixed(2); // Resultado de la conversión
                 const resultadoDiv = document.getElementById('resultado');
                 resultadoDiv.innerText = `${cantidad} ${deDivisa} = ${resultado} ${aDivisa}`;
@@ -29,6 +32,3 @@ document.getElementById('convertir').addEventListener('click', function() {
         resultadoDiv.style.display = 'block'; // Mostrar el mensaje de error
     }
 });
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775666300374227"
-    crossorigin="anonymous"></script>
