@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国际贸易术语解释通则计算器</title>
+    <link rel="stylesheet" href="calculadora.css">
+    <link rel="icon" href="favicon2.ico" type="image/ico">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775666300374227"
+    crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9G78K6JBFB"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9G78K6JBFB');
+</script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>国际贸易术语解释通则计算器</h1>
+            <p>
+                使用该工具计算不同国际贸易条件下的相关成本。 
+                <a href="#tabla-incoterms">国际商业术语</a>
+            </p>
+        </header>
+
+        <!-- Anuncio en la parte superior -->
+        <div class="adsense-container">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6775666300374227"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Enlaces útiles -->
+        <a href="distancias.html" class="link__distancia" target="_blank">预计交付时间</a>
+        <a href="divisas.html" class="link__divisas" target="_blank">货币兑换器</a>
+
+        <!-- Formulario de cálculo -->
+        <section id="formulario">
+            <h2>用于计算的数据</h2>
+            <p>输入与运输相关的费用，并选择适当的国际贸易术语来计算最终价格。</p>
+            <div class="input-group">
+                <label for="precio-base">底价（人民币）：</label>
+                <input type="number" id="precio-base" placeholder="例. 500" required>
+            </div>
+            <div class="input-group">
+                <label for="transporte-local">当地交通 (人民币):</label>
+                <input type="number" id="transporte-local" placeholder="例. 50">
+            </div>
+            <div class="input-group">
+                <label for="seguro">保险 (人民币):</label>
+                <input type="number" id="seguro" placeholder="例. 20">
+            </div>
+            <div class="input-group">
+                <label for="transporte-internacional">国际运输 (人民币):</label>
+                <input type="number" id="transporte-internacional" placeholder="例. 100">
+            </div>
+            <div class="input-group">
+                <label for="aduana-exportacion">出口海关 (人民币):</label>
+                <input type="number" id="aduana-exportacion" placeholder="例. 15">
+            </div>
+            <div class="input-group">
+                <label for="aduana-importacion">进口海关 (人民币):</label>
+                <input type="number" id="aduana-importacion" placeholder="例. 15">
+            </div>
+            <div class="input-group">
+                <label for="carga">载货 (人民币):</label>
+                <input type="number" id="carga" placeholder="例. 25">
+            </div>
+            <div class="input-group">
+                <label for="descarga">下載 (人民币):</label>
+                <input type="number" id="descarga" placeholder="例. 25">
+            </div>
+        </section>
+
+        <!-- Checkbox para transporte marítimo -->
+        <div class="checkbox-container">
+            <label for="es-marítimo">
+                <input type="checkbox" id="es-marítimo"> 它是一种海上运输
+            </label>
+        </div>
+
+        <!-- Selector de Incoterms -->
+        <div class="incoterm-bar">
+            <label for="incoterm-slider">选择国际贸易术语解释通则</label>
+            <input type="range" id="incoterm-slider" min="0" max="6" step="1" value="0">
+            <div class="incoterm-labels" id="incoterm-labels">
+                <!-- Etiquetas generadas dinámicamente -->
+            </div>
+        </div>
+
+        <!-- Botón de cálculo y resultado -->
+        <button id="calcular">计算</button>
+        <p id="precio-final">最终价格: ¥0.00</p>
+
+        <!-- Segundo bloque de anuncios -->
+        <div class="adsense-container">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6775666300374227"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <section id="tabla-incoterms">
+            <h2>国际贸易术语解释通则 2025 指南</h2>
+            <p>以下是不同的国际贸易术语及其含义以及卖方和买方的责任：</p>
+            <table class="tabla-incoterms">
+                <thead>
+                    <tr>
+                        <th>Incoterm</th>
+                        <th>内涵</th>
+                        <th>卖方责任</th>
+                        <th>买方责任</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EXW</td>
+                        <td>工厂交货</td>
+                        <td>卖方将货物运至买方所在地。买方承担自发货地起的所有费用和风险。</td>
+                        <td>它包括运输、保险、进出口清关。</td>
+                    </tr>
+                    <tr>
+                        <td>FCA</td>
+                        <td>自由承运人交货</td>
+                        <td>卖方在约定地点将货物交付给买方指定的承运人。</td>
+                        <td>假定主要运输、保险和承运商的额外费用。</td>
+                    </tr>
+                    <tr>
+                        <td>CPT</td>
+                        <td>运费付至</td>
+                        <td>卖方支付将货物运至约定目的地的运输费用，但当货物交给承运人时，风险转移给买方。</td>
+                        <td>承担交付给承运人后的风险和费用。</td>
+                    </tr>
+                    <tr>
+                        <td>CIP</td>
+                        <td>运费、保险费付至</td>
+                        <td>卖方支付运往约定目的地的运输费和保险费。</td>
+                        <td>从货物交给承运人的那一刻起，承运人就承担风险。</td>
+                    </tr>
+                    <tr>
+                        <td>DAP</td>
+                        <td>交货至指定地点</td>
+                        <td>卖方将货物运至约定地点，但不包括进口费用。</td>
+                        <td>假定进口海关费用。</td>
+                    </tr>
+                    <tr>
+                        <td>DDP</td>
+                        <td>完税后交货</td>
+                        <td>卖方承担直至最终目的地的所有费用和风险，包括关税和海关费用。</td>
+                        <td>您只需提货即可。</td>
+                    </tr>
+                    <tr>
+                        <td>FOB</td>
+                        <td>装运港船上交货</td>
+                        <td>在货物上船之前，卖方承担费用和风险。</td>
+                        <td>假定运费、保险费和额外费用。</td>
+                    </tr>
+                    <tr>
+                        <td>CFR</td>
+                        <td>成本加运费</td>
+                        <td>卖方支付至目的港的海运费，但不包括保险费。</td>
+                        <td>从货物上船的那一刻起，它就承担风险和费用。</td>
+                    </tr>
+                    <tr>
+                        <td>CIF</td>
+                        <td>成本、保险加运费</td>
+                        <td>卖方支付到目的港的运输费和海上保险费。</td>
+                        <td>承担海运后的额外费用和风险。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+    </div>
+
+    <script src="calculadora.js"></script>
+</body>
+</html>
