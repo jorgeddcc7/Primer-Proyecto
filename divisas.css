@@ -171,6 +171,9 @@ button:hover {
     .container {
         margin-top: 72px;
     }
+    #convertir {
+        width: fit-content;
+    }
 }
 
 /* Estilo de los bloques de anuncios */
