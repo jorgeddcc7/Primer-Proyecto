@@ -205,6 +205,27 @@ body {
     }
 }
 @media (max-width: 500px) {
+    .descripcion {
+        width: 60%;
+    }
+    .descripcion p {
+        font-size: 12px;
+    }
+    .descripcion h3 {
+        font-size: 15px;
+    }
+    .seccion-calculo h1 {
+        font-size: 20px;
+    }
+    .seccion-calculo table {
+        width: 64%;
+        margin: auto;
+    }
+    #resultado-tiempo {
+        font-size: 17px;
+        width: 60%;
+        margin: auto;
+    }
     .link__calculadora {
         position: absolute;
         top: 37px;
@@ -217,6 +238,8 @@ body {
         left: 50%;
         transform: translateX(-50%);
         width: fit-content;
+        text-align: center;
+        white-space: nowrap;
     }
     .seccion-calculo {
         margin-top: 72px;
