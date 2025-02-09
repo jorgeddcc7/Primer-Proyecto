@@ -67,16 +67,15 @@ body {
     font-size: 16px;
 }
 
-/* Contenedor principal */
-.container {
+/* Contenedor calculadora */
+.container2 {
     width: 100%;
     max-width: 800px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    margin-top: 30px;
-    height: fit-content;
+    margin: 30px auto;
 }
 
 /* Encabezado */
@@ -246,6 +245,7 @@ button:hover {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .tabla-incoterms th, .tabla-incoterms td {
@@ -267,6 +267,154 @@ button:hover {
     background-color: #f1f1f1;
 }
 
+/* Sobre nosotros */
+.sobre-nosotros {
+    margin: auto;
+    margin-top: 50px; 
+    margin-bottom: 100px;
+    width: 60%;
+    padding: 40px; 
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-direction: column; 
+    transition: transform 0.3s ease-in-out;
+}
+
+.sobre-nosotros:hover {
+    transform: scale(1.04);
+}
+
+.sobre-nosotros h3 {
+    color: #007bff;
+    font-size: 25px;
+    text-align: left;
+}
+
+.sobre-nosotros p {
+    margin: 20px 0px;
+    white-space: pre-line;
+}
+
+.redes {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.twitter {
+    width: 40px;
+    position: absolute;
+    bottom: -6px;
+    left: 100px;
+}
+
+.linkedin {
+    width: 32px;
+    position: absolute;
+    bottom: -7px;
+    left: 170px;
+}
+
+/* Contacto */
+.form {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 100px;
+    margin-top: -50px;
+    align-items: center;
+    padding: 30px 0;
+    container-name: form;
+    container-type: inline-size;  
+}
+
+.form__form {
+    padding: 12px;
+    max-width: 600px;
+    width: 100%;
+    display: grid;
+    margin-bottom: 30px;
+}
+
+.form__input-container :is(input,textarea) {
+    width: 100%;
+    padding: 9px 7px;
+    font-size: 16px;
+    margin: 4px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.form__input-container textarea {
+    resize: none;
+    height: 100px;
+    font-family: inherit;
+}
+
+.form__input-container input[type="submit"] {
+    padding: 12px;
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.form__input-container input[type="submit"]:hover {
+    background-color: #093563;
+}
+
+.form__title {
+    font-family: inherit;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/*-----CONTACT QUERIES-----*/
+@container form (min-width:56.25rem ) {
+    .form__form {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "name lastname"
+        "email email"
+        "message message"
+        "button button";
+        gap: 12px;
+        padding: 20px;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .form__input-container:first-child {
+        grid-area: name;
+    }
+
+    .form__input-container:nth-child(2) {
+        grid-area: lastname;
+    }
+
+    .form__input-container:nth-child(3) {
+        grid-area: email;
+    }
+
+    .form__input-container:nth-child(4) {
+        grid-area: message;
+    }
+
+    .form__input-container:nth-child(5) {
+        grid-area: button;
+    }
+
+    .form__input-container :is(input,textarea) {
+    box-shadow: none;
+    }
+}
+
+/* Políticas */
 .footer-legal {
     width: 100%;
     background-color: #fff;
