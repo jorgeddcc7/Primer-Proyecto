@@ -6,6 +6,12 @@
     <title>Calculadora de Incoterms</title>
     <link rel="stylesheet" href="calculadora.css">
     <link rel="icon" href="favicon2.ico" type="image/ico">
+    <script type="text/plain" data-iub-purposes="analytics">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775666300374227"
     crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
@@ -29,175 +35,236 @@
     
 </head>
 <body>
+    
     <div class="container">
-        <header>
-            <h1>Calculadora de Incoterms</h1>
-            <p>
-                Utiliza esta herramienta para calcular los costos relacionados con diferentes términos de comercio internacional. 
-                <a href="#tabla-incoterms">Incoterms</a>
+        <div class="container2">
+            <header>
+                <h1>Calculadora de Incoterms</h1>
+                <p>
+                    Utiliza esta herramienta para calcular los costos relacionados con diferentes términos de comercio internacional. 
+                    <a href="#tabla-incoterms">Incoterms</a>
+                </p>
+            </header>
+
+            <!-- Anuncio en la parte superior -->
+            <div class="adsense-container">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-6775666300374227"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Enlaces útiles -->
+            <a href="distancias.html" class="link__distancia" target="_blank">Estimador tiempo de entrega</a>
+            <a href="divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
+
+            <!-- Formulario de cálculo -->
+            <section id="formulario">
+                <h2>Datos para el cálculo</h2>
+                <p>Introduce los costes relacionados con tu envío y selecciona el Incoterm correspondiente para calcular el precio final.</p>
+                <div class="input-group">
+                    <label for="precio-base">Precio base (EUR):</label>
+                    <input type="number" id="precio-base" placeholder="Ej. 500" required>
+                </div>
+                <div class="input-group">
+                    <label for="transporte-local">Transporte local (EUR):</label>
+                    <input type="number" id="transporte-local" placeholder="Ej. 50">
+                </div>
+                <div class="input-group">
+                    <label for="seguro">Seguro (EUR):</label>
+                    <input type="number" id="seguro" placeholder="Ej. 20">
+                </div>
+                <div class="input-group">
+                    <label for="transporte-internacional">Transporte internacional (EUR):</label>
+                    <input type="number" id="transporte-internacional" placeholder="Ej. 100">
+                </div>
+                <div class="input-group">
+                    <label for="aduana-exportacion">Aduana de exportación (EUR):</label>
+                    <input type="number" id="aduana-exportacion" placeholder="Ej. 15">
+                </div>
+                <div class="input-group">
+                    <label for="aduana-importacion">Aduana de importación (EUR):</label>
+                    <input type="number" id="aduana-importacion" placeholder="Ej. 15">
+                </div>
+                <div class="input-group">
+                    <label for="carga">Carga (EUR):</label>
+                    <input type="number" id="carga" placeholder="Ej. 25">
+                </div>
+                <div class="input-group">
+                    <label for="descarga">Descarga (EUR):</label>
+                    <input type="number" id="descarga" placeholder="Ej. 25">
+                </div>
+            </section>
+
+            <!-- Checkbox para transporte marítimo -->
+            <div class="checkbox-container">
+                <label for="es-marítimo">
+                    <input type="checkbox" id="es-marítimo"> Es transporte marítimo
+                </label>
+            </div>
+
+            <!-- Selector de Incoterms -->
+            <div class="incoterm-bar">
+                <label for="incoterm-slider">Selecciona el Incoterm:</label>
+                <input type="range" id="incoterm-slider" min="0" max="6" step="1" value="0">
+                <div class="incoterm-labels" id="incoterm-labels">
+                    <!-- Etiquetas generadas dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Botón de cálculo y resultado -->
+            <button id="calcular">Calcular</button>
+            <p id="precio-final">Precio final: €0.00</p>
+
+            <!-- Segundo bloque de anuncios -->
+            <div class="adsense-container">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-6775666300374227"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <section id="tabla-incoterms">
+                <h2>Guía Incoterms 2025</h2>
+                <p>A continuación, se muestran los diferentes Incoterms con sus significados y responsabilidades para el vendedor y el comprador:</p>
+                <table class="tabla-incoterms">
+                    <thead>
+                        <tr>
+                            <th>Incoterm</th>
+                            <th>Significado</th>
+                            <th>Responsabilidad del Vendedor</th>
+                            <th>Responsabilidad del Comprador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EXW</td>
+                            <td>Ex Works</td>
+                            <td>El vendedor entrega la mercancía en sus instalaciones. El comprador asume todos los costos y riesgos desde el origen.</td>
+                            <td>Asume transporte, seguro, aduanas de exportación e importación.</td>
+                        </tr>
+                        <tr>
+                            <td>FCA</td>
+                            <td>Free Carrier</td>
+                            <td>El vendedor entrega la mercancía al transportista designado por el comprador en un lugar acordado.</td>
+                            <td>Asume transporte principal, seguro, y costos adicionales desde el transportista.</td>
+                        </tr>
+                        <tr>
+                            <td>CPT</td>
+                            <td>Carriage Paid To</td>
+                            <td>El vendedor paga el transporte hasta un destino acordado, pero el riesgo se transfiere al comprador cuando se entrega al transportista.</td>
+                            <td>Asume riesgos y costos posteriores a la entrega al transportista.</td>
+                        </tr>
+                        <tr>
+                            <td>CIP</td>
+                            <td>Carriage and Insurance Paid To</td>
+                            <td>El vendedor paga transporte y seguro hasta el destino acordado.</td>
+                            <td>Asume riesgos desde el momento en que la mercancía se entrega al transportista.</td>
+                        </tr>
+                        <tr>
+                            <td>DAP</td>
+                            <td>Delivered at Place</td>
+                            <td>El vendedor entrega la mercancía en el lugar acordado, pero no incluye los costos de importación.</td>
+                            <td>Asume costos de aduana de importación.</td>
+                        </tr>
+                        <tr>
+                            <td>DPU</td>
+                            <td>Delivered at Place Unloaded</td>
+                            <td>El vendedor entrega la mercancía en el lugar acordado, descargada del medio de transporte, pero no incluye los costos de importación.</td>
+                            <td>Asume los costos de importación y descarga de la mercancía.</td>
+                        </tr>
+                        <tr>
+                            <td>DDP</td>
+                            <td>Delivered Duty Paid</td>
+                            <td>El vendedor asume todos los costos y riesgos hasta el destino final, incluyendo aranceles y aduanas.</td>
+                            <td>Solo debe recibir la mercancía.</td>
+                        </tr>
+                        <tr>
+                            <td>FOB</td>
+                            <td>Free on Board</td>
+                            <td>El vendedor asume costos y riesgos hasta que la mercancía esté a bordo del buque.</td>
+                            <td>Asume transporte marítimo, seguro y costos adicionales.</td>
+                        </tr>
+                        <tr>
+                            <td>FAS</td>
+                            <td>Free Alongside Ship</td>
+                            <td>El vendedor entrega la mercancía al costado del buque en el puerto de embarque acordado.</td>
+                            <td>Asume los costos de transporte marítimo y descarga, así como los riesgos desde el momento en que la mercancía está junto al buque.</td>
+                        </tr>
+                        <tr>
+                            <td>CFR</td>
+                            <td>Cost and Freight</td>
+                            <td>El vendedor paga transporte marítimo hasta el puerto de destino, pero no incluye seguro.</td>
+                            <td>Asume riesgos y costos desde el momento en que la mercancía está a bordo del buque.</td>
+                        </tr>
+                        <tr>
+                            <td>CIF</td>
+                            <td>Cost, Insurance and Freight</td>
+                            <td>El vendedor paga transporte y seguro marítimo hasta el puerto de destino.</td>
+                            <td>Asume costos adicionales y riesgos posteriores al transporte marítimo.</td>
+                        </tr>                    
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div class="sobre-nosotros">
+            <h3 class="titulo-sobrenosotros">SOBRE NOSOTROS</h3>
+            <p>En Calcula Incoterms, nuestro objetivo es ofrecer herramientas innovadoras y fáciles de usar para facilitar el comercio internacional. Desarrollamos soluciones como la Calculadora de Incoterms, que ayuda a calcular costos en función de los Incoterms seleccionados, el Estimador de Tiempos y Distancias, que optimiza el cálculo de tiempos de entrega según el medio de transporte, y el Conversor de Divisas, que permite gestionar las fluctuaciones del mercado.
+    
+            Nos dedicamos a ser una herramienta de apoyo integral para trabajadores del sector y estudiantes. Queremos que tanto los profesionales como los nuevos aprendices puedan tomar decisiones informadas y realizar sus tareas diarias de forma más eficiente, sin complicaciones.
+                
+            Nuestro compromiso es simplificar el complejo mundo del comercio internacional, brindando acceso a información precisa y actualizada, todo desde una plataforma accesible y fácil de usar. Creemos que el conocimiento debe ser accesible para todos, y trabajamos cada día para que así sea.
             </p>
-        </header>
-
-        <!-- Anuncio en la parte superior -->
-        <div class="adsense-container">
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-6775666300374227"
-                data-ad-slot="1234567890"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <p class="redes"> 
+                Síguenos:
+                <a href="https://x.com/CalculaIncoterm" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Twitter_X.png/1024px-Twitter_X.png" class="twitter">
+                </a> 
+                <a href="https://www.linkedin.com/in/calcula-incoterms-87982234a/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png" class="linkedin">
+                </a>
+            </p>
         </div>
-
-        <!-- Enlaces útiles -->
-        <a href="distancias.html" class="link__distancia" target="_blank">Estimador tiempo de entrega</a>
-        <a href="divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
-
-        <!-- Formulario de cálculo -->
-        <section id="formulario">
-            <h2>Datos para el cálculo</h2>
-            <p>Introduce los costes relacionados con tu envío y selecciona el Incoterm correspondiente para calcular el precio final.</p>
-            <div class="input-group">
-                <label for="precio-base">Precio base (EUR):</label>
-                <input type="number" id="precio-base" placeholder="Ej. 500" required>
-            </div>
-            <div class="input-group">
-                <label for="transporte-local">Transporte local (EUR):</label>
-                <input type="number" id="transporte-local" placeholder="Ej. 50">
-            </div>
-            <div class="input-group">
-                <label for="seguro">Seguro (EUR):</label>
-                <input type="number" id="seguro" placeholder="Ej. 20">
-            </div>
-            <div class="input-group">
-                <label for="transporte-internacional">Transporte internacional (EUR):</label>
-                <input type="number" id="transporte-internacional" placeholder="Ej. 100">
-            </div>
-            <div class="input-group">
-                <label for="aduana-exportacion">Aduana de exportación (EUR):</label>
-                <input type="number" id="aduana-exportacion" placeholder="Ej. 15">
-            </div>
-            <div class="input-group">
-                <label for="aduana-importacion">Aduana de importación (EUR):</label>
-                <input type="number" id="aduana-importacion" placeholder="Ej. 15">
-            </div>
-            <div class="input-group">
-                <label for="carga">Carga (EUR):</label>
-                <input type="number" id="carga" placeholder="Ej. 25">
-            </div>
-            <div class="input-group">
-                <label for="descarga">Descarga (EUR):</label>
-                <input type="number" id="descarga" placeholder="Ej. 25">
-            </div>
-        </section>
-
-        <!-- Checkbox para transporte marítimo -->
-        <div class="checkbox-container">
-            <label for="es-marítimo">
-                <input type="checkbox" id="es-marítimo"> Es transporte marítimo
-            </label>
-        </div>
-
-        <!-- Selector de Incoterms -->
-        <div class="incoterm-bar">
-            <label for="incoterm-slider">Selecciona el Incoterm:</label>
-            <input type="range" id="incoterm-slider" min="0" max="6" step="1" value="0">
-            <div class="incoterm-labels" id="incoterm-labels">
-                <!-- Etiquetas generadas dinámicamente -->
-            </div>
-        </div>
-
-        <!-- Botón de cálculo y resultado -->
-        <button id="calcular">Calcular</button>
-        <p id="precio-final">Precio final: €0.00</p>
-
-        <!-- Segundo bloque de anuncios -->
-        <div class="adsense-container">
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-6775666300374227"
-                data-ad-slot="1234567890"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <section id="tabla-incoterms">
-            <h2>Guía Incoterms 2025</h2>
-            <p>A continuación, se muestran los diferentes Incoterms con sus significados y responsabilidades para el vendedor y el comprador:</p>
-            <table class="tabla-incoterms">
-                <thead>
-                    <tr>
-                        <th>Incoterm</th>
-                        <th>Significado</th>
-                        <th>Responsabilidad del Vendedor</th>
-                        <th>Responsabilidad del Comprador</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>EXW</td>
-                        <td>Ex Works</td>
-                        <td>El vendedor entrega la mercancía en sus instalaciones. El comprador asume todos los costos y riesgos desde el origen.</td>
-                        <td>Asume transporte, seguro, aduanas de exportación e importación.</td>
-                    </tr>
-                    <tr>
-                        <td>FCA</td>
-                        <td>Free Carrier</td>
-                        <td>El vendedor entrega la mercancía al transportista designado por el comprador en un lugar acordado.</td>
-                        <td>Asume transporte principal, seguro, y costos adicionales desde el transportista.</td>
-                    </tr>
-                    <tr>
-                        <td>CPT</td>
-                        <td>Carriage Paid To</td>
-                        <td>El vendedor paga el transporte hasta un destino acordado, pero el riesgo se transfiere al comprador cuando se entrega al transportista.</td>
-                        <td>Asume riesgos y costos posteriores a la entrega al transportista.</td>
-                    </tr>
-                    <tr>
-                        <td>CIP</td>
-                        <td>Carriage and Insurance Paid To</td>
-                        <td>El vendedor paga transporte y seguro hasta el destino acordado.</td>
-                        <td>Asume riesgos desde el momento en que la mercancía se entrega al transportista.</td>
-                    </tr>
-                    <tr>
-                        <td>DAP</td>
-                        <td>Delivered at Place</td>
-                        <td>El vendedor entrega la mercancía en el lugar acordado, pero no incluye los costos de importación.</td>
-                        <td>Asume costos de aduana de importación.</td>
-                    </tr>
-                    <tr>
-                        <td>DDP</td>
-                        <td>Delivered Duty Paid</td>
-                        <td>El vendedor asume todos los costos y riesgos hasta el destino final, incluyendo aranceles y aduanas.</td>
-                        <td>Solo debe recibir la mercancía.</td>
-                    </tr>
-                    <tr>
-                        <td>FOB</td>
-                        <td>Free on Board</td>
-                        <td>El vendedor asume costos y riesgos hasta que la mercancía esté a bordo del buque.</td>
-                        <td>Asume transporte marítimo, seguro y costos adicionales.</td>
-                    </tr>
-                    <tr>
-                        <td>CFR</td>
-                        <td>Cost and Freight</td>
-                        <td>El vendedor paga transporte marítimo hasta el puerto de destino, pero no incluye seguro.</td>
-                        <td>Asume riesgos y costos desde el momento en que la mercancía está a bordo del buque.</td>
-                    </tr>
-                    <tr>
-                        <td>CIF</td>
-                        <td>Cost, Insurance and Freight</td>
-                        <td>El vendedor paga transporte y seguro marítimo hasta el puerto de destino.</td>
-                        <td>Asume costos adicionales y riesgos posteriores al transporte marítimo.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        
+        <section class="form" id="form">
+            <h3 class="form__title">CONTACTO</h3>
+            <form class="form__form">
+                <div class="form__input-container">
+                    <label>Nombre
+                        <input type="text">
+                    </label>
+                </div>
+                <div class="form__input-container">
+                    <label>Apellido
+                        <input type="text">
+                    </label>
+                </div>
+                <div class="form__input-container">
+                    <label>E-mail
+                        <input type="email" placeholder="ejemplo@email.com">
+                    </label>
+                </div>
+                <div class="form__input-container">
+                    <label>Mensaje
+                        <textarea placeholder="Your message"></textarea>
+                    </label>
+                </div>
+                <div class="form__input-container">
+                    <input type="submit">
+                </div>
+            </form>
+        </section>    
     </div>
+    
     <div class="footer-legal">
         <a href="https://www.iubenda.com/privacy-policy/53646114" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Política de Privacidad ">Política de Privacidad</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
         <a href="https://www.iubenda.com/privacy-policy/53646114/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Política de Cookies ">Política de Cookies</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
