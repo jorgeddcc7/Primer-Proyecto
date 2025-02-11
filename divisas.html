@@ -25,6 +25,9 @@
         <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3922385.js"></script>
         <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
         <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <!--Gráfico-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
     <a href="distancias.html" class="link__distancia" target="_blank">Estimador de tiempo de entrega</a>
@@ -40,67 +43,72 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
+    <div class="main">
+        <div class="container">
+            <h1>Conversor de Divisas</h1>
+            <!-- Formulario para ingresar los datos -->
+            <div class="form-group">
+                <label for="cantidad">Cantidad a convertir:</label>
+                <input type="number" id="cantidad" placeholder="Introduce cantidad" required>
+            </div>
 
-    <div class="container">
-        <h1>Conversor de Divisas</h1>
-        <!-- Formulario para ingresar los datos -->
-        <div class="form-group">
-            <label for="cantidad">Cantidad a convertir:</label>
-            <input type="number" id="cantidad" placeholder="Introduce cantidad" required>
-        </div>
+            <div class="form-group">
+                <label for="deDivisa">De:</label>
+                <select id="deDivisa">
+                    <option value="USD">USD - Dólar estadounidense</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - Libra esterlina</option>
+                    <option value="JPY">JPY - Yen japonés</option>
+                    <option value="AUD">AUD - Dólar australiano</option>
+                    <option value="CAD">CAD - Dólar canadiense</option>
+                    <option value="CHF">CHF - Franco suizo</option>
+                    <option value="CNY">CNY - Yuan chino</option>
+                    <option value="INR">INR - Rupia india</option>
+                    <option value="BRL">BRL - Real brasileño</option>
+                    <option value="MXN">MXN - Peso mexicano</option>
+                    <option value="HKD">HKD - Dólar de Hong Kong</option>
+                    <option value="NZD">NZD - Dólar de Nueva Zelanda</option>
+                    <option value="KRW">KRW - Won surcoreano</option>
+                    <option value="SAR">SAR - Riyal saudí</option>
+                    <option value="SGD">SGD - Dólar de Singapur</option>
+                    <option value="ZAR">ZAR - Rand sudafricano</option>
+                    <option value="TRY">TRY - Lira turca</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="deDivisa">De:</label>
-            <select id="deDivisa">
-                <option value="USD">USD - Dólar estadounidense</option>
-                <option value="EUR">EUR - Euro</option>
-                <option value="GBP">GBP - Libra esterlina</option>
-                <option value="JPY">JPY - Yen japonés</option>
-                <option value="AUD">AUD - Dólar australiano</option>
-                <option value="CAD">CAD - Dólar canadiense</option>
-                <option value="CHF">CHF - Franco suizo</option>
-                <option value="CNY">CNY - Yuan chino</option>
-                <option value="INR">INR - Rupia india</option>
-                <option value="BRL">BRL - Real brasileño</option>
-                <option value="MXN">MXN - Peso mexicano</option>
-                <option value="HKD">HKD - Dólar de Hong Kong</option>
-                <option value="NZD">NZD - Dólar de Nueva Zelanda</option>
-                <option value="KRW">KRW - Won surcoreano</option>
-                <option value="SAR">SAR - Riyal saudí</option>
-                <option value="SGD">SGD - Dólar de Singapur</option>
-                <option value="ZAR">ZAR - Rand sudafricano</option>
-                <option value="TRY">TRY - Lira turca</option>
-            </select>
+            <div class="form-group">
+                <label for="aDivisa">A:</label>
+                <select id="aDivisa">
+                    <option value="USD">USD - Dólar estadounidense</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - Libra esterlina</option>
+                    <option value="JPY">JPY - Yen japonés</option>
+                    <option value="AUD">AUD - Dólar australiano</option>
+                    <option value="CAD">CAD - Dólar canadiense</option>
+                    <option value="CHF">CHF - Franco suizo</option>
+                    <option value="CNY">CNY - Yuan chino</option>
+                    <option value="INR">INR - Rupia india</option>
+                    <option value="BRL">BRL - Real brasileño</option>
+                    <option value="MXN">MXN - Peso mexicano</option>
+                    <option value="HKD">HKD - Dólar de Hong Kong</option>
+                    <option value="NZD">NZD - Dólar de Nueva Zelanda</option>
+                    <option value="KRW">KRW - Won surcoreano</option>
+                    <option value="SAR">SAR - Riyal saudí</option>
+                    <option value="SGD">SGD - Dólar de Singapur</option>
+                    <option value="ZAR">ZAR - Rand sudafricano</option>
+                    <option value="TRY">TRY - Lira turca</option>
+                </select>
+            </div>
+
+            <!-- Botón para realizar la conversión -->
+            <button id="convertir">Convertir</button>
+            <!-- Resultado -->
+            <p id="resultado" style="display: none;"></p>
         </div>
-        
-        <div class="form-group">
-            <label for="aDivisa">A:</label>
-            <select id="aDivisa">
-                <option value="USD">USD - Dólar estadounidense</option>
-                <option value="EUR">EUR - Euro</option>
-                <option value="GBP">GBP - Libra esterlina</option>
-                <option value="JPY">JPY - Yen japonés</option>
-                <option value="AUD">AUD - Dólar australiano</option>
-                <option value="CAD">CAD - Dólar canadiense</option>
-                <option value="CHF">CHF - Franco suizo</option>
-                <option value="CNY">CNY - Yuan chino</option>
-                <option value="INR">INR - Rupia india</option>
-                <option value="BRL">BRL - Real brasileño</option>
-                <option value="MXN">MXN - Peso mexicano</option>
-                <option value="HKD">HKD - Dólar de Hong Kong</option>
-                <option value="NZD">NZD - Dólar de Nueva Zelanda</option>
-                <option value="KRW">KRW - Won surcoreano</option>
-                <option value="SAR">SAR - Riyal saudí</option>
-                <option value="SGD">SGD - Dólar de Singapur</option>
-                <option value="ZAR">ZAR - Rand sudafricano</option>
-                <option value="TRY">TRY - Lira turca</option>
-            </select>
+        <h2>Evolución del Tipo de Cambio EUR/USD - Enero 2025</h2>
+        <div class="graph">
+            <canvas id="exchangeRateChart"></canvas>
         </div>
-        
-        <!-- Botón para realizar la conversión -->
-        <button id="convertir">Convertir</button>
-        <!-- Resultado -->
-        <p id="resultado" style="display: none;"></p>
     </div>
 
     <div class="adsense-container right">
@@ -113,6 +121,8 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+    </div>
+
     </div>
     <div class="footer-legal">
         <a href="https://www.iubenda.com/privacy-policy/53646114" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Política de Privacidad ">Política de Privacidad</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>

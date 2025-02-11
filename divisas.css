@@ -69,7 +69,7 @@ body {
     font-size: 16px;
 }
 
-/* Main */
+/* Divisas */
 .container {
     background-color: #fff;
     padding: 20px;
@@ -78,7 +78,7 @@ body {
     width: fit-content;
     text-align: center;
     padding: 20px 50px;
-    margin-top: 30px;
+    margin: 30px auto;
 }
 
 
@@ -152,6 +152,9 @@ button:hover {
         max-width: 700px;
         margin-top: 50px;
     }
+    canvas {
+        max-width: 600px;
+    }
 }
 @media (max-width: 500px) {
     .link__incoterms {
@@ -176,6 +179,9 @@ button:hover {
     }
     .adsense-container.left {
         display: inline-block;
+    }
+    canvas {
+        max-width: 300px;
     }
 }
 
@@ -214,6 +220,30 @@ button:hover {
     }
 }
 
+/* GRÁFICO */
+h2 {
+    margin-top: 50px;
+    margin-bottom: -33px;
+    text-align: center;
+    color: #007bff;
+}
+
+.graph {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 110px;
+}
+
+canvas {
+    width: 800px;
+    height: 400px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* FOOTER */
 .footer-legal {
     width: 100%;
     background-color: #fff;
