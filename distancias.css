@@ -285,8 +285,8 @@ body {
 
 /* GRID */
 .factors {
-    margin-top: 70px;
-    margin-bottom: 95px;
+    margin-top: 57px;
+    margin-bottom: 105px;
 }
 
 h2 {
@@ -302,29 +302,91 @@ h2 {
     gap: 20px;
     max-width: 900px;
     margin: auto;
+    perspective: 1000px;
 }
 
+/* Tarjetas */
 .grid-item {
     background: white;
-    padding: 20px;
+    width: 100%;
+    height: 150px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     text-align: center;
-    transition: transform .3s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+    transform-style: preserve-3d;
+    position: relative;
 }
 
 .grid-item:hover {
-    transform: scale(1.1);
+    transform: rotateY(180deg) scale(1.05);
+} 
+
+/* Lados de la tarjeta */
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Reverso (Descripción) */
+.back {
+    background: #f8f9fa;
+    transform: rotateY(180deg);
 }
 
 .grid-item h3 {
     font-size: 18px;
-    margin: 10px 0;
+    font-weight: bold;
+    padding: 8px;
+    color: #fff;
+    background-color: #007bff99;
+    border-radius: 15px;
 }
 
-.emoji {
-    font-size: 30px;
+p {
+    font-size: 14px;
+    text-align: center;
 }
+
+/* FOTOS */
+.aduana {
+    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/0dd3db90-d2f5-4227-88d6-5960059e1558/Leonardo_Kino_XL_A_minimalist_illustration_of_importexport_pap_1.jpg");
+    background-size: cover;
+}
+
+.transporte {
+    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/60c77b55-bc05-4e3a-bc83-4991b6686b27/Leonardo_Kino_XL_A_modern_illustration_of_an_airplane_in_midfl_0.jpg");
+    background-size: cover;
+}
+
+.clima {
+    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/e72f0a96-75c5-4ea1-a0f2-3d58cee95ad1/Leonardo_Kino_XL_A_minimalist_illustration_of_a_cargo_ship_str_3.jpg");
+    background-size: cover;
+}
+
+.trafico {
+    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/bfdabd1c-e639-4410-88b7-5edd48f3b419/Leonardo_Kino_XL_A_professional_illustration_of_a_truck_stuck_0.jpg");
+    background-size: cover;
+}
+
+.festivo {
+    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/9187a4ee-38ae-49c6-beb7-d6ecabc53296/Leonardo_Kino_XL_A_clean_modern_illustration_of_a_calendar_pro_2.jpg");
+    background-size: cover;
+}
+
+.demanda {
+    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/5eadd872-5bfd-4a7f-9162-7e70442f25ea/Leonardo_Kino_XL_A_sleek_minimalist_illustration_of_an_overloa_2.jpg");
+    background-size: cover;
+}
+
 
 /* LEGALIDADES VARIAS */
 .footer-legal {

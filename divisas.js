@@ -1,3 +1,4 @@
+// Conversor de divisas
 document.getElementById('convertir').addEventListener('click', function() {
     var cantidad = document.getElementById('cantidad').value;
     var deDivisa = document.getElementById('deDivisa').value;
@@ -14,11 +15,15 @@ document.getElementById('convertir').addEventListener('click', function() {
             .then(data => {
                 // Obtenemos la tasa de cambio desde la respuesta de la API
                 var tasaCambio = data.rates[aDivisa];
-                // Realizamos la conversión
-                var resultado = (cantidad * tasaCambio).toFixed(2); // Resultado de la conversión
-                const resultadoDiv = document.getElementById('resultado');
-                resultadoDiv.innerText = `${cantidad} ${deDivisa} = ${resultado} ${aDivisa}`;
-                resultadoDiv.style.display = 'block'; // Mostrar el resultado
+                if (tasaCambio) {
+                    // Realizamos la conversión
+                    var resultado = (cantidad * tasaCambio).toFixed(2); // Resultado de la conversión
+                    const resultadoDiv = document.getElementById('resultado');
+                    resultadoDiv.innerText = `${cantidad} ${deDivisa} = ${resultado} ${aDivisa}`;
+                    resultadoDiv.style.display = 'block'; // Mostrar el resultado
+                } else {
+                    throw new Error("Tasa de cambio no disponible");
+                }
             })
             .catch(error => {
                 const resultadoDiv = document.getElementById('resultado');
@@ -34,10 +39,10 @@ document.getElementById('convertir').addEventListener('click', function() {
 });
 
 // GRÁFICO
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function() {
     const ctx = document.getElementById('exchangeRateChart').getContext('2d');
     
-    // 🔹 Reemplaza con los datos de las tasas históricas obtenidas
+    // Las tasas de cambio reales (por ejemplo, valores aproximados para enero de 2025)
     const labels = [
         "01/01/2025", "02/01/2025", "03/01/2025", "04/01/2025", "05/01/2025", 
         "06/01/2025", "07/01/2025", "08/01/2025", "09/01/2025", "10/01/2025", 
@@ -47,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         "26/01/2025", "27/01/2025", "28/01/2025", "29/01/2025", "30/01/2025", "31/01/2025"
     ];
 
-    // 🔹 Las tasas de cambio reales (por ejemplo, valores aproximados para enero de 2025)
+    // Las tasas de cambio reales (valores aproximados para enero de 2025)
     const exchangeRates = [
         1.0353, 1.0351, 1.0267, 1.0313, 1.0311, 
         1.0305, 1.0383, 1.0342, 1.0314, 1.0296, 
@@ -58,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     ];
 
     try {
-        // 🔹 Crear el gráfico con los datos históricos de cambio de EUR a USD
+        // Crear el gráfico con los datos históricos de cambio de EUR a USD
         new Chart(ctx, {
             type: 'line',
             data: {
