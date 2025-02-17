@@ -17,7 +17,7 @@ body {
 
 /* Links */
 .link__calculadora {
-    position: absolute;
+    position: fixed;
     top: 30px;
     left: 20px;
     font-size: 14px;
@@ -46,7 +46,7 @@ body {
 
 
 .link__divisas {
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 20px;
     font-size: 14px;
@@ -248,12 +248,11 @@ body {
 
 /* Anuncios */
 .adsense-container {
+    background-color: #0056b3;
     position: fixed;
-    top: 100px; /* Empieza a una distancia de 100px desde la parte superior */
+    top: 70px; /* Empieza a una distancia de 100px desde la parte superior */
     width: 250px; /* Tamaño fijo para los anuncios */
-    height: 250px;
     border-radius: 8px;
-    z-index: 1; /* Asegura que los anuncios estén por encima del contenido */
 }
 
 /* Anuncio a la izquierda */
