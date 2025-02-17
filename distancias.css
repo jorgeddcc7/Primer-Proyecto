@@ -248,7 +248,6 @@ body {
 
 /* Anuncios */
 .adsense-container {
-    background-color: #0056b3;
     position: fixed;
     top: 70px; /* Empieza a una distancia de 100px desde la parte superior */
     width: 250px; /* Tamaño fijo para los anuncios */
