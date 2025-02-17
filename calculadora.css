@@ -477,10 +477,9 @@ button:hover {
 /* Políticas */
 .footer-legal {
     width: 100%;
-    background-color: #fff;
+    background-color: transparent;
     text-align: center;
     padding: 15px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -490,7 +489,6 @@ button:hover {
     color: #007bff;
     text-decoration: none;
     font-size: 14px;
-    margin: 0 10px;
     font-weight: 600;
 }
 
