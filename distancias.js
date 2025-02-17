@@ -949,11 +949,5 @@ document.getElementById('calcular-tiempo').addEventListener('click', function() 
 
     // Activamos la animación de caída y escalado
     resultado.style.animation = 'caerYCrecer 0.6s forwards ease-out';
-
-
-    // Después de la animación (0.6s), podemos reiniciar la animación para futuros cálculos
-    setTimeout(function() {
-        resultado.style.animation = '';  // Resetear la animación
-    }, 600);
 });
 
