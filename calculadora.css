@@ -323,100 +323,50 @@ button:hover {
 }
 
 /* Contacto */
-.form {
-    min-height: 60vh;
+.contact-form h3 {
+    color: #007bff;
+    text-align: center;
+    font-size: 25px;
+}
+.contact-form {
+    max-width: 600px;
+    margin: -45px auto 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-bottom: 58px;
-    margin-top: -80px;
-    align-items: center;
-    padding: 30px 0;
-    container-name: form;
-    container-type: inline-size;  
-}
-
-.form__form {
-    padding: 12px;
-    max-width: 600px;
-    width: 100%;
-    display: grid;
-    margin-bottom: 30px;
-}
-
-.form__input-container :is(input,textarea) {
-    width: 100%;
-    padding: 9px 7px;
-    font-size: 16px;
-    margin: 4px;
-    border: none;
+    gap: 15px;
+    background-color: #fff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 80px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid #555;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid transparent;
     border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+    background-color: #d5e4f4;
 }
 
-.form__input-container textarea {
-    resize: none;
-    height: 100px;
-    font-family: inherit;
+.contact-form button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
-.form__input-container input[type="submit"] {
-    padding: 12px;
-    background-color: #007bff;
-    color: #ffffff;
-}
-
-.form__input-container input[type="submit"]:hover {
-    background-color: #093563;
-}
-
-.form__title {
-    font-family: inherit;
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #007bff;
-}
-
-/*-----CONTACT QUERIES-----*/
-@container form (min-width:56.25rem ) {
-    .form__form {
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-        "name lastname"
-        "email email"
-        "message message"
-        "button button";
-        gap: 12px;
-        padding: 20px;
-        border-radius: 12px;
-        background-color: #fff;
-        box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
-    }
-
-    .form__input-container:first-child {
-        grid-area: name;
-    }
-
-    .form__input-container:nth-child(2) {
-        grid-area: lastname;
-    }
-
-    .form__input-container:nth-child(3) {
-        grid-area: email;
-    }
-
-    .form__input-container:nth-child(4) {
-        grid-area: message;
-    }
-
-    .form__input-container:nth-child(5) {
-        grid-area: button;
-    }
-
-    .form__input-container :is(input,textarea) {
-    box-shadow: none;
-    }
+.contact-form button:hover {
+    background: #0056b3;
 }
 
 /* Anuncios */
