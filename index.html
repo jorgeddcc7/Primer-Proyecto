@@ -235,33 +235,20 @@
                 </a>
             </p>
         </div>
-        <section class="form" id="form">
-            <h3 class="form__title">CONTACTO</h3>
-            <form class="form__form">
-                <div class="form__input-container">
-                    <label>Nombre
-                        <input type="text">
-                    </label>
-                </div>
-                <div class="form__input-container">
-                    <label>Apellido
-                        <input type="text">
-                    </label>
-                </div>
-                <div class="form__input-container">
-                    <label>E-mail
-                        <input type="email" placeholder="ejemplo@email.com">
-                    </label>
-                </div>
-                <div class="form__input-container">
-                    <label>Mensaje
-                        <textarea placeholder="Your message"></textarea>
-                    </label>
-                </div>
-                <div class="form__input-container">
-                    <input type="submit">
-                </div>
-            </form>
+        <section class="section-form">
+            <form action="https://formspree.io/f/mdkarkdg" method="POST" class="contact-form">
+                <h3>CONTACTO</h3>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" required>
+            
+                <label for="email">Correo:</label>
+                <input type="email" name="email" required>
+            
+                <label for="mensaje">Mensaje:</label>
+                <textarea name="mensaje" required></textarea>
+            
+                <button type="submit">Enviar</button>
+            </form>         
         </section>    
     </div>
     
