@@ -246,40 +246,7 @@ body {
     }
 }
 
-/* Anuncios */
-.adsense-container {
-    position: fixed;
-    top: 70px; /* Empieza a una distancia de 100px desde la parte superior */
-    width: 250px; /* Tamaño fijo para los anuncios */
-    border-radius: 8px;
-}
 
-/* Anuncio a la izquierda */
-.adsense-container.left {
-    left: 10px; /* Ubicado a la izquierda */
-}
-
-/* Anuncio a la derecha */
-.adsense-container.right {
-    right: 10px; /* Ubicado a la derecha */
-}
-
-/* Media query para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .adsense-container {
-        width: 100%;
-        height: auto;
-        max-width: 320px;
-        top: auto;
-        bottom: 10px;
-    }
-
-    .adsense-container.left,
-    .adsense-container.right {
-        position: static; /* Los anuncios se vuelven estáticos en pantallas más pequeñas */
-        margin-top: 20px;
-    }
-}
 
 /* GRID */
 .factors {
