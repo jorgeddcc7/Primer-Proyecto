@@ -7,6 +7,7 @@ function calcularPrecio() {
     const aduanaImportacion = parseFloat(document.getElementById('aduana-importacion').value) || 0;
     const carga = parseFloat(document.getElementById('carga').value) || 0;
     const descarga = parseFloat(document.getElementById('descarga').value) || 0;
+    const impuestos = parseFloat(document.getElementById('impuestos').value) || 0;
 
     const incotermIndex = parseInt(document.getElementById('incoterm-slider').value);
 
@@ -32,8 +33,10 @@ function calcularPrecio() {
             precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion + carga;
             break;
         case 6: // DDP
-            precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion + aduanaImportacion;
-            break;
+        const valorAduana = precioBase + transporteInternacional + seguro + aduanaImportacion;
+        const impuestosCalculados = valorAduana * (impuestos / 100);
+        precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion + aduanaImportacion + impuestosCalculados;
+        break;
         case 7: // FOB
             precioTotal += transporteLocal + carga + aduanaExportacion;
             break;
