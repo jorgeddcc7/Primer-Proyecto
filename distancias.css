@@ -73,6 +73,33 @@ body {
     font-size: 16px;
 }
 
+.link__facturas {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #0003;
+    transition: all 0.3s ease;
+}
+
+
+.link__facturas:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+
+.link__facturas i {
+    margin-left: 8px;
+    font-size: 16px;
+}
 
 /* Container principal */
 .seccion-calculo {
@@ -199,6 +226,10 @@ body {
         position: absolute;
         top: 0;
     }
+    .link__facturas {
+        position: absolute;
+        top: 40px;
+    }
     .seccion-calculo {
         max-width: 700px;
         margin-top: 50px;
@@ -241,8 +272,16 @@ body {
         text-align: center;
         white-space: nowrap;
     }
+    .link__facturas {
+        position: absolute;
+        top: 73px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        width: fit-content;
+    }
     .seccion-calculo {
-        margin-top: 72px;
+        margin-top: 109px;
     }
 }
 
