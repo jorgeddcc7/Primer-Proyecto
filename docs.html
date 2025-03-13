@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Facturas Proforma</title>
+    <link rel="stylesheet" href="docs.css">
+    <link rel="icon" href="favicon2.ico" type="image/ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.22/jspdf.plugin.autotable.min.js"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-9G78K6JBFB');
+    </script>
+    <!-- Cookies -->
+    <script type="text/javascript">
+        var _iub = _iub || [];
+        _iub.csConfiguration = {"siteId":3922385,"cookiePolicyId":61200510,"lang":"en","storage":{"useSiteId":true}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3922385.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+</head>
+<body>
+    <a href="distancias.html" class="link__distancia" target="_blank">Estimador de tiempo de entrega</a>
+    <a href="index.html" class="link__incoterms" target="_blank">Calculadora de INCOTERMS</a>
+    <a href="divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
+
+    <div class="main">
+        <div class="container">
+            <h1>Generador de Factura Proforma</h1>
+            <form id="documentForm">
+                <div class="form-group invisible">
+                    <label for="tipoDocumento">Tipo de Documento:</label>
+                    <select id="tipoDocumento" name="tipoDocumento" required onchange="mostrarCampos()">
+                        <option value="factura">Factura Proforma</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nombreEmpresa">Nombre de la Empresa:</label>
+                    <input type="text" id="nombreEmpresa" name="nombreEmpresa" required>
+                </div>
+                <div class="form-group archivoLogo">
+                    <label for="logoEmpresa">Logo de la Empresa:</label>
+                    <input type="file" id="logoEmpresa" name="logoEmpresa" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="nif">Número de Identificación Fiscal (NIF/VAT):</label>
+                    <input type="text" id="nif" name="nif">
+                </div>
+                <!-- Campos adicionales para la factura -->
+                <div id="facturaFields" class="extraFields">
+                    <!-- Datos del cliente -->
+                    <div class="form-group">
+                        <label for="nombreCliente">Nombre del Cliente:</label>
+                        <input type="text" id="nombreCliente" name="nombreCliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nif">Número de Identificación Fiscal Cliente (NIF/VAT):</label>
+                        <input type="text" id="nifCliente" name="nifCliente">
+                    </div>
+                    <div class="form-group">
+                        <label for="direccionCliente">Dirección del Cliente:</label>
+                        <input type="text" id="direccionCliente" name="direccionCliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefonoCliente">Teléfono del Cliente:</label>
+                        <input type="text" id="telefonoCliente" name="telefonoCliente">
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroFactura">Número de Factura:</label>
+                        <input type="text" id="numeroFactura" name="numeroFactura" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaFactura">Fecha de Factura:</label>
+                        <input type="date" id="fechaFactura" name="fechaFactura" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="moneda">Moneda:</label>
+                        <select id="moneda" name="moneda" required>
+                            <option value="EUR">EUR - (€)</option>
+                            <option value="USD">USD - ($)</option>
+                            <option value="GBP">GBP - (£)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodoPago">Método de Pago (opcional):</label>
+                        <input type="text" id="metodoPago" name="metodoPago">
+                    </div>
+                    <div class="form-group">
+                        <label for="incoterm">Incoterm (opcional):</label>
+                        <input type="text" id="incoterm" name="incoterm">
+                    </div>
+                    <div id="mercanciaContainer">
+                        <h3>Detalles de la Mercancía</h3>
+                        <div class="form-group">
+                            <label for="descripcionMercancia">Descripción de la Mercancía:</label>
+                            <input type="text" id="descripcionMercancia" name="descripcionMercancia" placeholder="Ej. Camisetas, Baterías, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="cantidadMercancia">Cantidad:</label>
+                            <input type="number" id="cantidadMercancia" name="cantidadMercancia" placeholder="Unidades">
+                        </div>
+                        <div class="form-group">
+                            <label for="precioUnidad">Precio por Unidad:</label>
+                            <input type="number" id="precioUnidad" name="precioUnidad" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="ivaMercancia" class="iva">IVA</label>
+                            <input type="number" id="IVA" name="IVA" placeholder="Ej. 21">
+                        </div>
+                        <div class="form-group">
+                            <label for="valorTotal">Valor de la Mercancía (sin IVA):</label>
+                            <input type="number" id="valorTotal" name="valorTotal" step="0.01">
+                        </div>
+                    
+                        <!-- Botón para añadir más mercancías -->
+                        <button type="button" id="addMercanciaBtn">Añadir Otra Mercancía</button>
+                        
+                        <div id="instructions">Completa los campos y haz clic en "Añadir Otra Mercancía". Las mercancías se mostrarán aquí.</div>
+
+                        <!-- Lista de mercancías añadidas -->
+                        <div>
+                            <h4>Mercancías Añadidas:</h4>
+                            <ul id="mercanciasList">
+                                <!-- Aquí se irán añadiendo las mercancías con JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+            
+
+                </div>
+            
+                <button type="submit">Generar Documento</button>
+            </form>            
+
+    <div class="footer-legal">
+        <a href="https://www.iubenda.com/privacy-policy/53646114" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Política de Privacidad ">Política de Privacidad</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+        <a href="https://www.iubenda.com/privacy-policy/53646114/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Política de Cookies ">Política de Cookies</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+        </div>
+
+    <script src="docs.js"></script>
+</body>
+</html>
