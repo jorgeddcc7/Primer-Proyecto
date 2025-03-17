@@ -348,10 +348,10 @@ button:hover {
     flex-direction: row;
 }
 
-.twitter {
-    width: 40px;
+.facebook {
+    width: 35px;
     position: absolute;
-    bottom: -6px;
+    bottom: -8px;
     left: 100px;
 }
 
@@ -421,10 +421,10 @@ button:hover {
     .sobre-nosotros h3 {
         font-size: 13px;
     }
-    .twitter {
+    .facebook {
         width: 20px;
         left: 60px;
-        bottom: -2px;
+        bottom: -4px;
     }
     .linkedin {
         width: 18px;
