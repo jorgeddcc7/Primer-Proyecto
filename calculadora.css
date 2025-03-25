@@ -31,12 +31,6 @@ body {
     transition: all 0.3s ease;
 }
 
-.link__distancia:hover {
-    background-color: #007bff;
-    color: #fff;
-    transform: scale(1.1);
-}
-
 .link__distancia i {
     margin-left: 8px;
     font-size: 16px;
@@ -57,26 +51,9 @@ body {
     transition: all 0.3s ease;
 }
 
-.link__divisas:hover {
-    background-color: #007bff;
-    color: #fff;
-    transform: scale(1.1);
-}
-
 .link__divisas i {
     margin-left: 8px;
     font-size: 16px;
-}
-
-/* Contenedor calculadora */
-.container2 {
-    width: 100%;
-    max-width: 800px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin: 30px auto;
 }
 
 .link__facturas {
@@ -94,17 +71,45 @@ body {
     transition: all 0.3s ease;
 }
 
+.link__facturas i {
+    margin-left: 8px;
+    font-size: 16px;
+}
 
-.link__facturas:hover {
+.link__tratados {
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #0003;
+    transition: all 0.3s ease;
+}
+
+.link__tratados i {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.link__distancia:hover, .link__facturas:hover, .link__divisas:hover, .link__tratados:hover {
     background-color: #007bff;
     color: #fff;
     transform: scale(1.1);
 }
-
-
-.link__facturas i {
-    margin-left: 8px;
-    font-size: 16px;
+/* Contenedor calculadora */
+.container2 {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 30px auto;
 }
 
 /* Encabezado */
@@ -230,8 +235,14 @@ button:hover {
     .link__distancia, .link__divisas {
         position: absolute;
         top: 0;
+        white-space: nowrap;
+        width: fit-content;
     }
     .link__facturas {
+        position: absolute;
+        top: 40px;
+    }
+    .link__tratados {
         position: absolute;
         top: 40px;
     }
@@ -276,8 +287,16 @@ button:hover {
         white-space: nowrap;
         width: fit-content;
     }
+    .link__tratados {
+        position: absolute;
+        top: 108px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        width: fit-content;
+    }
     .container {
-        margin-top: 80px;
+        margin-top: 115px;
     }
 }
 
