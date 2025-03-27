@@ -136,7 +136,7 @@ h1 {
     gap: 5px;
 }
 
-.input-group input {
+.input-group input, select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
