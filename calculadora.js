@@ -102,6 +102,41 @@ document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('keydown', moverAlSiguienteInput);
 });
 
+// Función para actualizar la divisa y los labels
+function actualizarDivisa() {
+    const divisaSeleccionada = document.getElementById('divisa').value;
+    
+    // Definir los símbolos y nombres de las divisas
+    const simbolos = {
+        EUR: '€',
+        USD: '$',
+    };
+
+    const divisas = {
+        EUR: 'EUR',
+        USD: 'USD',
+    };
+
+    // Cambiar el símbolo en el precio final
+    document.getElementById('precio-final').textContent = `Precio final: 0.00 ${simbolos[divisaSeleccionada]}`;
+
+    // Cambiar las etiquetas de los campos
+    const labels = document.querySelectorAll('label');
+    labels.forEach(label => {
+        // Si el label contiene "EUR" o "USD", actualizarlo
+        if (label.textContent.includes('EUR')) {
+            label.textContent = label.textContent.replace(/EUR/g, divisas[divisaSeleccionada]);
+        } else if (label.textContent.includes('USD')) {
+            label.textContent = label.textContent.replace(/USD/g, divisas[divisaSeleccionada]);
+        }
+    });
+}
+
+// Evento para cuando se cambie la divisa
+document.getElementById('divisa').addEventListener('change', actualizarDivisa);
+
+// Llamar a la función inicial para configurar la divisa seleccionada al principio
+actualizarDivisa();
 
 
 
