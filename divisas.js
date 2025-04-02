@@ -1,26 +1,21 @@
-// Conversor de divisas
 document.getElementById('convertir').addEventListener('click', function() {
     var cantidad = document.getElementById('cantidad').value;
     var deDivisa = document.getElementById('deDivisa').value;
     var aDivisa = document.getElementById('aDivisa').value;
 
-    // Verificar que se haya ingresado una cantidad y las divisas estén seleccionadas
     if (cantidad && deDivisa && aDivisa) {
-        // Usamos el APP_ID de Open Exchange Rates
         var url = `https://openexchangerates.org/api/latest.json?app_id=492f4442cd0745a2a719f3b6d656574d`;
 
         // Realizar la solicitud a la API
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                // Obtenemos la tasa de cambio desde la respuesta de la API
                 var tasaCambio = data.rates[aDivisa];
                 if (tasaCambio) {
-                    // Realizamos la conversión
-                    var resultado = (cantidad * tasaCambio).toFixed(2); // Resultado de la conversión
+                    var resultado = (cantidad * tasaCambio).toFixed(2);
                     const resultadoDiv = document.getElementById('resultado');
                     resultadoDiv.innerText = `${cantidad} ${deDivisa} = ${resultado} ${aDivisa}`;
-                    resultadoDiv.style.display = 'block'; // Mostrar el resultado
+                    resultadoDiv.style.display = 'block'; 
                 } else {
                     throw new Error("Tasa de cambio no disponible");
                 }
@@ -28,13 +23,13 @@ document.getElementById('convertir').addEventListener('click', function() {
             .catch(error => {
                 const resultadoDiv = document.getElementById('resultado');
                 resultadoDiv.innerText = "Error al obtener la tasa de cambio.";
-                resultadoDiv.style.display = 'block'; // Mostrar el mensaje de error
+                resultadoDiv.style.display = 'block';
                 console.error('Error fetching data: ', error);
             });
     } else {
         const resultadoDiv = document.getElementById('resultado');
         resultadoDiv.innerText = "Por favor, completa todos los campos.";
-        resultadoDiv.style.display = 'block'; // Mostrar el mensaje de error
+        resultadoDiv.style.display = 'block'; 
     }
 });
 
@@ -42,20 +37,21 @@ document.getElementById('convertir').addEventListener('click', function() {
 document.addEventListener("DOMContentLoaded", function() {
     const ctx = document.getElementById('exchangeRateChart').getContext('2d');
     
-    // Las tasas de cambio reales (por ejemplo, valores aproximados para enero de 2025)
     const labels = [
-        "03/02/2025", "04/02/2025", "05/02/2025", "06/02/2025", "07/02/2025", 
-        "10/02/2025", "11/02/2025", "12/02/2025", "13/02/2025", "14/02/2025", 
-        "17/02/2025", "18/02/2025", "19/02/2025", "20/02/2025", "21/02/2025",
-        "24/02/2025", "25/02/2025", "26/02/2025", "27/02/2025", "28/02/2025", 
+        "03/03/2025", "04/03/2025", "05/03/2025", "06/03/2025", "07/03/2025", 
+        "10/03/2025", "11/03/2025", "12/03/2025", "13/03/2025", "14/03/2025", 
+        "17/03/2025", "18/03/2025", "19/03/2025", "20/03/2025", "21/03/2025",
+        "24/03/2025", "25/03/2025", "26/03/2025", "27/03/2025", "28/03/2025",
+        "31/03/2025",
     ];
 
     // Las tasas de cambio reales   
     const exchangeRates = [
-        1.0344, 1.0377, 1.0402, 1.0381, 1.0327, 
-        1.0306, 1.0360, 1.0382, 1.0464, 1.0491, 
-        1.0482, 1.0445, 1.0421, 1.0500, 1.0458, 
-        1.0466, 1.0513, 1.0483, 1.0394, 1.0400, 
+        1.0486, 1.0624, 1.0790, 1.0783, 1.0832, 
+        1.0832, 1.0918, 1.0886, 1.0852, 1.0879, 
+        1.0921, 1.0943, 1.0901, 1.0851, 1.0814, 
+        1.0800, 1.0791, 1.0752, 1.0801, 1.0827,
+        1.0817,
     ];
 
     try {
