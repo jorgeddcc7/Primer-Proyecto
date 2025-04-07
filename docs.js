@@ -25,15 +25,15 @@ function mostrarMensajeError(mensaje) {
     }
 }
 
-// Array para almacenar las mercancías
+// Array to store goods
 let mercancias = [];
 
-// Función para añadir mercancías al listado
+// Function to add goods to the list
 document.addEventListener("DOMContentLoaded", function () {
     const addMercanciaBtn = document.getElementById('addMercanciaBtn');
-    const mercanciasList = document.getElementById('mercanciasList'); // Lista donde se mostrarán las mercancías
+    const mercanciasList = document.getElementById('mercanciasList'); // List where the goods will be shown
 
-    // Asegurarse de que el botón y la lista existan en el DOM
+    // Ensure that the button and list exist in the DOM
     if (addMercanciaBtn && mercanciasList) {
         addMercanciaBtn.addEventListener('click', function () {
             const descripcion = document.getElementById('descripcionMercancia').value;
@@ -41,19 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
             const precioUnidad = document.getElementById('precioUnidad').value;
             const IVA = document.getElementById('IVA').value;
 
-            // Validación de datos (números solo para cantidad, precio y IVA)
+            // Data validation (numbers only for quantity, price, and VAT)
             if (isNaN(cantidad) || isNaN(precioUnidad) || isNaN(IVA)) {
-                mostrarMensajeError('Por favor, ingrese valores numéricos válidos para cantidad, precio por unidad y IVA.');
+                mostrarMensajeError('Please enter valid numeric values for quantity, unit price, and VAT.');
                 return;
             }
 
             if (descripcion && cantidad && precioUnidad && IVA) {
-                // Calcular la base imponible y el IVA
+                // Calculate base amount and VAT
                 const baseImponible = cantidad * precioUnidad;
                 const ivaMercancia = baseImponible * IVA / 100;
                 const valorTotal = baseImponible + ivaMercancia;
 
-                // Crear un objeto con la mercancía
+                // Create an object for the good
                 const mercancia = {
                     descripcion: descripcion,
                     cantidad: cantidad,
@@ -64,35 +64,43 @@ document.addEventListener("DOMContentLoaded", function () {
                     valorTotal: valorTotal
                 };
 
-                // Añadir la mercancía al array
+                // Add the good to the array
                 mercancias.push(mercancia);
 
-                // Crear un nuevo item en la lista de mercancías
+                // Create a new item in the goods list
                 const mercanciaItem = document.createElement('li');
-                mercanciaItem.innerHTML = `Descripción: ${descripcion}, 
-                                        Cantidad: ${cantidad}, 
-                                        Precio por Unidad: ${precioUnidad}, 
-                                        IVA: ${IVA}%, 
-                                        Valor Total: ${valorTotal.toFixed(2)}`;
+                mercanciaItem.innerHTML = `Description: ${descripcion}, 
+                                        Quantity: ${cantidad}, 
+                                        Unit Price: ${precioUnidad}, 
+                                        VAT: ${IVA}%, 
+                                        Total Value: ${valorTotal.toFixed(2)}`;
                 
-                // Añadir el item a la lista visible
+                // Add the item to the visible list
                 mercanciasList.appendChild(mercanciaItem);
 
-                // Limpiar los campos de entrada para añadir una nueva mercancía
+                // Clear the input fields for adding a new good
                 document.getElementById('descripcionMercancia').value = '';
                 document.getElementById('cantidadMercancia').value = '';
                 document.getElementById('precioUnidad').value = '';
                 document.getElementById('IVA').value = '';
                 document.getElementById('valorTotal').value = '';
             } else {
-                mostrarMensajeError('Por favor, complete todos los campos antes de añadir la mercancía.');
+                mostrarMensajeError('Please complete all fields before adding the good.');
             }
         });
     } else {
-        console.error('El botón "Añadir Otra Mercancía" o la lista "mercanciasList" no se encuentran en el DOM.');
+        console.error('The "Add Another Good" button or "mercanciasList" is not found in the DOM.');
     }
 
-    // Generar el documento PDF
+    // Get the selected language
+    const languageSelect = document.getElementById('languageSelect');
+    let currentLanguage = languageSelect.value; // Default language is selected when the page loads
+
+    languageSelect.addEventListener('change', function() {
+        currentLanguage = languageSelect.value;
+    });
+
+    // Generate the PDF document
     document.getElementById('documentForm').addEventListener('submit', function (event) {
         event.preventDefault(); 
         
@@ -101,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
         const tipoDocumento = document.getElementById('tipoDocumento').value;
     
-        // Datos de la empresa
+        // Company data
         const nombreEmpresa = document.getElementById('nombreEmpresa').value;
         const direccion = document.getElementById('direccion').value;
         const telefono = document.getElementById('telefono').value;
@@ -109,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nif = document.getElementById('nif').value;
         const logoInput = document.getElementById('logoEmpresa');
     
-        // Datos del cliente
+        // Customer data
         const nombreCliente = document.getElementById('nombreCliente').value;
         const direccionCliente = document.getElementById('direccionCliente').value;
         const telefonoCliente = document.getElementById('telefonoCliente').value;
@@ -132,14 +140,52 @@ document.addEventListener("DOMContentLoaded", function () {
             if (logoBase64) {
                 doc.addImage(logoBase64, 'PNG', 10, 10, 30, 30); 
             }
-    
-            // Factura Proforma en la parte superior derecha
+
+            // Set texts based on the selected language
+            const texts = {
+                es: {
+                    facturaTitle: `Factura Proforma Nº: ${numeroFactura}`,
+                    fecha: `Fecha: ${fechaFactura}`,
+                    cliente: "Cliente:",
+                    moneda: "Moneda:",
+                    metodoPago: "Método de Pago:",
+                    incoterm: "Incoterm:",
+                    detallesFactura: "Detalles de Factura",
+                    descripcion: 'Descripción',
+                    cantidad: 'Cantidad',
+                    precioUnitario: 'Precio Unitario',
+                    iva: 'IVA',
+                    baseImponible: 'Base Imponible',
+                    ivaTotal: 'IVA Total',
+                    total: 'Total'
+                },
+                en: {
+                    facturaTitle: `Proforma Invoice No: ${numeroFactura}`,
+                    fecha: `Date: ${fechaFactura}`,
+                    cliente: "Client:",
+                    moneda: "Currency:",
+                    metodoPago: "Payment Method:",
+                    incoterm: "Incoterm:",
+                    detallesFactura: "Invoice Details",
+                    descripcion: 'Description',
+                    cantidad: 'Quantity',
+                    precioUnitario: 'Unit Price',
+                    iva: 'VAT',
+                    baseImponible: 'Base Amount',
+                    ivaTotal: 'VAT Total',
+                    total: 'Total'
+                }
+            };
+
+            const langTexts = texts[currentLanguage];
+
+            // Add the text based on the selected language
             doc.setFont("helvetica", "bold");
             doc.setFontSize(14);
-            doc.text(`Factura Proforma Nº: ${numeroFactura}`, 140, 20);
-            doc.text(`Fecha: ${fechaFactura}`, 140, 30);
+            doc.text(langTexts.facturaTitle, 140, 20);
+            doc.text(langTexts.fecha, 140, 30);
     
-            // Información de la Empresa (Izquierda)
+            // Company information (Left)
             doc.setFontSize(12);
             doc.setFont("helvetica", "normal");
             doc.text(nombreEmpresa, 10, 50);
@@ -148,15 +194,15 @@ document.addEventListener("DOMContentLoaded", function () {
             doc.text(`Email: ${email}`, 10, 80);
             doc.text(`NIF: ${nif}`, 10, 90);
     
-            // Información del Cliente (Derecha)
+            // Customer information (Right)
             const xDerecha = 140; 
-            doc.text("Cliente:", xDerecha, 50);
+            doc.text(langTexts.cliente, xDerecha, 50);
             doc.text(nombreCliente, xDerecha, 60);
             doc.text(direccionCliente, xDerecha, 70);
             doc.text(`Tel: ${telefonoCliente}`, xDerecha, 80);
             doc.text(`NIF: ${nifCliente}`, xDerecha, 90);
     
-            let startY = 100; // Subimos los detalles una línea
+            let startY = 100; 
     
             if (tipoDocumento === 'factura') {
                 const moneda = document.getElementById('moneda').value;
@@ -164,41 +210,43 @@ document.addEventListener("DOMContentLoaded", function () {
                 const incoterm = document.getElementById('incoterm').value;
 
                 doc.setFont("helvetica", "bold");
-                doc.text("Detalles de Factura", 10, startY);
+                doc.text(langTexts.detallesFactura, 10, startY);
                 doc.setFont("helvetica", "normal");
     
-                doc.text(`Moneda: ${moneda}`, 10, startY + 10);
+                doc.text(`${langTexts.moneda} ${moneda}`, 10, startY + 10);
     
                 let offset = 0; 
                 if (metodoPago) {
-                    doc.text(`Método de Pago: ${metodoPago}`, 10, startY + 20);
+                    doc.text(`${langTexts.metodoPago}: ${metodoPago}`, 10, startY + 20);
                     offset += 10; 
                 }
                 if (incoterm) {
-                    doc.text(`Incoterm: ${incoterm}`, 10, startY + 20 + offset);
+                    doc.text(`${langTexts.incoterm}: ${incoterm}`, 10, startY + 20 + offset);
                     offset += 10; 
                 }
     
                 let tableStartY = startY + 20 + offset; 
                 doc.autoTable({
                     startY: tableStartY, 
-                    head: [['Descripción', 'Cantidad', 'Precio Unitario', 'IVA', 'Base Imponible', 'IVA Total', 'Total']],
+                    head: [
+                        [langTexts.descripcion, langTexts.cantidad, langTexts.precioUnitario, langTexts.iva, langTexts.baseImponible, langTexts.ivaTotal, langTexts.total]
+                    ],
                     body: mercanciasParaPDF,
                     theme: 'grid',
                     headStyles: {
-                        fillColor: [0, 123, 255], // Color #007bff para la tabla
-                        textColor: [255, 255, 255] // Texto en blanco
+                        fillColor: [0, 123, 255], 
+                        textColor: [255, 255, 255] 
                     },
                     bodyStyles: {
-                        fillColor: [255, 255, 255], // Fondo blanco para las filas
-                        textColor: [0, 0, 0] // Texto en negro
+                        fillColor: [255, 255, 255], 
+                        textColor: [0, 0, 0] 
                     }
                 });
     
                 startY = doc.lastAutoTable.finalY + 20;
             }
 
-            // Calcular la base imponible total, el IVA total y el total final
+            // Calculate total base amount, total VAT, and final total
             let baseImponibleTotal = mercancias.reduce((sum, m) => sum + m.baseImponible, 0);
             let ivaTotal = mercancias.reduce((sum, m) => sum + m.ivaMercancia, 0);
             let totalFinal = baseImponibleTotal + ivaTotal;
@@ -209,20 +257,30 @@ document.addEventListener("DOMContentLoaded", function () {
             doc.line(140, yFinal - 20, 200, yFinal - 20)
     
             doc.setFont("helvetica", "bold");
-            doc.text(`Base Imponible: ${baseImponibleTotal.toFixed(2)}`, 140, yFinal - 40);
-            doc.text(`IVA: ${ivaTotal.toFixed(2)}`, 140, yFinal - 30);
-            doc.text(`Total: ${totalFinal.toFixed(2)}`, 140, yFinal - 10);
+            doc.text(`${langTexts.baseImponible}: ${baseImponibleTotal.toFixed(2)}`, 140, yFinal - 40);
+            doc.text(`${langTexts.iva}: ${ivaTotal.toFixed(2)}`, 140, yFinal - 30);
+            doc.text(`${langTexts.total}: ${totalFinal.toFixed(2)}`, 140, yFinal - 10);
+
+            const texto = "Generado por Calcula Incoterms®";
+            const textoWidth = doc.getStringUnitWidth(texto) * doc.getFontSize() / doc.internal.scaleFactor; 
+            const desplazamientoDerecha = 10; // Ajustar este valor para moverlo más a la derecha
+            const xCentro = (doc.internal.pageSize.width - textoWidth) / 2 + desplazamientoDerecha;  
+            
+            doc.setFontSize(8);  
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(169, 169, 169); 
+            const yPos = doc.internal.pageSize.height - 10;  // Mueve el texto justo al final
+            doc.text(texto, xCentro, yPos);               
     
-            // Guardar el PDF
             try {
                 doc.save(`${tipoDocumento}.pdf`);
             } catch (error) {
-                console.error("Error al generar el PDF:", error);
-                mostrarMensajeError("Hubo un problema al descargar el PDF. Intenta nuevamente.");
+                console.error("Error generating the PDF:", error);
+                mostrarMensajeError("There was a problem downloading the PDF. Please try again.");
             }
         };
     
-        // Cargar el logo si existe
+        // Load the logo if exists
         if (logoInput.files.length > 0) {
             const file = logoInput.files[0];
             const reader = new FileReader();

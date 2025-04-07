@@ -29,6 +29,9 @@
         <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G78K6JBFB"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.26/jspdf.plugin.autotable.min.js"></script>
+    <script src="docs.js"></script>
 </head>
 <body>
     <a href="distancias.html" class="link__distancia" target="_blank">Estimador de tiempo de entrega</a>
@@ -38,6 +41,12 @@
     <div class="main">
         <div class="container">
             <h1>Generador de Factura Proforma</h1>
+
+            <select id="languageSelect">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>                      
+
             <form id="documentForm">
                 <div class="form-group invisible">
                     <label for="tipoDocumento">Tipo de Documento:</label>
@@ -160,7 +169,5 @@
         <a href="https://www.iubenda.com/privacy-policy/53646114" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Política de Privacidad ">Política de Privacidad</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
         <a href="https://www.iubenda.com/privacy-policy/53646114/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Política de Cookies ">Política de Cookies</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
         </div>
-
-    <script src="docs.js"></script>
 </body>
 </html>
