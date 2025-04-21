@@ -138,5 +138,12 @@ document.getElementById('divisa').addEventListener('change', actualizarDivisa);
 // Llamar a la función inicial para configurar la divisa seleccionada al principio
 actualizarDivisa();
 
+document.getElementById("mostrar-todos").addEventListener("click", function() {
+    var itemsOcultos = document.querySelectorAll(".glosario-oculto");
+    itemsOcultos.forEach(function(item) {
+        item.style.display = "table-row"; // Muestra los términos ocultos
+    });
+    this.style.display = "none"; // Oculta el botón una vez se presiona
+});
 
 
