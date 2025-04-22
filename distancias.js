@@ -859,7 +859,17 @@ function calcularDistancia(origen, destino, transporte) {
             "Brasil-Colombia",
             "Perú-Chile",
             "Perú-Colombia",
-            "Perú-Brasil"
+            "Perú-Brasil",
+            "Argentina-Chile",
+            "Argentina-Brasil",
+            "Argentina-Paraguay",
+            "Argentina-Bolivia",
+            "Argentina-Uruguay",
+            "Chile-Argentina",
+            "Brasil-Argentina",
+            "Paraguay-Argentina",
+            "Bolivia-Argentina",
+            "Uruguay-Argentina"
         ];
         if (!rutasTerrestres.includes(clave)) {
             return -1; // Devuelve -1 si no es posible por tierra
