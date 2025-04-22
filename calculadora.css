@@ -124,6 +124,10 @@ h1 {
     margin-bottom: 10px;
 }
 
+.hidden-title {
+    display: none;
+}
+
 /* Estilo de los formularios */
 #formulario {
     display: grid;
