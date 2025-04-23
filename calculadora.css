@@ -305,6 +305,16 @@ button:hover {
 }
 
 /* TABLA INCOTERMS */
+.incoterms-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.incoterms-intro {
+    margin-bottom: 6px;
+}
+
 #tabla-incoterms {
     margin-top: 60px;
 }
