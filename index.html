@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Calculadora de Incoterms" />
-    <meta property="og:description" content="Herramienta gratuita para calcular costos de envío según el Incoterm elegido. Evita sorpresas y toma mejores decisiones." />
+    <meta property="og:description" content="Utiliza nuestra herramienta gratuita para calcular el precio final de tu envío según el Incoterm seleccionado. Incluye guía de Incoterms 2020 y responsabilidades del vendedor y comprador." />
     <meta property="og:image" content="cap.png" />
     <meta property="og:url" content="https://calculaincoterms.es" />
     <title>Calculadora de Incoterms</title>
     <link rel="stylesheet" href="calculadora.css">
     <link rel="icon" href="favicon2.ico" type="image/ico">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Calculadora de Incoterms 2020",
+            "url": "https://calculaincoterms.es",
+            "applicationCategory": ["BusinessApplication", "EducationalApplication"],
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        }
+        </script>
     <script type="text/plain" data-iub-purposes="analytics">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -122,7 +137,10 @@
             <p id="precio-final">Precio final: €0.00</p>
 
             <section id="tabla-incoterms">
-                <h2>Guía Incoterms 2025</h2>
+                <h2 class="incoterms-title">¿Qué son los Incoterms? - Guía Incoterms 2020</h2>
+                <p class="incoterms-intro">
+                Los Incoterms son términos internacionales que definen las responsabilidades de compradores y vendedores en el comercio internacional.
+                </p>
                 <p>A continuación, se muestran los diferentes Incoterms con sus significados y responsabilidades para el vendedor y el comprador:</p>
                 <table class="tabla-incoterms">
                     <thead>
