@@ -14,7 +14,7 @@ body {
 
 /* Links */
 .link__distancia {
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 20px;
     font-size: 14px;
@@ -34,7 +34,7 @@ body {
 }
 
 .link__incoterms {
-    position: absolute;
+    position: fixed;
     top: 30px;
     left: 20px;
     font-size: 14px;
@@ -73,27 +73,7 @@ body {
     font-size: 16px;
 }
 
-.link__tratados {
-    position: fixed;
-    top: 70px;
-    left: 20px;
-    font-size: 14px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 600;
-    background-color: #fff;
-    padding: 8px 16px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #0003;
-    transition: all 0.3s ease;
-}
-
-.link__tratados i {
-    margin-left: 8px;
-    font-size: 16px;
-}
-
-.link__distancia:hover, .link__facturas:hover, .link__incoterms:hover, .link__tratados:hover {
+.link__distancia:hover, .link__facturas:hover, .link__incoterms:hover {
     background-color: #007bff;
     color: #fff;
     transform: scale(1.1);
@@ -110,6 +90,9 @@ body {
     margin: 30px auto;
 }
 
+.add-1 img {
+    margin-top: -10px;
+}
 
 h1 {
     font-size: 28px;

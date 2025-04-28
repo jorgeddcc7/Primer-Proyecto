@@ -333,6 +333,12 @@ button:hover {
     transition: scale .3s ease;
 }
 
+.filmora img {
+    max-width: 200px;
+    margin-top: 15px;
+    margin-bottom: -5px;
+}
+
 .add-1 img:hover {
     scale: 1.1;
 }
