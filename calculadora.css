@@ -321,6 +321,7 @@ button:hover {
 
 .add-banner img {
     margin-bottom: 15px;
+    max-width: 100%;
 }
 
 .add-1 img {
