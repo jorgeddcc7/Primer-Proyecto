@@ -304,6 +304,69 @@ button:hover {
     }
 }
 
+/* AFILIADOS */
+.afiliados {
+    margin-bottom: -35px;
+}
+
+.afiliados h2 {
+    margin-top: 30px;
+    color: #007bff;
+    text-align: center;
+}
+
+.primero {
+    margin-top: 15px;
+}
+
+.add-banner img {
+    margin-bottom: 15px;
+}
+
+.add-1 img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto;
+    transition: scale .3s ease;
+}
+
+.add-1 img:hover {
+    scale: 1.1;
+}
+
+.producto-afiliado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-producto-afiliado {
+    text-align: center;
+}
+
+.info-producto-afiliado h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.info-producto-afiliado p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #444;
+}
+
 /* TABLA INCOTERMS */
 .incoterms-title {
     text-align: center;
