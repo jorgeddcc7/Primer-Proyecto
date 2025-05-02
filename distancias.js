@@ -961,3 +961,12 @@ document.getElementById('calcular-tiempo').addEventListener('click', function() 
     resultado.style.animation = 'caerYCrecer 0.6s forwards ease-out';
 });
 
+function mostrarArticulo(id) {
+    var articulo = document.getElementById('articulo-' + id);
+    // Alterna entre mostrar y ocultar el artículo completo
+    if (articulo.style.display === "none" || articulo.style.display === "") {
+        articulo.style.display = "block";
+    } else {
+        articulo.style.display = "none";
+    }
+}
