@@ -297,112 +297,120 @@ body {
     }
 }
 
-
-
-/* GRID */
-.factors {
-    margin-top: 58px;
-    margin-bottom: 105px;
+/* Estilo de la sección y los recursos */
+.contenedor-recursos {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.contenedor-recursos h2 {
     font-size: 26px;
     color: #007bff;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 900px;
-    margin: auto;
-    perspective: 1000px;
-}
-
-/* Tarjetas */
-.grid-item {
-    background: white;
-    width: 100%;
-    height: 150px;
+.recurso {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f8f9fa;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    transition: transform 0.8s ease-in-out;
-    transform-style: preserve-3d;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
-.grid-item:hover {
-    transform: rotateY(180deg) scale(1.05);
-} 
-
-/* Lados de la tarjeta */
-.front, .back {
-    position: absolute;
+.recurso-imagen {
     width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-/* Reverso (Descripción) */
-.back {
-    background: #f8f9fa;
-    transform: rotateY(180deg);
-}
-
-.grid-item h3 {
-    font-size: 18px;
+.recurso h3 {
+    font-size: 20px;
     font-weight: bold;
-    padding: 8px;
-    color: #fff;
-    background-color: #007bff99;
-    border-radius: 15px;
+    color: #007bff;
+    margin-bottom: 10px;
 }
 
-p {
+.recurso p {
     font-size: 14px;
-    text-align: center;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 10px;
 }
 
-/* FOTOS */
-.aduana {
-    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/0dd3db90-d2f5-4227-88d6-5960059e1558/Leonardo_Kino_XL_A_minimalist_illustration_of_importexport_pap_1.jpg");
-    background-size: cover;
+.btn-leer {
+    font-size: 14px;
+    font-weight: 600;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.transporte {
-    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/60c77b55-bc05-4e3a-bc83-4991b6686b27/Leonardo_Kino_XL_A_modern_illustration_of_an_airplane_in_midfl_0.jpg");
-    background-size: cover;
+.btn-leer:hover {
+    background-color: #007bff;
+    color: white;
 }
 
-.clima {
-    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/e72f0a96-75c5-4ea1-a0f2-3d58cee95ad1/Leonardo_Kino_XL_A_minimalist_illustration_of_a_cargo_ship_str_3.jpg");
-    background-size: cover;
+.articulo-completo {
+    display: none;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #333;
 }
 
-.trafico {
-    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/bfdabd1c-e639-4410-88b7-5edd48f3b419/Leonardo_Kino_XL_A_professional_illustration_of_a_truck_stuck_0.jpg");
-    background-size: cover;
+.articulo-completo p {
+    line-height: 1.6;
 }
 
-.festivo {
-    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/9187a4ee-38ae-49c6-beb7-d6ecabc53296/Leonardo_Kino_XL_A_clean_modern_illustration_of_a_calendar_pro_2.jpg");
-    background-size: cover;
+.articulo-completo a {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.demanda {
-    background-image: url("https://cdn.leonardo.ai/users/998da067-3e1c-4673-91c8-40072bb887ef/generations/5eadd872-5bfd-4a7f-9162-7e70442f25ea/Leonardo_Kino_XL_A_sleek_minimalist_illustration_of_an_overloa_2.jpg");
-    background-size: cover;
+.articulo-completo a:hover {
+    text-decoration: underline;
 }
 
+#articulo-1 img {
+    width: 55px;
+    position: absolute;
+    bottom: 8px;
+    right: 290px;
+    transition: scale .3s ease;
+}
+
+#articulo-1 img:hover {
+    scale: 1.05;
+}
+
+.linkai {
+    position: absolute;
+    bottom: 65px;
+}
+
+#articulo-3 img {
+    position: relative;
+    width: 100px;
+    transition: scale .3s ease;
+    left: 100px;
+}
+
+#articulo-3 img:hover {
+    scale: 1.05;
+}
 
 /* LEGALIDADES VARIAS */
 .footer-legal {
