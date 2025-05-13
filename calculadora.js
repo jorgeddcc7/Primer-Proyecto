@@ -146,4 +146,3 @@ document.getElementById("mostrar-todos").addEventListener("click", function() {
     this.style.display = "none"; // Oculta el botón una vez se presiona
 });
 
-
