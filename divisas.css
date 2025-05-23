@@ -246,25 +246,3 @@ canvas {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* FOOTER */
-.footer-legal {
-    width: 100%;
-    background-color: transparent;
-    text-align: center;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-
-.footer-legal a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-    margin: 0 10px;
-    font-weight: 600;
-}
-
-.footer-legal a:hover {
-    text-decoration: underline;
-}
