@@ -699,3 +699,117 @@ button:hover {
     margin-bottom: 0.5em;
 }
 
+#cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 18px 22px;
+    max-width: 520px;
+    width: 90%;
+    z-index: 10000;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+#cookie-banner .cookie-text {
+    flex: 1 1 60%;
+    min-width: 220px;
+}
+
+#cookie-banner .cookie-text p {
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.cookie-buttons {
+    flex: 0 1 auto;
+    display: flex;
+    gap: 10px;
+}
+
+#cookie-banner button {
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+#accept-cookies {
+    background-color: #007bff;
+    color: white;
+}
+
+#accept-cookies:hover {
+    background-color: #0056b3;
+}
+
+#reject-cookies {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+#reject-cookies:hover {
+    background-color: #dcdcdc;
+}
+
+#modal-preferencias .modal-text label {
+    display: block;
+    margin: 12px 0 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    color: #222;
+}
+
+#modal-preferencias .modal-text input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+}
+
+#modal-preferencias button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#modal-preferencias button:first-of-type {
+    background-color: #007bff;
+    color: white;
+}
+
+#modal-preferencias button:first-of-type:hover {
+    background-color: #0056b3;
+}
+
+#modal-preferencias button:last-of-type {
+    background-color: #444;
+    margin-left: 10px;
+}
+
+#modal-preferencias button:last-of-type:hover {
+    background-color: #aaa;
+}
+

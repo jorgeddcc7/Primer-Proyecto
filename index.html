@@ -32,10 +32,17 @@
 
         gtag('config', 'G-9G78K6JBFB');
     </script>
-    <!-- Cookies -->
-
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G78K6JBFB"></script>
+        <!-- Cookies -->
+    <div id="cookie-banner">
+        <div class="cookie-text">
+            <p>Este sitio utiliza cookies para mejorar tu experiencia, analizar el tráfico y personalizar contenidos. ¿Aceptas su uso?</p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="reject-cookies">Rechazar</button>
+            <button id="accept-cookies">Aceptar</button>
+        </div>
+</div>
 </head>
 <body>
     
@@ -441,7 +448,8 @@
         <div class="footer-legal">
             <a href="#" onclick="openModal('privacidad', event)">Política de Privacidad</a> |
             <a href="#" onclick="openModal('cookies', event)">Política de Cookies</a> |
-            <a href="#" onclick="openModal('terminos', event)">Términos y Condiciones</a>
+            <a href="#" onclick="openModal('terminos', event)">Términos y Condiciones</a> |
+            <a href="#" onclick="openModal('preferencias', event)">Preferencias de Cookies</a>
         </div>
     </div>
 
@@ -658,6 +666,38 @@
 
                 <h3>16. Contacto</h3>
                 <p>Si tiene preguntas o necesita más información, puede contactarnos en <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-preferencias" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('preferencias')">&times;</span>
+            <div class="modal-text">
+                <h2>Preferencias de Cookies</h2>
+                <p>Puede gestionar aquí qué tipos de cookies desea aceptar o rechazar.</p>
+            
+            <form id="cookie-preferences-form">
+                <label>
+                    <input type="checkbox" id="cookies-analiticas" checked>
+                    Cookies Analíticas (Google Analytics, etc.)
+                </label>
+            
+                <label>
+                    <input type="checkbox" id="cookies-marketing" checked>
+                    Cookies de Marketing y Publicidad
+                </label>
+            
+                <label>
+                    <input type="checkbox" id="cookies-necesarias" disabled checked>
+                    Cookies Necesarias (siempre activas)
+                </label>
+            
+                <div style="margin-top: 20px;" class="botones">
+                    <button type="button" onclick="savePreferences()">Guardar Preferencias</button>
+                    <button type="button" onclick="closeModal('preferencias')">Cancelar</button>
+                </div>
+            </form>
             </div>
         </div>
     </div>
