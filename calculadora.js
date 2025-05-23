@@ -146,3 +146,12 @@ document.getElementById("mostrar-todos").addEventListener("click", function() {
     this.style.display = "none"; // Oculta el botón una vez se presiona
 });
 
+function openModal(id, event) {
+  event.preventDefault(); // ¡Evita el salto hacia arriba!
+    document.getElementById('modal-' + id).style.display = 'block';
+}
+
+function closeModal(id) {
+    document.getElementById('modal-' + id).style.display = 'none';
+}
+
