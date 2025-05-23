@@ -295,6 +295,15 @@ body {
     .seccion-calculo {
         margin-top: 145px;
     }
+    #recursos-utiles {
+        max-width: 400px;
+    }
+    .recurso {
+        max-width: 380px;
+    }
+    .af img {
+        max-width: 300px;
+    }
 }
 
 /* Estilo de la sección y los recursos */
