@@ -161,9 +161,13 @@ function closeModal(id) {
     
     const GA_MEASUREMENT_ID = 'G-9G78K6JBFB';
     
-      // Mostrar banner si no hay decisión
     if (!localStorage.getItem('cookies-analytics')) {
         banner.style.display = 'block';
+    } else if (localStorage.getItem('cookies-analytics') === 'accepted') {
+        banner.style.display = 'none';
+        loadAnalytics();
+    } else {
+        banner.style.display = 'none';
     }
     
       // Función para cargar Google Analytics
