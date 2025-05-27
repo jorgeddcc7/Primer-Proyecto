@@ -76,26 +76,6 @@ body {
     font-size: 16px;
 }
 
-.link__tratados {
-    position: fixed;
-    top: 70px;
-    left: 20px;
-    font-size: 14px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 600;
-    background-color: #fff;
-    padding: 8px 16px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #0003;
-    transition: all 0.3s ease;
-}
-
-.link__tratados i {
-    margin-left: 8px;
-    font-size: 16px;
-}
-
 .link__incoterms:hover, .link__facturas:hover, .link__divisas:hover, .link__tratados:hover {
     background-color: #007bff;
     color: #fff;
@@ -114,9 +94,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
-
-
-
 
 .seccion-calculo h1 {
     color: #007bff;
