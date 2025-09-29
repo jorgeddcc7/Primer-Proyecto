@@ -235,6 +235,129 @@ button:hover {
     background: #fff; /* Color del fondo del track */
 }
 
+/* ===== CONTENEDOR GENERAL ===== */
+.packs-container {
+    background: linear-gradient(180deg, #eef4fe 0%, #446eb6 100%);
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin: 80px auto;
+    max-width: 1200px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== TÍTULO E INTRO ===== */
+.packs-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.packs-intro {
+    text-align: center;
+    font-size: 17px;
+    max-width: 850px;
+    margin: 0 auto 20px;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* ===== GRID DE PACKS ===== */
+.packs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* ===== TARJETAS ===== */
+.pack {
+    background: #ffffff;
+    padding: 35px 28px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 123, 255, 0.08);
+}
+
+.pack:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== CABECERA DEL PACK ===== */
+.pack h3 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.pack .precio {
+    color: #007bff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.pack-descripcion {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ===== LISTA ===== */
+.pack-lista {
+    list-style: none;
+    padding-left: 0;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.pack-lista li {
+    margin-bottom: 14px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.pack-lista li::before {
+    content: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #007bff;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* ===== BOTONES ===== */
+.boton-pack {
+    display: inline-block;
+    margin-top: auto;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 17px;
+    box-shadow: 0 6px 16px rgba(0, 91, 187, 0.2);
+}
+
+.boton-pack:hover {
+    background: linear-gradient(135deg, #0056b3, #004494);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 91, 187, 0.25);
+}
+
 @media (max-width: 1280px) {
     .link__distancia, .link__divisas {
         position: absolute;
@@ -302,99 +425,55 @@ button:hover {
     .container {
         margin-top: 115px;
     }
+    .packs-container {
+        grid-template-columns: 1fr; 
+        padding: 25px 15px;
+        margin: 40px auto;
+        border-radius: 12px;
+    }
+
+    .packs-title {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .packs-intro {
+        font-size: 15px;
+        margin-bottom: 25px;
+        padding: 0 10px;
+    }
+
+    .pack {
+        padding: 20px 18px;
+        border-radius: 12px;
+    }
+
+    .pack h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .pack .precio {
+        font-size: 18px;
+    }
+
+    .pack-descripcion {
+        font-size: 14px;
+    }
+
+    .pack-lista {
+        font-size: 13.5px;
+        line-height: 1.5;
+    }
+
+    .boton-pack {
+        width: 100%; 
+        font-size: 15px;
+        padding: 12px;
+    }
 }
 
-.packs-container {
-    background-color: #fff;
-    padding: 40px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    margin: 40px 0;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.packs-title {
-    text-align: center;
-    font-size: 26px;
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.packs-intro {
-    text-align: center;
-    font-size: 16px;
-    margin-bottom: 30px;
-    color: #444;
-    line-height: 1.5;
-}
-
-.pack {
-    background-color: #f9f9f9;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.pack h3 {
-    font-size: 20px;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-.pack .precio {
-    color: #007bff;
-    font-weight: bold;
-}
-
-.pack-descripcion {
-    margin-bottom: 15px;
-    color: #555;
-    font-size: 15px;
-}
-
-.pack-lista {
-    list-style: none;
-    padding-left: 0;
-    color: #333;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.pack-lista li {
-    margin-bottom: 12px;
-    padding-left: 24px;
-    position: relative;
-}
-
-.pack-lista li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.boton-pack {
-    display: inline-block;
-    margin-top: 20px;
-    background-color: #007bff;
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-    font-size: 16px;
-}
-
-.boton-pack:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
 
 /* AFILIADOS */
 .afiliados {
