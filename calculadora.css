@@ -338,7 +338,10 @@ button:hover {
 
 /* ===== BOTONES ===== */
 .boton-pack {
-    display: inline-block;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: auto;
     background: linear-gradient(135deg, #007bff, #0056b3);
     color: #fff;
@@ -356,6 +359,18 @@ button:hover {
     background: linear-gradient(135deg, #0056b3, #004494);
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 91, 187, 0.25);
+}
+
+.boton-ingles {
+    margin-top: 10px;
+    background: linear-gradient(135deg, #007bff, #0056b3); 
+    box-shadow: 0 6px 16px rgba(40, 167, 69, 0.2);
+}
+
+.boton-ingles:hover {
+    background: linear-gradient(135deg, #0056b3, #004494);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.25);
 }
 
 @media (max-width: 1280px) {
