@@ -240,7 +240,7 @@ button:hover {
     background: linear-gradient(180deg, #eef4fe 0%, #446eb6 100%);
     padding: 60px 40px;
     border-radius: 20px;
-    margin: 80px auto;
+    margin: 40px auto;
     max-width: 1200px;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
 }
