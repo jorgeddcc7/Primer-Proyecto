@@ -7,9 +7,17 @@ function calcularPrecio() {
     const aduanaImportacion = parseFloat(document.getElementById('aduana-importacion').value) || 0;
     const carga = parseFloat(document.getElementById('carga').value) || 0;
     const descarga = parseFloat(document.getElementById('descarga').value) || 0;
-    const impuestos = parseFloat(document.getElementById('impuestos').value) || 0;
+    const precioVenta = parseFloat(document.getElementById('precio-venta').value) || 0;
 
     const incotermIndex = parseInt(document.getElementById('incoterm-slider').value);
+
+    // Obtener divisa y símbolo
+    const divisaSeleccionada = document.getElementById('divisa').value;
+    const simbolos = {
+        EUR: '€',
+        USD: '$',
+    };
+    const simboloDivisa = simbolos[divisaSeleccionada];
 
     let precioTotal = precioBase;
 
@@ -33,9 +41,7 @@ function calcularPrecio() {
             precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion + carga;
             break;
         case 6: // DDP
-        const valorAduana = precioBase + transporteInternacional + seguro + aduanaImportacion;
-        const impuestosCalculados = valorAduana * (impuestos / 100);
-        precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion + aduanaImportacion + impuestosCalculados;
+            precioTotal += transporteLocal + transporteInternacional + descarga + aduanaExportacion + aduanaImportacion;
         break;
         case 7: // FOB
             precioTotal += transporteLocal + carga + aduanaExportacion;
@@ -53,7 +59,24 @@ function calcularPrecio() {
             break;
     }
 
-    document.getElementById('precio-final').textContent = `Precio final: ${precioTotal.toFixed(2)}€`;
+// Calcular rentabilidad
+    const rentabilidad = precioVenta - precioTotal;
+    const rentabilidadPorcentaje = precioTotal > 0 ? (rentabilidad / precioTotal) * 100 : 0;
+
+    // Mostrar precio final con divisa
+    document.getElementById('precio-final').textContent = `Precio final: ${precioTotal.toFixed(2)} ${simboloDivisa}`;
+
+    // Mostrar rentabilidad con divisa y color
+    const rentabilidadEl = document.getElementById('rentabilidad');
+    rentabilidadEl.textContent = `Rentabilidad para el exportador: ${rentabilidad.toFixed(2)} ${simboloDivisa} (${rentabilidadPorcentaje.toFixed(2)}%)`;
+
+    if (rentabilidad > 0) {
+        rentabilidadEl.style.color = 'green';
+    } else if (rentabilidad < 0) {
+        rentabilidadEl.style.color = 'red';
+    } else {
+        rentabilidadEl.style.color = 'gray';
+    }
 }
 
 function actualizarIncoterms() {
@@ -102,11 +125,10 @@ document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('keydown', moverAlSiguienteInput);
 });
 
-// Función para actualizar la divisa y los labels
 function actualizarDivisa() {
     const divisaSeleccionada = document.getElementById('divisa').value;
-    
-    // Definir los símbolos y nombres de las divisas
+
+    // Definir símbolos y nombres
     const simbolos = {
         EUR: '€',
         USD: '$',
@@ -120,10 +142,14 @@ function actualizarDivisa() {
     // Cambiar el símbolo en el precio final
     document.getElementById('precio-final').textContent = `Precio final: 0.00 ${simbolos[divisaSeleccionada]}`;
 
-    // Cambiar las etiquetas de los campos
+    // Cambiar el texto base de la rentabilidad
+    const rentabilidadEl = document.getElementById('rentabilidad');
+    rentabilidadEl.textContent = `Rentabilidad para el exportador: 0.00 ${simbolos[divisaSeleccionada]} (0.00%)`;
+    rentabilidadEl.style.color = 'gray';
+
+    // Cambiar todas las etiquetas que incluyan EUR o USD
     const labels = document.querySelectorAll('label');
     labels.forEach(label => {
-        // Si el label contiene "EUR" o "USD", actualizarlo
         if (label.textContent.includes('EUR')) {
             label.textContent = label.textContent.replace(/EUR/g, divisas[divisaSeleccionada]);
         } else if (label.textContent.includes('USD')) {
@@ -132,11 +158,12 @@ function actualizarDivisa() {
     });
 }
 
-// Evento para cuando se cambie la divisa
+// Ejecutar al cambiar divisa
 document.getElementById('divisa').addEventListener('change', actualizarDivisa);
 
-// Llamar a la función inicial para configurar la divisa seleccionada al principio
+// Ejecutar al cargar la página
 actualizarDivisa();
+
 
 document.getElementById("mostrar-todos").addEventListener("click", function() {
     var itemsOcultos = document.querySelectorAll(".glosario-oculto");
