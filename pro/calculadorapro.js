@@ -425,9 +425,11 @@ document.getElementById("modal-btn-action")?.addEventListener("click", async () 
     }
 });
 
-// 🔹 Detectar retorno de Stripe en /pro
-if (window.location.pathname === "/pro" && window.location.search.includes("success=true")) {
-    await actualizarEstadoPro();
-    alert("¡Felicidades! Ahora eres usuario PRO.");
-    window.history.replaceState({}, document.title, "/pro");
-}
+(async () => {
+    // Detectar retorno de Stripe en /pro
+    if (window.location.pathname === "/pro" && window.location.search.includes("success=true")) {
+        await actualizarEstadoPro();
+        alert("¡Felicidades! Ahora eres usuario PRO.");
+        window.history.replaceState({}, document.title, "/pro");
+    }
+})();
