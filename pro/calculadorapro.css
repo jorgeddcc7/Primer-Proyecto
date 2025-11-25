@@ -265,3 +265,36 @@ button:active {
     padding: 15px;
   }
 }
+
+/* MODAL */
+.modal-pro {
+    display: none; 
+    position: fixed; 
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-pro {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content-pro h2 {
+    color: #007bff;
+}
+
+.close-pro {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+

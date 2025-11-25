@@ -11,6 +11,22 @@
     <title>Calculadora de Incoterms PRO</title>
 </head>
 <body>
+    <div id="login-modal" class="modal-pro" style="display:block;">
+        <div class="modal-content-pro">
+            <h2 id="modal-title">Regístrate</h2>
+        
+            <input type="email" id="modal-email" placeholder="Email">
+            <input type="password" id="modal-password" placeholder="Contraseña">
+            <button id="modal-btn-action">Registrarse</button>
+        
+            <div id="modal-error" style="color:red; margin-top:5px;"></div>
+        
+            <p id="modal-toggle-text" style="margin-top:10px; font-size:0.9em; cursor:pointer; color:#007bff;">
+            ¿Ya tienes cuenta? Inicia sesión
+            </p>
+        </div>
+    </div>
+
     <div class="container2">
         <header>
             <h1>Calculadora de Incoterms</h1>
@@ -342,6 +358,26 @@
             <div id="resultado-comparacion" class="resumen-datos" style="margin-top: 20px; display:none;"></div>
         </div>
     </div>
+
+    <div id="modal-pro" class="modal-pro">
+        <div class="modal-content-pro">
+            <span class="close-pro" id="close-pro">&times;</span>
+            <h2>Calculadora PRO</h2>
+            <p>Ventajas de la versión PRO:</p>
+            <ul>
+                <li>Rellenar todos los campos y calcular sin limitaciones</li>
+                <li>Acceso a información avanzada</li>
+                <li>Soporte prioritario</li>
+            </ul>
+            <h3>Planes</h3>
+            <ul>
+                <li><a href="https://buy.stripe.com/aFacN7dwW3dqeif9VQfYY00" target="_blank">Plan Mensual</a></li>
+                <li><a href="https://buy.stripe.com/eVq28t64u4hufmj3xsfYY01" target="_blank">Plan Trimestral</a></li>
+                <li><a href="https://buy.stripe.com/9B6eVf64udS4ca7d82fYY02" target="_blank">Plan Anual</a></li>
+            </ul>
+        </div>
+    </div>
+
     <script src="ubicacionesTransporte.js"></script>
     <script src="acuerdos.js"></script>
     <script src="incotermslogic.js"></script>
