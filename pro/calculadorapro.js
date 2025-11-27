@@ -7,7 +7,8 @@ let estadoProActualizado = false;
 const token = localStorage.getItem("token");
 ;
 
-const API_BASE = window.location.origin;
+console.log(endpoint);
+const API_BASE = window.location.href;
 
 // 🔹 Función para actualizar estado PRO desde backend
 async function actualizarEstadoPro() {
@@ -391,7 +392,6 @@ document.getElementById("modal-toggle-text")?.addEventListener("click", () => {
     }
 });
 
-// 🔹 Acción principal registro/login
 document.getElementById("modal-btn-action")?.addEventListener("click", async () => {
     const email = document.getElementById("modal-email").value.trim();
     const password = document.getElementById("modal-password").value.trim();
@@ -403,17 +403,26 @@ document.getElementById("modal-btn-action")?.addEventListener("click", async () 
         return;
     }
 
-    const endpoint = modoActual === "registro" ? `${API_BASE}/api/register` : `${API_BASE}/api/login`;
+    // Elegir endpoint según modo
+    const endpoint = modoActual === "registro" ? "/api/register" : "/api/login";
 
     try {
         const res = await fetch(endpoint, {
-            method: "POST",
+            method: "POST",                // ✅ Método POST obligatorio
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
         });
 
+        if (!res.ok) {
+            errorBox.textContent = `Error del servidor: ${res.status}`;
+            return;
+        }
+
         const data = await res.json();
-        if (data.error) { errorBox.textContent = data.error; return; }
+        if (data.error) {
+            errorBox.textContent = data.error;
+            return;
+        }
 
         // Guardar token y actualizar estado PRO
         localStorage.setItem("token", data.token);
@@ -421,6 +430,7 @@ document.getElementById("modal-btn-action")?.addEventListener("click", async () 
         document.getElementById("login-modal").style.display = "none";
 
     } catch (err) {
+        console.error(err);
         errorBox.textContent = "Error al conectar con el servidor.";
     }
 });
