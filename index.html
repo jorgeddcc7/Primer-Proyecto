@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Calculadora de Incoterms" />
+    <meta property="og:description" content="Utiliza nuestra herramienta gratuita para calcular el precio final de tu envío según el Incoterm seleccionado. Incluye guía de Incoterms 2020 y responsabilidades del vendedor y comprador."/>
+    <meta name="description" content="Herramienta gratuita para calcular el precio final de tu envío según el Incoterm seleccionado. Incluye guía de Incoterms 2020 y responsabilidades del vendedor y comprador.">
+    <meta property="og:image" content="cap.png" />
+    <meta property="og:url" content="https://calculaincoterms.es" />
+    <meta name="keywords" content="incoterms, incoterms 2020, calculadora de incoterms, comercio internacional, costos de envío, exportación, importación, herramientas logísticas">
+    <meta name="author" content="Calcula Incoterms">
+    <meta name="robots" content="index, follow">
+    <title>Calculadora de Incoterms</title>
+    <link rel="stylesheet" href="calculadora.css">
+    <link rel="icon" href="favicon2.ico" type="image/ico">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775666300374227"
+    crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Calculadora de Incoterms 2020",
+            "url": "https://calculaincoterms.es",
+            "applicationCategory": ["BusinessApplication", "EducationalApplication"],
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        }
+        </script>   
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-9G78K6JBFB');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G78K6JBFB"></script>
+    <!-- Cookies -->
+    <div id="cookie-banner">
+        <div class="cookie-text">
+            <p>Este sitio utiliza cookies para mejorar tu experiencia, analizar el tráfico y personalizar contenidos. ¿Aceptas su uso?</p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="reject-cookies">Rechazar</button>
+            <button id="accept-cookies">Aceptar</button>
+        </div>
+    </div>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="container2">
+            <header>
+                <h1>Calculadora de Incoterms</h1>
+                <h2 class="hidden-title">Incoterm Calculator</h2>
+                <p>
+                    Utiliza esta herramienta para calcular los costos relacionados con diferentes términos de comercio internacional. 
+                    <a href="#tabla-incoterms">Incoterms</a>
+                </p>
+            </header>
+            <!-- Enlaces útiles -->
+            <a href="distancias.html" class="link__distancia" target="_blank">Estimador tiempo de entrega</a>
+            <a href="divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
+            <a href="docs.html" class="link__facturas" target="_blank">Generador de facturas</a>
+
+            <!-- Formulario de cálculo -->
+            <section id="formulario">
+                <h2>Datos para el cálculo</h2>
+                <p>Introduce los costes relacionados con tu envío y selecciona el Incoterm correspondiente para calcular el precio final.</p>
+                <div class="input-group">
+                    <label for="divisa">Selecciona la divisa:</label>
+                    <select id="divisa">
+                        <option value="EUR" selected>EUR (€)</option>
+                        <option value="USD">USD ($)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="precio-base">Precio en fábrica (EUR):</label>
+                    <input type="number" id="precio-base" placeholder="Ej. 500" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="transporte-local">Transporte local (EUR):</label>
+                    <input type="number" id="transporte-local" placeholder="Ej. 50">
+                </div>
+                <div class="input-group">
+                    <label for="seguro">Seguro (EUR):</label>
+                    <input type="number" id="seguro" placeholder="Ej. 20">
+                </div>
+                <div class="input-group">
+                    <label for="transporte-internacional">Transporte internacional (EUR):</label>
+                    <input type="number" id="transporte-internacional" placeholder="Ej. 100">
+                </div>
+                <div class="input-group">
+                    <label for="aduana-exportacion">Aduana de exportación (EUR):</label>
+                    <input type="number" id="aduana-exportacion" placeholder="Ej. 15">
+                </div>
+                <div class="input-group">
+                    <label for="aduana-importacion">Aduana de importación (EUR):</label>
+                    <input type="number" id="aduana-importacion" placeholder="Ej. 15">
+                </div>
+                <div class="input-group">
+                    <label for="carga">Carga (EUR):</label>
+                    <input type="number" id="carga" placeholder="Ej. 25">
+                </div>
+                <div class="input-group">
+                    <label for="descarga">Descarga (EUR):</label>
+                    <input type="number" id="descarga" placeholder="Ej. 25">
+                </div>
+                <div class="input-group">
+                    <label for="precio-venta">Precio de venta (EUR):</label>
+                    <input type="number" id="precio-venta" placeholder="Ej. 650" required>
+                </div>
+            </section>
+
+            <!-- Checkbox para transporte marítimo -->
+            <div class="checkbox-container">
+                <label for="es-marítimo">
+                    <input type="checkbox" id="es-marítimo"> Es transporte marítimo
+                </label>
+            </div>
+
+            <!-- Selector de Incoterms -->
+            <div class="incoterm-bar">
+                <label for="incoterm-slider">Selecciona el Incoterm:</label>
+                <input type="range" id="incoterm-slider" min="0" max="6" step="1" value="0">
+                <div class="incoterm-labels" id="incoterm-labels">
+                    <!-- Etiquetas generadas dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Botón de cálculo y resultado -->
+            <button id="calcular">Calcular</button>
+            <p id="precio-final">Precio final: €0.00</p>
+            <p id="rentabilidad" style="font-size: 1rem; margin-top: 4px; padding: 6px 10px; text-align: center; width: fit-content; margin-left: auto; margin-right: auto;">Rentabilidad para el exportador: 0.00€ (0.00%)</p>
+
+            <section class="packs-container">
+                <h2 class="packs-title">📦 Packs de Recursos para Comercio Internacional</h2>
+                <p class="packs-intro">
+                    Herramientas exclusivas creadas por nuestro equipo con experiencia real: contenido profesional, útil y único que no encontrarás en ningún otro sitio, diseñadas para ayudarte a tomar decisiones más seguras, rápidas y rentables en comercio internacional.
+                </p>            
+                <!-- Pack Básico -->
+                <div class="pack">
+                    <h3>🥇 Pack Básico – <span class="precio">5€</span></h3>
+                    <p class="pack-descripcion">
+                        Ideal para quienes están comenzando en el comercio internacional. Incluye recursos clave para dar tus primeros pasos con seguridad y claridad.
+                    </p>
+                    <ul class="pack-lista">
+                        <li><strong>✅ Checklist para elegir el Incoterm correcto (PDF):</strong> Guía rápida para acertar con el Incoterm adecuado según la operación.</li>
+                        <li><strong>✅ Plantilla de cotización internacional (Excel):</strong> Cotiza correctamente tus productos con desglose de precios e Incoterms.</li>
+                        <li><strong>✅ Guía completa de Incoterms 2020 (PDF):</strong> Explicación ilustrada y simplificada de los 11 Incoterms vigentes.</li>
+                    </ul>
+                    <a href="https://payhip.com/b/Vw82b" class="boton-pack" target="_blank">Comprar en Español</a>
+                    <a href="https://payhip.com/b/ycsap" class="boton-pack boton-ingles" target="_blank">Buy in English</a>
+                </div>
+            
+                <!-- Pack Profesional -->
+                <div class="pack">
+                    <h3>🚀 Pack Profesional – <span class="precio">10€</span></h3>
+                    <p class="pack-descripcion">
+                        Pensado para profesionales que ya tienen experiencia y buscan optimizar su operación internacional con herramientas más avanzadas.
+                    </p>
+                    <ul class="pack-lista">
+                        <li><strong>✅ Todo lo del Pack Básico</strong></li>
+                        <li><strong>✅ Plantilla de cálculo de costes logísticos (Excel):</strong> Organiza y calcula cada gasto de tu cadena logística.</li>
+                        <li><strong>✅ Simulador de márgenes por Incoterm (Excel con fórmulas):</strong> Calcula beneficios reales según el Incoterm usado.</li>
+                    </ul>
+                    <a href="https://payhip.com/b/mKip4" class="boton-pack" target="_blank">Comprar en Español</a>
+                    <a href="https://payhip.com/b/F4An3" class="boton-pack boton-ingles" target="_blank">Buy in English</a>
+                </div>
+            
+                <!-- Pack Completo -->
+                <div class="pack">
+                    <h3>🏆 Pack Avanzado – <span class="precio">15€</span></h3>
+                    <p class="pack-descripcion">
+                        El pack más completo y potente. Ideal para empresas, asesores o emprendedores que quieren dominar el comercio internacional con herramientas profesionales.
+                    </p>
+                    <ul class="pack-lista">
+                        <li><strong>✅ Todo lo del Pack Profesional</strong></li>
+                        <li><strong>✅ Modelo de contrato de compraventa internacional (Word editable):</strong> Base legal adaptable a tus operaciones reales.</li>
+                        <li><strong>✅ Checklist de documentación por Incoterm (PDF):</strong> Evita errores y retrasos con esta guía de documentos esenciales.</li>
+                        <li><strong>✅ Guía de métodos de pago internacionales y sus riesgos (PDF):</strong> Aprende a cobrar de forma segura según el país y el cliente.</li>
+                        <li><strong>✅ Plantilla de análisis de mercados internacionales (Excel):</strong> Detecta oportunidades de negocio por país o sector.</li>
+                        <li><strong>✅ Guía sobre cómo financiarse en import/export (PDF):</strong> Descubre opciones reales de financiamiento para tus operaciones.</li>
+                    </ul>
+                    <a href="https://payhip.com/b/lisHL" class="boton-pack" target="_blank">Comprar en Español</a>
+                    <a href="https://payhip.com/b/X0iNh" class="boton-pack boton-ingles" target="_blank">Buy in English</a>
+                </div>
+            </section>
+
+
+            <!-- Links afiliados -->
+            <section class="afiliados">
+                <h2>Herramienta clave para empresas y emprendedores en comercio internacional</h2>
+                <div class="info-producto-afiliado primero">
+                    <h3>📘 Comercio Internacional Sin Filtros – Guía práctica para emprendedores y profesionales</h3>
+                    <p>
+                        "Comercio Internacional Sin Filtros" es una guía directa y realista que te ayudará a entender cómo funciona realmente el comercio internacional. 
+                        Aprenderás a evitar errores costosos, negociar con proveedores con seguridad y usar los Incoterms en la práctica, sin complicaciones ni teorías vacías.
+                        Ideal para emprendedores, estudiantes y profesionales que buscan tomar decisiones acertadas y crecer sin sorpresas en sus operaciones internacionales.
+                    </p>
+                    <p>
+                        <strong>📖 Léelo ahora pinchando <a href="https://bit.ly/comerciointernacionalsinfiltros" target="_blank">aquí</a></strong>
+                    </p>
+                </div>
+                <a class="add-1 addst" href="https://bit.ly/comerciointernacionalsinfiltros" target="_blank">
+                    <img border="0" loading="lazy" src="/fotos/portada.webp" alt="Comercio Internacional Sin Filtros, ebook de comercio internacional">
+                </a>
+            </section>
+
+            <section id="tabla-incoterms">
+                <h2 class="incoterms-title">¿Qué son los Incoterms? - Guía Incoterms 2020</h2>
+                <p class="incoterms-intro">
+                Los Incoterms son términos internacionales que definen las responsabilidades de compradores y vendedores en el comercio internacional.
+                </p>
+                <p>A continuación, se muestran los diferentes Incoterms con sus significados y responsabilidades para el vendedor y el comprador:</p>
+                <table class="tabla-incoterms">
+                    <thead>
+                        <tr>
+                            <th>Incoterm</th>
+                            <th>Significado</th>
+                            <th>Responsabilidad del Vendedor</th>
+                            <th>Responsabilidad del Comprador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EXW</td>
+                            <td>Ex Works</td>
+                            <td>El vendedor entrega la mercancía en sus instalaciones. El comprador asume todos los costos y riesgos desde el origen.</td>
+                            <td>Asume transporte, seguro, aduanas de exportación e importación.</td>
+                        </tr>
+                        <tr>
+                            <td>FCA</td>
+                            <td>Free Carrier</td>
+                            <td>El vendedor entrega la mercancía al transportista designado por el comprador en un lugar acordado.</td>
+                            <td>Asume transporte principal, seguro, y costos adicionales desde el transportista.</td>
+                        </tr>
+                        <tr>
+                            <td>CPT</td>
+                            <td>Carriage Paid To</td>
+                            <td>El vendedor paga el transporte hasta un destino acordado, pero el riesgo se transfiere al comprador cuando se entrega al transportista.</td>
+                            <td>Asume riesgos y costos posteriores a la entrega al transportista.</td>
+                        </tr>
+                        <tr>
+                            <td>CIP</td>
+                            <td>Carriage and Insurance Paid To</td>
+                            <td>El vendedor paga transporte y seguro hasta el destino acordado.</td>
+                            <td>Asume riesgos desde el momento en que la mercancía se entrega al transportista.</td>
+                        </tr>
+                        <tr>
+                            <td>DAP</td>
+                            <td>Delivered at Place</td>
+                            <td>El vendedor entrega la mercancía en el lugar acordado, pero no incluye los costos de importación.</td>
+                            <td>Asume costos de aduana de importación.</td>
+                        </tr>
+                        <tr>
+                            <td>DPU</td>
+                            <td>Delivered at Place Unloaded</td>
+                            <td>El vendedor entrega la mercancía en el lugar acordado, descargada del medio de transporte, pero no incluye los costos de importación.</td>
+                            <td>Asume los costos de importación y descarga de la mercancía.</td>
+                        </tr>
+                        <tr>
+                            <td>DDP</td>
+                            <td>Delivered Duty Paid</td>
+                            <td>El vendedor asume todos los costos y riesgos hasta el destino final, incluyendo aranceles y aduanas.</td>
+                            <td>Solo debe recibir la mercancía.</td>
+                        </tr>
+                        <tr>
+                            <td>FOB</td>
+                            <td>Free on Board</td>
+                            <td>El vendedor asume costos y riesgos hasta que la mercancía esté a bordo del buque.</td>
+                            <td>Asume transporte marítimo, seguro y costos adicionales.</td>
+                        </tr>
+                        <tr>
+                            <td>FAS</td>
+                            <td>Free Alongside Ship</td>
+                            <td>El vendedor entrega la mercancía al costado del buque en el puerto de embarque acordado.</td>
+                            <td>Asume los costos de transporte marítimo y descarga, así como los riesgos desde el momento en que la mercancía está junto al buque.</td>
+                        </tr>
+                        <tr>
+                            <td>CFR</td>
+                            <td>Cost and Freight</td>
+                            <td>El vendedor paga transporte marítimo hasta el puerto de destino, pero no incluye seguro.</td>
+                            <td>Asume riesgos y costos desde el momento en que la mercancía está a bordo del buque.</td>
+                        </tr>
+                        <tr>
+                            <td>CIF</td>
+                            <td>Cost, Insurance and Freight</td>
+                            <td>El vendedor paga transporte y seguro marítimo hasta el puerto de destino.</td>
+                            <td>Asume costos adicionales y riesgos posteriores al transporte marítimo.</td>
+                        </tr>                    
+                    </tbody>
+                </table>
+            </section>
+        <!-- GLOSARIO -->
+        <div class="glosario-container">
+            <h2>Glosario de Términos</h2>
+            <table class="glosario-tabla">
+                <thead>
+                    <tr>
+                        <th>Término</th>
+                        <th>Definición</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aduanas</td>
+                        <td>Entidad que regula la importación y exportación de mercancías.</td>
+                    </tr>
+                    <tr>
+                        <td>Arancel</td>
+                        <td>Impuesto aplicado a la importación o exportación de productos.</td>
+                    </tr>
+                    <tr>
+                        <td>Bill of Lading (B/L)</td>
+                        <td>Documento que certifica el contrato de transporte y la propiedad de las mercancías.</td>
+                    </tr>
+                    <tr>
+                        <td>Cadena de Suministro</td>
+                        <td>Proceso completo de producción y distribución de productos.</td>
+                    </tr>
+                    <tr>
+                        <td>Certificado de Origen</td>
+                        <td>Documento que certifica el país de origen de los productos exportados.</td>
+                    </tr>
+                    <tr>
+                        <td>Dumping</td>
+                        <td>Venta de productos por debajo de su costo de producción en mercados extranjeros.</td>
+                    </tr>
+                    <tr>
+                        <td>Exportación</td>
+                        <td>Venta de productos o servicios a otro país.</td>
+                    </tr>
+                    <tr>
+                        <td>Importación</td>
+                        <td>Compra de productos o servicios de otro país.</td>
+                    </tr>
+                    <tr>
+                        <td>Mercado Internacional</td>
+                        <td>Mercado con compradores y vendedores de diferentes países.</td>
+                    </tr>
+                    <tr>
+                        <td>Tratado de Libre Comercio (TLC)</td>
+                        <td>Acuerdo entre países para facilitar el intercambio de bienes y servicios.</td>
+                    </tr>
+                    <!-- Términos ocultos -->
+                    <tr class="glosario-oculto">
+                        <td>Tarifa de Transporte</td>
+                        <td>Costo asociado con el envío de mercancías entre países.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Zonas Francas</td>
+                        <td>Áreas donde las mercancías se importan y exportan sin pagar aranceles.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Ad-Valorem</td>
+                        <td>Impuesto o arancel que se calcula sobre el valor de la mercancía.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Flete</td>
+                        <td>Costo asociado con el transporte de mercancías desde un punto a otro.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Factura Proforma</td>
+                        <td>Documento preliminar que detalla las condiciones de venta de las mercancías.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Consolidación de Carga</td>
+                        <td>Proceso de combinar cargas de varios remitentes en un solo envío.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Financiamiento Internacional</td>
+                        <td>Préstamos y créditos otorgados para financiar actividades internacionales.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Seguro de Carga</td>
+                        <td>Protección contra pérdidas o daños a las mercancías durante el transporte.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Zona de Libre Comercio</td>
+                        <td>Área geográfica donde los productos circulan sin restricciones arancelarias.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Regulación de Exportaciones</td>
+                        <td>Normas gubernamentales que controlan las exportaciones de productos sensibles.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Transporte Multimodal</td>
+                        <td>Transporte que utiliza dos o más modos de transporte para mover mercancías.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Freight Forwarder</td>
+                        <td>Empresa que organiza el transporte de mercancías en nombre de los exportadores o importadores.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Depósito Aduanero</td>
+                        <td>Almacenamiento temporal de mercancías en espera de su despacho aduanero.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Embarque</td>
+                        <td>Proceso de cargar mercancías en un medio de transporte para su envío.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Transbordo</td>
+                        <td>Transferencia de mercancías de un transporte a otro durante su ruta hacia el destino.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Mercado de Divisas</td>
+                        <td>Mercado donde se intercambian las monedas de diferentes países.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Comercio Electrónico</td>
+                        <td>Compra y venta de productos y servicios a través de plataformas digitales.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Desembolso</td>
+                        <td>Proceso de pago de un préstamo o crédito, generalmente a través de un banco.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Trading</td>
+                        <td>Actividad de comprar y vender productos en los mercados internacionales.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Deslocalización</td>
+                        <td>Traslado de la producción o de la industria a otro país donde los costos de fabricación son más bajos.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Nacionalización</td>
+                        <td>Proceso por el cual un gobierno toma control de empresas o recursos en manos de extranjeros.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Zona de Despacho Aduanero</td>
+                        <td>Área dentro de un puerto o aeropuerto donde las mercancías son inspeccionadas y liberadas por las autoridades aduaneras.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Certificado Fitosanitario</td>
+                        <td>Documento que certifica que los productos agrícolas cumplen con las normativas sanitarias para su importación en otro país.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Ajuste de Tarifas</td>
+                        <td>Modificación en los aranceles o impuestos aplicados a productos o servicios internacionales debido a cambios en la política económica.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Lead Time</td>
+                        <td>Tiempo que transcurre entre la realización de un pedido y la entrega final del producto al cliente.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Certificado Sanitario</td>
+                        <td>Documento que certifica que los productos de origen animal o vegetal cumplen con normas sanitarias internacionales.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Precio FOB</td>
+                        <td>Valor de una mercancía puesta a bordo en el puerto de origen, sin incluir seguros ni transporte hasta destino.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Paridad Cambiaria</td>
+                        <td>Relación entre dos monedas que determina cuántas unidades de una moneda se necesitan para obtener otra.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Arancel Específico</td>
+                        <td>Tipo de arancel basado en una cantidad física, como peso o volumen, en lugar del valor comercial del producto.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Preferencia Arancelaria</td>
+                        <td>Reducción o exoneración de aranceles concedida por un país a productos originarios de ciertos países o regiones.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>Balanza Comercial</td>
+                        <td>Diferencia entre el valor de las exportaciones y las importaciones de un país en un período determinado.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>DUA (Documento Único Administrativo)</td>
+                        <td>Formulario utilizado para declarar mercancías en operaciones de importación, exportación o tránsito aduanero.</td>
+                    </tr>
+                    <tr class="glosario-oculto">
+                        <td>OTM (Operador de Transporte Multimodal)</td>
+                        <td>Entidad que asume la responsabilidad del transporte de mercancías mediante más de un modo de transporte bajo un solo contrato.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Botón Mostrar más -->
+            <button id="mostrar-todos">Mostrar más</button>
+        </div>
+    </div>
+        <div class="sobre-nosotros">
+            <h3 class="titulo-sobrenosotros">SOBRE NOSOTROS</h3>
+            <p>En Calcula Incoterms, nuestro objetivo es ofrecer herramientas innovadoras y fáciles de usar para facilitar el comercio internacional. Desarrollamos soluciones como la Calculadora de Incoterms, que ayuda a calcular costos en función de los Incoterms seleccionados, el Estimador de Tiempos y Distancias, que optimiza el cálculo de tiempos de entrega según el medio de transporte, y el Conversor de Divisas, que permite gestionar las fluctuaciones del mercado.
+    
+            Nos dedicamos a ser una herramienta de apoyo integral para trabajadores del sector y estudiantes. Queremos que tanto los profesionales como los nuevos aprendices puedan tomar decisiones informadas y realizar sus tareas diarias de forma más eficiente, sin complicaciones.
+                
+            Nuestro compromiso es simplificar el complejo mundo del comercio internacional, brindando acceso a información precisa y actualizada, todo desde una plataforma accesible y fácil de usar. Creemos que el conocimiento debe ser accesible para todos, y trabajamos cada día para que así sea.
+            </p>
+            <p class="redes"> 
+                Síguenos:
+                <a href="https://www.facebook.com/profile.php?id=61572809314962" target="_blank">
+                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/900px-2023_Facebook_icon.svg.png" class="facebook" alt="logo de Facebook">
+                </a> 
+                <a href="https://www.linkedin.com/in/calcula-incoterms-87982234a/" target="_blank">
+                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png" class="linkedin" alt="logo de LinkedIn">
+                </a>
+            </p>
+        </div>
+        <section class="section-form">
+            <form action="https://formspree.io/f/mdkarkdg" method="POST" class="contact-form">
+                <h3>CONTACTO</h3>
+                <label>Nombre:</label>
+                <input type="text" name="nombre" required>
+            
+                <label>Correo:</label>
+                <input type="email" name="email" required>
+            
+                <label>Mensaje:</label>
+                <textarea name="mensaje" required></textarea>
+            
+                <button type="submit">Enviar</button>
+            </form>         
+        </section>    
+        <div class="footer-legal">
+            <a href="#" onclick="openModal('privacidad', event)">Política de Privacidad</a> |
+            <a href="#" onclick="openModal('cookies', event)">Política de Cookies</a> |
+            <a href="#" onclick="openModal('terminos', event)">Términos y Condiciones</a> |
+            <a href="#" onclick="openModal('preferencias', event)">Preferencias de Cookies</a>
+        </div>
+    </div>
+
+    <!-- MODALES -->
+    <div id="modal-privacidad" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacidad')">&times;</span>
+            <div class="modal-text">
+                <h2>Política de Privacidad</h2>
+
+                <p>En <strong>Calcula Incoterms</strong>, respetamos su privacidad y nos comprometemos a proteger sus datos personales. Esta política describe cómo recopilamos, usamos y protegemos la información que usted nos facilita al usar nuestro sitio web.</p>
+
+                <h3>Responsable del tratamiento de datos</h3>
+                <p>Nombre: Calcula Incoterms<br>
+                Email: calculaincoterms@gmail.com<br>
+                Ubicación: Madrid, España</p>
+                
+                <h3>Datos personales que recogemos</h3>
+                <ul>
+                    <li>Datos que usted nos proporciona directamente, por ejemplo, a través del formulario de contacto (nombre, correo electrónico, mensaje).</li>
+                    <li>Datos recogidos automáticamente mediante cookies y herramientas de análisis, como Google Analytics.</li>
+                </ul>
+
+                <h3>Finalidad del tratamiento</h3>
+                <ul>
+                    <li>Atender sus consultas y comunicaciones.</li>
+                    <li>Mejorar la experiencia y el funcionamiento del sitio web.</li>
+                    <li>Analizar el uso del sitio para optimizar contenidos y servicios.</li>
+                </ul>
+
+                <h3>Base legal para el tratamiento</h3>
+                <ul>
+                    <li>Consentimiento: para el envío de comunicaciones o cuando usted acepte las cookies.</li>
+                    <li>Interés legítimo: para mejorar el sitio web y analizar su uso.</li>
+                </ul>
+
+                <h3>Uso de cookies y tecnologías similares</h3>
+                <p>En <strong>Calcula Incoterms</strong> utilizamos cookies y otras tecnologías similares para mejorar su experiencia en nuestro sitio web, analizar el uso que se hace del mismo y personalizar contenidos. Algunas cookies son esenciales para el funcionamiento del sitio, mientras que otras nos permiten obtener información estadística mediante herramientas como Google Analytics.</p>
+                <p>Al acceder a nuestro sitio, usted puede aceptar o rechazar el uso de cookies a través de la configuración de su navegador o mediante el aviso de cookies que aparece en la página. Para más información sobre las cookies que utilizamos, puede consultar nuestra Política de Cookies.</p>
+
+                <h3>Transferencias internacionales de datos</h3>
+                <p>Al utilizar servicios como Google Analytics, sus datos pueden ser transferidos y almacenados en servidores ubicados fuera del Espacio Económico Europeo (EEE), en países que pueden no contar con un nivel de protección de datos equivalente al de la Unión Europea. En estos casos, nos aseguramos de que dichas transferencias se realicen conforme a lo establecido en la normativa vigente, adoptando las medidas adecuadas para garantizar la seguridad y confidencialidad de sus datos personales.</p>
+
+                <h3>Plazo de conservación de los datos</h3>
+                <p>Los datos proporcionados se conservarán mientras dure la relación y durante los años necesarios para cumplir con obligaciones legales.</p>
+
+                <h3>Destinatarios de los datos</h3>
+                <p>Los datos personales no se ceden a terceros, salvo obligación legal o proveedores autorizados como Google Analytics, que garantiza la protección de los datos conforme a sus políticas.</p>
+
+                <h3>Derechos de los usuarios</h3>
+                <ul>
+                    <li>Acceder, rectificar o suprimir sus datos personales.</li>
+                    <li>Limitar u oponerse al tratamiento de sus datos.</li>
+                    <li>Portabilidad de sus datos.</li>
+                    <li>Retirar el consentimiento en cualquier momento.</li>
+                    <li>Presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD).</li>
+                </ul>
+
+                <h3>Cómo ejercer sus derechos</h3>
+                <p>Puede ejercer sus derechos enviando un correo a <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a> con una copia de su DNI o documento equivalente.</p>
+
+                <h3>Medidas de seguridad</h3>
+                <p>Se adoptan medidas técnicas y organizativas para garantizar la seguridad de los datos personales y evitar su alteración, pérdida o acceso no autorizado.</p>
+
+                <h3>Modificaciones en la política</h3>
+                <p>Esta política puede actualizarse. Se recomienda revisarla periódicamente para estar informado de posibles cambios.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cookies" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cookies')">&times;</span>
+            <div class="modal-text">
+                <h2>Política de Cookies</h2>
+
+                <p>En <strong>Calcula Incoterms</strong> utilizamos cookies propias y de terceros para mejorar su experiencia como usuario, analizar el tráfico y personalizar contenidos y publicidad. A continuación, le informamos de qué son las cookies, qué tipos usamos, para qué sirven, y cómo puede gestionarlas o desactivarlas.</p>
+
+                <h3>¿Qué son las cookies?</h3>
+                <p>Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (ordenador, móvil, tableta) cuando visita un sitio web. Permiten que el sitio recuerde información sobre su visita, como sus preferencias o la sesión iniciada, y así mejorar su experiencia de navegación.</p>
+
+                <h3>Tipos de cookies que utilizamos</h3>
+                <ul>
+                    <li><strong>Cookies técnicas:</strong> Son necesarias para el funcionamiento básico del sitio web, como la navegación y acceso a áreas seguras. Sin estas cookies, algunos servicios no pueden funcionar correctamente.</li>
+                    <li><strong>Cookies de personalización:</strong> Permiten recordar sus elecciones para ofrecer una experiencia personalizada (por ejemplo, idioma o región).</li>
+                    <li><strong>Cookies de análisis:</strong> Recogen información sobre cómo los usuarios usan el sitio web, ayudándonos a mejorar su funcionamiento. Utilizamos Google Analytics para este fin.</li>
+                    <li><strong>Cookies publicitarias y de terceros:</strong> Se utilizan para mostrar anuncios relevantes para usted, basados en sus hábitos de navegación y preferencias.</li>
+                </ul>
+
+                <p><strong>Cookies estrictamente necesarias:</strong> Estas cookies son imprescindibles para que el sitio web funcione correctamente y no se pueden desactivar en nuestros sistemas. Sin ellas, no se pueden proporcionar servicios esenciales como la navegación segura o el acceso a áreas protegidas.</p>
+
+                <h3>Cookies propias y de terceros</h3>
+                <p>Las cookies propias son las que se envían al dispositivo del usuario desde un equipo o dominio gestionado por <strong>Calcula Incoterms</strong>. Las cookies de terceros son las que se envían desde un equipo o dominio no gestionado por nosotros, sino por otra entidad que trata los datos obtenidos mediante cookies.</p>
+
+                <h3>Cookies que utiliza esta web</h3>
+                <table border="1" cellpadding="5" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Finalidad</th>
+                            <th>Duración</th>
+                            <th>Proveedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>_ga</td>
+                            <td>Analítica</td>
+                            <td>Google Analytics: distinguir usuarios únicos.</td>
+                            <td>2 años</td>
+                            <td>Google LLC</td>
+                        </tr>
+                        <tr>
+                            <td>_gid</td>
+                            <td>Analítica</td>
+                            <td>Google Analytics: distinguir usuarios únicos.</td>
+                            <td>24 horas</td>
+                            <td>Google LLC</td>
+                        </tr>
+                        <tr>
+                            <td>_gat</td>
+                            <td>Analítica</td>
+                            <td>Google Analytics: limitar el porcentaje de solicitudes.</td>
+                            <td>1 minuto</td>
+                            <td>Google LLC</td>
+                        </tr>
+                        <!-- Añade aquí las cookies propias o de terceros que uses -->
+                    </tbody>
+                </table>
+
+                <h3>Cómo gestionar y desactivar las cookies</h3>
+                <p>Usted puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador que utiliza. A continuación, le facilitamos los enlaces a la configuración de los navegadores más comunes:</p>
+                <ul>
+                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+                    <li><a href="https://support.microsoft.com/es-es/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank" rel="noopener noreferrer">Internet Explorer</a></li>
+                    <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari (Mac)</a></li>
+                    <li><a href="https://support.microsoft.com/es-es/help/4027947/windows-delete-cookies" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+                </ul>
+                <p>Si decide bloquear o eliminar algunas cookies, es posible que algunas funciones de la web no estén disponibles o no funcionen correctamente, lo que podría afectar su experiencia de usuario.</p>
+
+                <h3>Consentimiento</h3>
+                <p>Cuando accede por primera vez a nuestro sitio web, se muestra un aviso de cookies para informarle y solicitar su consentimiento para la instalación de las mismas, salvo aquellas estrictamente necesarias para el funcionamiento del sitio.</p>
+                <p>Si desea retirar su consentimiento, puede hacerlo en cualquier momento mediante la configuración de su navegador o eliminando las cookies instaladas.</p>
+
+                <h3>Actualización de la política de cookies</h3>
+                <p>Podemos actualizar esta política para adaptarla a novedades legislativas o cambios en nuestras prácticas. Se recomienda revisarla periódicamente.</p>
+
+                <h3>Contacto</h3>
+                <p>Si tiene dudas o consultas sobre nuestra política de cookies, puede contactarnos en <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-terminos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('terminos')">&times;</span>
+            <div class="modal-text">
+                <h2>Términos y Condiciones</h2>
+
+                <p>Bienvenido a <strong>Calcula Incoterms</strong>. Antes de utilizar nuestro sitio web, por favor lea detenidamente estos Términos y Condiciones. Al acceder y usar este sitio, usted acepta quedar vinculado por estas condiciones en su totalidad. Si no está de acuerdo, le rogamos no utilizar este sitio web.</p>
+
+                <h3>1. Identificación del prestador</h3>
+                <p>El responsable del sitio web es <strong>Calcula Incoterms</strong>, con domicilio en Madrid, España. Puede contactarnos a través del correo electrónico <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>.</p>
+
+                <h3>2. Objeto</h3>
+                <p>Estos términos regulan el acceso y uso de los contenidos, productos y servicios que <strong>Calcula Incoterms</strong> ofrece a través de su sitio web.</p>
+
+                <h3>3. Propiedad intelectual e industrial</h3>
+                <p>Todos los contenidos del sitio web, incluyendo textos, imágenes, gráficos, logos, diseño, software y marcas son propiedad de <strong>Calcula Incoterms</strong> o de terceros que han autorizado su uso. Queda prohibida su reproducción, distribución, comunicación pública, transformación o cualquier uso no autorizado.</p>
+
+                <h3>4. Uso del sitio web</h3>
+                <ul>
+                    <li>El usuario se compromete a usar el sitio web de forma lícita, respetando la legislación vigente y los derechos de terceros.</li>
+                    <li>Queda prohibido el uso del sitio para actividades ilegales o que puedan dañar o inutilizar la página o sistemas asociados.</li>
+                    <li>El usuario no intentará acceder sin autorización a sistemas o áreas privadas.</li>
+                </ul>
+
+                <h3>5. Registro y acceso</h3>
+                <p>Para algunos servicios específicos, podrá ser necesario registrarse y crear una cuenta. El usuario se compromete a facilitar información veraz y mantener la confidencialidad de sus datos de acceso. Calcula Incoterms no se responsabiliza del uso indebido de las cuentas de usuario.</p>
+
+                <h3>6. Servicios ofrecidos</h3>
+                <p>El sitio web ofrece herramientas y contenido relacionado con Incoterms para facilitar cálculos y consultas. Estos servicios se ofrecen de forma gratuita salvo indicación contraria.</p>
+
+                <h3>7. Responsabilidad</h3>
+                <p><strong>Calcula Incoterms</strong> no será responsable de daños o perjuicios que puedan derivarse del uso incorrecto de la información o herramientas disponibles en el sitio. No garantizamos la disponibilidad continua y libre de errores del sitio ni la exactitud completa de los contenidos.</p>
+
+                <h3>8. Protección de datos y cookies</h3>
+                <p>El tratamiento de sus datos personales se realiza conforme a nuestra Política de Privacidad. Asimismo, puede consultar nuestra Política de Cookies para más detalles sobre el uso de tecnologías de seguimiento.</p>
+
+                <h3>9. Enlaces a terceros</h3>
+                <p>El sitio puede contener enlaces a páginas web de terceros. Calcula Incoterms no se responsabiliza del contenido, políticas de privacidad o prácticas de estos sitios externos.</p>
+
+                <h3>10. Modificaciones</h3>
+                <p>Nos reservamos el derecho a modificar en cualquier momento y sin previo aviso estos términos, así como los contenidos y servicios ofrecidos.</p>
+
+                <h3>11. Duración y terminación</h3>
+                <p>El acceso al sitio y servicios tiene una duración indefinida mientras no se suspenda por incumplimiento de estos términos o por decisión de Calcula Incoterms. Nos reservamos el derecho a limitar o cancelar el acceso a usuarios que incumplan las condiciones.</p>
+
+                <h3>12. Contenidos generados por usuarios</h3>
+                <p>Si el sitio permite la publicación de contenidos por parte de los usuarios, estos serán responsables de sus propios contenidos, comprometiéndose a no publicar material ilegal, ofensivo o que infrinja derechos de terceros. Calcula Incoterms se reserva el derecho a eliminar cualquier contenido que considere inapropiado.</p>
+
+                <h3>13. Procedimiento de reclamaciones</h3>
+                <p>Para cualquier reclamación o disputa relacionada con el uso del sitio web, puede contactarnos a través del correo <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>. Intentaremos resolver cualquier conflicto de forma amistosa.</p>
+
+                <h3>14. Seguridad</h3>
+                <p>Adoptamos medidas técnicas y organizativas para proteger la seguridad de los datos y sistemas, aunque no podemos garantizar la absoluta invulnerabilidad frente a accesos no autorizados.</p>
+
+                <h3>15. Legislación aplicable y jurisdicción</h3>
+                <p>Estos términos se rigen por la legislación española. Para cualquier controversia derivada de estos términos y condiciones, las partes se someten a la jurisdicción de los juzgados y tribunales de Madrid, salvo disposición legal en contrario.</p>
+
+                <h3>16. Contacto</h3>
+                <p>Si tiene preguntas o necesita más información, puede contactarnos en <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-preferencias" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('preferencias')">&times;</span>
+            <div class="modal-text">
+                <h2>Preferencias de Cookies</h2>
+                <p>Puede gestionar aquí qué tipos de cookies desea aceptar o rechazar.</p>
+            
+            <form id="cookie-preferences-form">
+                <label>
+                    <input type="checkbox" id="cookies-analiticas" checked>
+                    Cookies Analíticas (Google Analytics, etc.)
+                </label>
+            
+                <label>
+                    <input type="checkbox" id="cookies-marketing" checked>
+                    Cookies de Marketing y Publicidad
+                </label>
+            
+                <label>
+                    <input type="checkbox" id="cookies-necesarias" disabled checked>
+                    Cookies Necesarias (siempre activas)
+                </label>
+            
+                <div style="margin-top: 20px;" class="botones">
+                    <button type="button" onclick="savePreferences()">Guardar Preferencias</button>
+                    <button type="button" onclick="closeModal('preferencias')">Cancelar</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="calculadora.js"></script>
+</body>
+</html>

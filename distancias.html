@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimador tiempo de entrega</title>
+    <link rel="stylesheet" href="distancias.css">
+    <link rel="icon" href="favicon2.ico" type="image/ico">
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-9G78K6JBFB');
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G78K6JBFB"></script>
+        <!-- Cookies -->
+    <div id="cookie-banner">
+        <div class="cookie-text">
+            <p>Este sitio utiliza cookies para mejorar tu experiencia, analizar el tráfico y personalizar contenidos. ¿Aceptas su uso?</p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="reject-cookies">Rechazar</button>
+            <button id="accept-cookies">Aceptar</button>
+        </div>
+    </div>
+</head>
+<body>
+    <a href="index.html" class="link__calculadora" target="_blank">Calculadora de INCOTERMS</a>
+    <a href="divisas.html" class="link__divisas" target="_blank">Conversor de divisas</a>
+    <a href="docs.html" class="link__facturas" target="_blank">Generador de facturas</a>
+
+    <div class="page-container">
+        <!-- Contenido principal -->
+        <div id="tiempo-entrega" class="seccion-calculo">
+            <h1>Estimador de Tiempo de Entrega</h1>  
+            <section class="descripcion">
+                <h3>¿Cómo funciona?</h3>
+                <p>Esta herramienta te ayuda a calcular el tiempo estimado de entrega de productos entre diferentes países. Solo tienes que seleccionar el país de origen, el país de destino y el modo de transporte. ¡Así podrás planificar mejor tus envíos!</p>
+            </section>          
+            <table>
+                <tr>
+                    <td><label for="origen">País de origen:</label></td>
+                    <td>
+                        <select id="origen">
+                            <option value="Alemania">Alemania</option>
+                            <option value="Arabia Saudita">Arabia Saudita</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Bélgica">Bélgica</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Canadá">Canadá</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Corea del Sur">Corea del Sur</option>
+                            <option value="Dinamarca">Dinamarca</option>
+                            <option value="Egipto">Egipto</option>
+                            <option value="Emiratos Árabes Unidos">Emiratos Árabes Unidos</option>
+                            <option value="España">España</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Filipinas">Filipinas</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Irlanda">Irlanda</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italia">Italia</option>
+                            <option value="Japón">Japón</option>
+                            <option value="Kazajistán">Kazajistán</option>
+                            <option value="Malasia">Malasia</option>
+                            <option value="México">México</option>
+                            <option value="Noruega">Noruega</option>
+                            <option value="Nueva Zelanda">Nueva Zelanda</option>
+                            <option value="Países Bajos">Países Bajos</option>
+                            <option value="Perú">Perú</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Reino Unido">Reino Unido</option>
+                            <option value="Singapur">Singapur</option>
+                            <option value="Sudáfrica">Sudáfrica</option>
+                            <option value="Suecia">Suecia</option>
+                            <option value="Suiza">Suiza</option>
+                            <option value="Taiwán">Taiwán</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="destino">País de destino:</label></td>
+                    <td>
+                        <select id="destino">
+                            <option value="Alemania">Alemania</option>
+                            <option value="Arabia Saudita">Arabia Saudita</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Bélgica">Bélgica</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Canadá">Canadá</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Corea del Sur">Corea del Sur</option>
+                            <option value="Dinamarca">Dinamarca</option>
+                            <option value="Egipto">Egipto</option>
+                            <option value="Emiratos Árabes Unidos">Emiratos Árabes Unidos</option>
+                            <option value="España">España</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Filipinas">Filipinas</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Irlanda">Irlanda</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italia">Italia</option>
+                            <option value="Japón">Japón</option>
+                            <option value="Kazajistán">Kazajistán</option>
+                            <option value="Malasia">Malasia</option>
+                            <option value="México">México</option>
+                            <option value="Noruega">Noruega</option>
+                            <option value="Nueva Zelanda">Nueva Zelanda</option>
+                            <option value="Países Bajos">Países Bajos</option>
+                            <option value="Perú">Perú</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Reino Unido">Reino Unido</option>
+                            <option value="Singapur">Singapur</option>
+                            <option value="Sudáfrica">Sudáfrica</option>
+                            <option value="Suecia">Suecia</option>
+                            <option value="Suiza">Suiza</option>
+                            <option value="Taiwán">Taiwán</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="transporte">Modo de transporte:</label></td>
+                    <td>
+                        <select id="transporte">
+                            <option value="terrestre">Terrestre</option>
+                            <option value="maritimo">Marítimo</option>
+                            <option value="aereo">Aéreo</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button id="calcular-tiempo" class="boton-calcular">Calcular</button>
+            <p id="resultado-tiempo"></p>
+        </div>
+    </div>
+
+    <section id="recursos-utiles" class="contenedor-recursos">
+        <h2>📚 Recursos Útiles</h2>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/14.webp');"></div>
+            <h3>📘 El manual definitivo para dominar el comercio internacional</h3>
+            <p>¿Cansado de la teoría inútil? Descubre un libro directo, sin rodeos, que te muestra cómo funciona el comercio internacional en el mundo real.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(15)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-15">
+                <p><strong>“Comercio Internacional Sin Filtros” es una guía práctica y sin adornos para entender y aplicar las reglas reales del comercio global.</strong> Escrito para profesionales, emprendedores y estudiantes que quieren dejar de perder tiempo con teoría irrelevante y enfrentarse al comercio tal como es.</p>
+            
+                <h3>🔍 ¿Qué hace único a este libro?</h3>
+                <ul>
+                    <li><strong>100% aplicable:</strong> Nada de teoría abstracta. Casos reales, consejos directos y ejemplos que puedes usar hoy mismo.</li>
+                    <li><strong>Lenguaje claro y sin tecnicismos:</strong> Perfecto para quienes quieren aprender rápido sin perderse entre jerga legal.</li>
+                    <li><strong>Incluye errores comunes y cómo evitarlos:</strong> Desde Incoterms hasta aduanas, lo que nadie te dice y necesitas saber.</li>
+                    <li><strong>Accesible desde cualquier parte:</strong> Disponible en versión digital para que lo tengas siempre a mano.</li>
+                </ul>
+            
+                <div style="background-color: #fff4e5; padding: 15px; margin: 30px 0; border-left: 4px solid #e67e22;">
+                    <h3 style="margin-top: 0;">💡 Recomendación directa</h3>
+                    <p>Si estás empezando en comercio internacional o ya operas y quieres mejorar, <strong>este libro es tu mejor inversión</strong>. Te ahorrará errores costosos y te dará una ventaja real frente a tu competencia.</p>
+                </div>
+            
+                <h3>📎 ¿Dónde conseguirlo?</h3>
+                <p>Haz clic aquí para acceder al libro: <a href="https://bit.ly/comerciointernacionalsinfiltros" target="_blank">Comercio Internacional Sin Filtros</a></p>
+            
+                <h3>✅ Conclusión</h3>
+                <p>No es un libro más. Es una herramienta para profesionales reales. <strong>Haz que el comercio internacional deje de ser una teoría y pase a ser tu ventaja competitiva.</strong></p>
+            </div>
+        </div>
+
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/5.webp');"></div>
+            <h3>📦 ¿Qué son los INCOTERMS?</h3>
+            <p>Conoce los términos que definen responsabilidades, costos y riesgos entre comprador y vendedor en el comercio internacional.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(5)">Leer más →</button>
+        
+            <div class="articulo-completo" id="articulo-5">
+            <h2>¿Qué son los INCOTERMS?</h2>
+            <p>Los <strong>INCOTERMS</strong> (International Commercial Terms) son un conjunto de reglas publicadas por la Cámara de Comercio Internacional (CCI) que determinan quién paga qué en una transacción internacional.</p>
+        
+            <h3>¿Por qué son importantes?</h3>
+            <p>Definen con claridad la responsabilidad sobre:</p>
+            <ul>
+                <li>El transporte</li>
+                <li>Los seguros</li>
+                <li>La entrega</li>
+                <li>Los trámites aduaneros</li>
+            </ul>
+        
+            <h3>Ejemplo simple:</h3>
+            <p>En un envío con el término <strong>FOB (Free On Board)</strong>, el vendedor cubre los costos hasta que la mercancía sube al barco. A partir de ahí, el comprador asume los riesgos.</p>
+        
+            <p>Conocer los INCOTERMS te permite negociar mejor y evitar costos ocultos. Revisa siempre el término antes de cerrar una compra internacional.</p>
+        
+            <p>🔍 Usa nuestra <a href="index.html" target="_blank">Calculadora de INCOTERMS</a> para elegir el mejor según tu operación.</p>
+            </div>
+        </div>
+
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/10.webp');"></div>
+            <h3>🚢 El Incoterm más usado del mundo (y por qué todos lo eligen)</h3>
+            <p>Descubre cuál es el Incoterm rey del comercio internacional y cómo puede beneficiarte en tus operaciones.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(11)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-11">
+                <p><strong>FOB – Free On Board</strong> es el Incoterm más utilizado del comercio internacional. A pesar de existir 11 términos diferentes, FOB representa más del 50% de las operaciones marítimas.</p>
+            
+                <div style="background-color: #f3f3f3; padding: 15px; margin: 20px 0; border-left: 4px solid #2c3e50;">
+                    <h3 style="margin-top: 0;">📌 ¿Qué significa FOB?</h3>
+                    <p>El vendedor entrega la mercancía a bordo del buque en el puerto de origen. A partir de ahí, el comprador asume todos los costos y riesgos: flete, seguro, descarga, despacho en destino, etc.</p>
+                    <p><strong>Uso exclusivo:</strong> solo es válido para transporte marítimo o fluvial.</p>
+                </div>
+            
+                <h3>🔍 Ventajas del Incoterm FOB</h3>
+                <ul>
+                    <li><strong>Transparencia:</strong> Está claro hasta dónde llega la responsabilidad del vendedor.</li>
+                    <li><strong>Control logístico para el comprador:</strong> Puede elegir la naviera y negociar mejores tarifas.</li>
+                    <li><strong>Costes predecibles:</strong> El exportador sabe exactamente hasta dónde debe pagar.</li>
+                    <li><strong>Amplia aceptación:</strong> FOB es reconocido por la mayoría de las aduanas y bancos internacionales.</li>
+                </ul>
+            
+                <h3>🌐 ¿Dónde se usa más FOB?</h3>
+                <p>Es especialmente común en el comercio entre:</p>
+                <ul>
+                    <li>🇨🇳 China ↔ Estados Unidos</li>
+                    <li>🇪🇸 España ↔ América Latina</li>
+                    <li>🇩🇪 Europa ↔ Asia</li>
+                </ul>
+                <p>Muchas empresas chinas, por ejemplo, cotizan siempre bajo FOB para evitar involucrarse en el transporte internacional, lo que simplifica su operativa.</p>
+            
+                <div style="background-color: #f9f9f9; padding: 15px; margin: 30px 0; border-left: 4px solid #2980b9;">
+                    <h3 style="margin-top: 0;">🧭 Ejemplo práctico</h3>
+                    <p>Una empresa mexicana importa maquinaria desde Alemania bajo Incoterm FOB Hamburgo. El proveedor se encarga de fabricar y entregar la carga a bordo del buque. Todo lo demás (transporte marítimo, aduanas en México, seguros) lo gestiona el importador.</p>
+                </div>
+            
+                <h3>⚠️ ¿Cuándo no usar FOB?</h3>
+                <ul>
+                    <li>🚚 Si el transporte principal no es marítimo (usa <strong>FCA</strong> o <strong>CIP</strong>).</li>
+                    <li>❌ Si eres un comprador novato sin experiencia en transporte internacional.</li>
+                    <li>🤝 Si deseas que el proveedor se encargue del flete hasta tu país (usa <strong>CFR</strong> o <strong>CIF</strong>).</li>
+                </ul>
+            
+                <h3>📖 Consejo final</h3>
+                <p>FOB es un estándar mundial, pero recuerda: <strong>el Incoterm correcto no es el más popular, sino el que mejor se adapta a tu operación.</strong></p>
+                <p>Consulta siempre con tu agente de aduanas o asesor de comercio exterior para elegir el término que más te beneficie según el país, producto, medio de transporte y tipo de contrato.</p>
+            </div>
+        </div>
+
+        
+        <!-- Artículo: ¿Qué es una zona franca? -->
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/6.webp');"></div>
+            <h3>¿Qué es una zona franca?</h3>
+            <p>Descubre qué son las zonas francas, cómo funcionan y sus beneficios para importadores y exportadores.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(6)">Leer más</button>
+            <div class="articulo-completo" id="articulo-6">
+                <p><strong>Una zona franca</strong> es un área geográfica delimitada dentro de un país donde se aplican beneficios fiscales, aduaneros y logísticos especiales para fomentar el comercio internacional y la inversión extranjera. Generalmente, estas zonas están localizadas cerca de puertos o aeropuertos, lo que facilita el transporte y la distribución de mercancías.</p>
+            
+                <h3>Ventajas de las zonas francas:</h3>
+                <ul>
+                    <li>Exención de aranceles e impuestos de importación.</li>
+                    <li>Reducción o eliminación del IVA.</li>
+                    <li>Procesos aduaneros simplificados.</li>
+                    <li>Infraestructura especializada para operaciones logísticas e industriales.</li>
+                    <li>Facilidad para reexportar productos sin impuestos adicionales.</li>
+                </ul>
+            
+                <p>Estas zonas son ideales para empresas que ensamblan, manufacturan o almacenan productos antes de reexportarlos o distribuirlos en el mercado local. El atractivo de las zonas francas radica en su capacidad para reducir significativamente los costos operativos y aumentar la competitividad de las empresas en el mercado internacional.</p>
+
+                <h3>Tipos de zonas francas:</h3>
+                <p>Existen varios tipos de zonas francas según la actividad que se realice en ellas. Algunas de las más comunes son:</p>
+                <ul>
+                    <li><strong>Zonas Francas de Producción:</strong> Estas zonas están diseñadas para empresas que ensamblan o fabrican productos. La exención de aranceles e impuestos facilita el proceso de importación de materias primas y la exportación de productos manufacturados.</li>
+                    <li><strong>Zonas Francas de Almacenamiento:</strong> En estas zonas, las mercancías se almacenan sin necesidad de pagar aranceles e impuestos hasta que se reexporten o ingresen al mercado local.</li>
+                    <li><strong>Zonas Francas de Distribución:</strong> Estas zonas se centran en la distribución de productos en mercados locales e internacionales, ofreciendo una ubicación estratégica para la logística y la distribución.</li>
+                </ul>
+            
+                <p>Si estás pensando en expandir tu negocio internacionalmente, las zonas francas son una excelente opción para reducir costos operativos, aprovechar incentivos fiscales y facilitar el comercio global.</p>
+            </div>
+        </div>
+
+
+        <!-- Artículo: Cómo encontrar proveedores en China -->
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/7.webp');"></div>
+            <h3>Cómo encontrar proveedores en China</h3>
+            <p>Guía práctica para encontrar proveedores confiables y hacer negocios seguros con China.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(7)">Leer más</button>
+            <div class="articulo-completo" id="articulo-7">
+                <p>Encontrar proveedores en China puede ser fácil si sigues un proceso confiable. China es uno de los mayores exportadores del mundo y es probable que encuentres fabricantes que ofrezcan productos de alta calidad a precios competitivos. Sin embargo, debido a la gran cantidad de opciones, es importante seguir un proceso organizado para seleccionar a los proveedores adecuados.</p>
+            
+                <h3>Pasos para encontrar proveedores chinos:</h3>
+                <ul>
+                    <li>Usa plataformas como <strong>Alibaba, Made-in-China, 1688.com</strong>, que son ampliamente utilizadas para conectar compradores con proveedores chinos.</li>
+                    <li>Verifica certificados, registros y años de operación. Los proveedores confiables suelen tener certificaciones internacionales que aseguran la calidad de sus productos.</li>
+                    <li>Solicita muestras para evaluar la calidad del producto. Es fundamental asegurarse de que los productos cumplan con tus expectativas y estándares de calidad.</li>
+                    <li>Consulta referencias y opiniones de otros compradores. Plataformas como Alibaba permiten ver las calificaciones y comentarios de otros clientes que han trabajado con el proveedor.</li>
+                    <li>Utiliza contratos de compra con condiciones claras. Asegúrate de establecer todos los términos y condiciones por escrito, incluyendo los precios, los plazos de entrega y las políticas de devolución.</li>
+                </ul>
+            
+                <p>Además, asegúrate de contar con un abogado que revise los contratos antes de firmarlos, ya que las diferencias legales y culturales entre China y otros países pueden llevar a malentendidos. Es recomendable tener una estrategia de pago segura, como el uso de cartas de crédito o plataformas de pago como <strong>PayPal</strong>.</p>
+
+                <h3>Consejos adicionales para negociar con proveedores chinos:</h3>
+                <ul>
+                    <li><strong>Comunicación clara:</strong> La barrera del idioma puede ser un obstáculo, por lo que es importante que las expectativas estén claramente definidas en ambos lados. Utiliza traductores si es necesario.</li>
+                    <li><strong>Visita a la fábrica:</strong> Si es posible, organiza una visita a las fábricas o instalaciones del proveedor para inspeccionar la calidad de la producción y las condiciones laborales.</li>
+                    <li><strong>Negociación:</strong> Los proveedores chinos suelen estar abiertos a la negociación. Puedes obtener mejores precios si compras en grandes cantidades o si estableces una relación a largo plazo.</li>
+                </ul>
+
+                <p>Trabajar con proveedores en China puede ser una excelente oportunidad para tu negocio, pero es crucial hacer una investigación exhaustiva y seguir estos pasos para minimizar los riesgos. Si lo haces correctamente, puedes obtener productos de alta calidad a precios competitivos y fortalecer tu cadena de suministro internacional.</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/8.webp');"></div>
+            <h3>📦 ¿Qué es el arancel y cómo se calcula?</h3>
+            <p>Un cálculo incorrecto del arancel puede afectar tus costos y márgenes. Aprende a dominar este aspecto clave del comercio exterior.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(8)">Leer más →</button>
+        
+            <div class="articulo-completo" id="articulo-8">
+                <p><strong>Ignorar el arancel es uno de los errores más comunes al importar productos.</strong> Muchas empresas subestiman su impacto en los costos finales, y esto puede hacer que una operación aparentemente rentable termine en pérdidas.</p>
+        
+                <p>El <strong>arancel</strong> es un impuesto que se aplica a los bienes que ingresan o salen de un país. Sirve para proteger la producción nacional, generar ingresos para el Estado y regular el comercio exterior. Existen varios tipos, como los <em>ad valorem</em> (basados en un porcentaje del valor de la mercancía) o los <em>específicos</em> (calculados según cantidad o peso).</p>
+        
+                <p>Calcularlo es más simple de lo que parece. Por ejemplo, si importas mercancía valorada en $10,000 y el arancel aplicable es del 8%, pagarías $800. Sin embargo, hay que tener en cuenta otros factores como el tipo de producto, el país de origen, tratados internacionales y regulaciones vigentes.</p>
+        
+                <p><strong>Conocer bien el arancel y cómo se aplica puede ayudarte a planificar mejor, evitar sorpresas y mantener tus operaciones rentables.</strong> Ya sea que importes ropa, maquinaria o tecnología, dominar este concepto es esencial si trabajas en comercio internacional.</p>
+        
+                <p><strong>Evita gastos innecesarios y mantén el control total de tus importaciones.</strong></p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/9.webp');"></div>
+            <h3>🌍 ¿Qué es el comercio exterior y por qué es clave para tu negocio?</h3>
+            <p>Exportar o importar no es solo para grandes empresas. Descubre cómo el comercio exterior puede ser una puerta al crecimiento de tu negocio.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(9)">Leer más →</button>
+        
+            <div class="articulo-completo" id="articulo-9">
+                <p><strong>El comercio exterior es el intercambio de bienes y servicios entre países.</strong> Hoy en día, no es solo una ventaja competitiva: es una necesidad para empresas que quieren crecer, diversificarse o reducir costos.</p>
+            
+                <h3>📈 ¿Por qué es tan importante?</h3>
+                <ul>
+                    <li><strong>Acceso a nuevos mercados:</strong> Puedes vender tus productos o servicios a millones de consumidores en otros países.</li>
+                    <li><strong>Reducción de costes:</strong> Importar materias primas o productos terminados a menor precio puede aumentar tu margen de beneficio.</li>
+                    <li><strong>Diversificación:</strong> No depender exclusivamente del mercado local reduce riesgos económicos o políticos.</li>
+                </ul>
+            
+                <p>Un ejemplo: Si vendes calzado, podrías importar materia prima de Asia, manufacturar en Latinoamérica y exportar a Europa. Esto no solo reduce costes, también diversifica ingresos y fortalece tu cadena de suministro.</p>
+            
+                <h3>⚖️ ¿Qué necesitas tener en cuenta?</h3>
+                <p>Entrar en comercio exterior implica gestionar ciertos aspectos clave:</p>
+                <ul>
+                    <li><strong>Regulaciones aduaneras:</strong> Cada país tiene normas específicas que debes cumplir.</li>
+                    <li><strong>Tratados comerciales:</strong> Acuerdos como el TLC o la UE-Mercosur pueden ayudarte a pagar menos aranceles.</li>
+                    <li><strong>Documentación:</strong> Factura comercial, certificado de origen, BL/AWB, lista de empaque… ¡Todo debe estar en regla!</li>
+                    <li><strong>Incoterms:</strong> Definen quién paga el transporte, seguros y aduanas. Usarlos bien evita disputas.</li>
+                </ul>
+            
+                <h3>📊 Tendencias del comercio exterior en 2025</h3>
+                <p>La digitalización está transformando el sector. Según <a href="https://surecomp.com/es/blog/principales-tendencias-del-comercio-exterior-a-observar-en-2024/" target="_blank" rel="noopener">Surecomp</a>, las principales tendencias este año son:</p>
+                <ul>
+                    <li><strong>Automatización:</strong> Plataformas digitales que optimizan procesos aduaneros y de financiación.</li>
+                    <li><strong>IA y big data:</strong> Para analizar riesgos logísticos y tendencias de consumo.</li>
+                    <li><strong>Ciberseguridad:</strong> Proteger datos y contratos digitales es ahora una prioridad.</li>
+                    <li><strong>Sostenibilidad:</strong> Las exportaciones con menor huella de carbono ganan ventaja competitiva.</li>
+                </ul>
+            
+                <h3>🚀 ¿Cómo empezar?</h3>
+                <p>No necesitas una gran empresa para comenzar en el comercio exterior. Sigue estos pasos iniciales:</p>
+                <ol>
+                    <li>Elige un producto competitivo.</li>
+                    <li>Investiga el mercado destino (competencia, normativa, demanda).</li>
+                    <li>Calcula costos logísticos y tributarios.</li>
+                    <li>Identifica socios logísticos o agentes de aduana.</li>
+                    <li>Negocia bien tus Incoterms y contratos.</li>
+                </ol>
+            
+                <h3>✅ Conclusión</h3>
+                <p><strong>El comercio exterior no es solo para gigantes.</strong> Hoy existen herramientas, asesorías y plataformas que facilitan exportar o importar incluso desde una pyme. Planifica bien, edúcate en los conceptos clave y da el paso hacia la internacionalización de tu negocio.</p>
+            
+                <p><strong>Ampliar tu frontera comercial es más fácil de lo que piensas.</strong> ¿Estás listo para llevar tu negocio al mundo?</p>
+            </div>
+        </div>
+
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/11.webp');"></div>
+            <h3>❌ Los 5 errores más comunes al usar Incoterms</h3>
+            <p>Muchos contratos internacionales fallan por mal uso de Incoterms. Evita errores típicos que pueden costarte miles de euros.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(10)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-10">
+                <p><strong>Los Incoterms son una herramienta esencial en el comercio internacional.</strong> Pero mal utilizados, pueden generar conflictos legales, retrasos y costes imprevistos.</p>
+            
+                <h3>🚨 Errores frecuentes (y peligrosos)</h3>
+                <ul>
+                    <li><strong>Usar FOB con transporte no marítimo:</strong> FOB solo aplica a transporte marítimo. Para camiones o aviones, usa FCA o CIP.</li>
+                    <li><strong>Asumir que el Incoterm cubre todo:</strong> No regula el pago, ni la propiedad, ni plazos de entrega. Solo riesgos y costes.</li>
+                    <li><strong>No indicar puerto o lugar:</strong> “CIF” a secas no es válido. Debes poner “CIF Valencia” o el destino concreto.</li>
+                    <li><strong>Elegir DDP sin conocer normativas locales:</strong> El vendedor puede asumir impuestos y trámites en destino que desconoce.</li>
+                    <li><strong>Combinar Incoterms con cláusulas contradictorias:</strong> Por ejemplo, decir EXW pero que el vendedor pague transporte.</li>
+                </ul>
+            
+                <div style="background-color: #fff4e5; padding: 15px; margin: 30px 0; border-left: 4px solid #e67e22;">
+                    <h3 style="margin-top: 0;">🛠 Recomendación práctica</h3>
+                    <p>Consulta con un asesor o agente de aduanas antes de cerrar un contrato internacional. Los pequeños detalles en los Incoterms pueden marcar la diferencia entre una operación fluida y un problema legal costoso.</p>
+                </div>
+            
+                <h3>✅ Conclusión</h3>
+                <p>Evitar estos errores mejora tu profesionalismo y minimiza riesgos. <strong>Los Incoterms bien aplicados te dan ventaja en cada negociación.</strong></p>
+            </div>
+        </div>
+
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/12.webp');"></div>
+            <h3>🌍 Los países con los que más comercia España (exportación e importación)</h3>
+            <p>¿A qué países vende más España? ¿De dónde importa sus productos clave? Descúbrelo con datos claros y actualizados.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(13)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-13">
+                <p><strong>España es una potencia comercial dentro de la Unión Europea.</strong> Su economía se apoya en exportaciones como vehículos, productos químicos, alimentos y maquinaria. También importa gran cantidad de energía, componentes industriales y bienes de consumo.</p>
+            
+                <h3>📦 Principales destinos de exportación de España</h3>
+                <p>Los países a los que más exporta España están en Europa, pero también destacan algunos mercados clave en América y Asia.</p>
+            
+                <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead style="background-color: #2c3e50; color: white;">
+                        <tr>
+                            <th style="padding: 10px; border: 1px solid #ddd;">País</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">% del total exportado</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Productos clave</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇫🇷 Francia</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">15%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Vehículos, maquinaria, alimentos</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇩🇪 Alemania</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">10%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Componentes, químicos, ropa</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇮🇹 Italia</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">8%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Alimentos, automoción, bienes de consumo</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇵🇹 Portugal</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">7%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Textiles, combustibles, alimentación</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇬🇧 Reino Unido</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">6%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Frutas, hortalizas, automoción</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <h3>📥 Principales países de importación hacia España</h3>
+                <p>España depende de otros países para energía, tecnología y bienes intermedios para su industria.</p>
+            
+                <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead style="background-color: #34495e; color: white;">
+                        <tr>
+                            <th style="padding: 10px; border: 1px solid #ddd;">País</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">% del total importado</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Productos clave</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇨🇳 China</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">12%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Tecnología, textiles, maquinaria</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇩🇪 Alemania</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">11%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Vehículos, componentes, bienes industriales</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇫🇷 Francia</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">9%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Alimentos, cosmética, tecnología</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇺🇸 Estados Unidos</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">6%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Tecnología, medicamentos, aeronáutica</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">🇳🇬 Nigeria</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">5%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Petróleo y gas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <h3>📊 Conclusión</h3>
+                <p>España es un país abierto al comercio internacional. <strong>Elegir el Incoterm correcto según el destino o país de origen es clave</strong> para reducir costes logísticos y riesgos.</p>
+                <p>¿Exportas a alguno de estos países? <strong>Consulta qué Incoterm se usa más en ese mercado</strong> para negociar mejor.</p>
+            </div>
+        </div>
+
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/13.webp');"></div>
+            <h3>Grado Superior en Comercio Internacional – Formación y salidas laborales</h3>
+            <p>Descubre en qué consiste el Grado Superior en Comercio Internacional, una formación clave para lanzarte al mundo del comercio global.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(14)">Leer más →</button>
+        
+            <div class="articulo-completo" id="articulo-14">
+                <p>El <strong>Grado Superior en Comercio Internacional</strong> es una titulación oficial de Formación Profesional que prepara a los estudiantes para planificar, gestionar y ejecutar operaciones de compraventa de bienes y servicios a nivel internacional.</p>
+            
+                <h3>¿En qué consiste esta formación?</h3>
+                <p>Este ciclo formativo de 2 años incluye materias relacionadas con logística, financiación internacional, marketing, negociación y gestión administrativa de operaciones internacionales.</p>
+            
+                <ul>
+                    <li>Gestión económica y financiera de la empresa</li>
+                    <li>Transporte internacional de mercancías</li>
+                    <li>Marketing internacional y comercio digital</li>
+                    <li>Negociación y financiación internacional</li>
+                    <li>Medios de pago y aduanas</li>
+                    <li>Formación en centros de trabajo (FCT)</li>
+                </ul>
+            
+                <h3>¿Qué salidas profesionales tiene?</h3>
+                <p>Al finalizar el ciclo, podrás trabajar en puestos como:</p>
+                <ul>
+                    <li>Técnico en comercio exterior</li>
+                    <li>Agente de aduanas</li>
+                    <li>Operador/a logístico/a</li>
+                    <li>Responsable de import/export</li>
+                    <li>Gestor/a de tráfico internacional</li>
+                </ul>
+            
+                <h3>¿Dónde se puede estudiar?</h3>
+                <p>Este ciclo se ofrece en institutos públicos y centros privados de Formación Profesional en toda España. También está disponible en modalidad online o dual (con prácticas en empresa).</p>
+            
+                <p>Algunos centros destacados:</p>
+                <ul>
+                    <li><a href="https://www.campuscamarafp.com/comercio-internacional/" target="_blank">Campus Cámara FP</a></li>
+                    <li><a href="https://www.fpnebrija.com/ciclos-formativos/comercio-internacional/" target="_blank">FP Nebrija</a></li>
+                    <li><a href="https://www.sanvalero.es/" target="_blank">Centro San Valero</a></li>
+                </ul>
+            
+                <h3>¿Es una buena opción?</h3>
+                <p>Sí. Con la globalización y el auge del e-commerce internacional, las empresas demandan cada vez más perfiles con conocimientos específicos en operaciones internacionales. Este grado te brinda una formación práctica y actualizada con alta inserción laboral.</p>
+            
+                <p>🌍 Si te interesa el comercio exterior, la logística y los mercados internacionales, esta formación es tu pasaporte para comenzar una carrera global.</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/15.webp');"></div>
+            <h3>⚠️ Riesgos en el Comercio Internacional: ¿Cómo Minimizar los Riesgos en Tus Operaciones?</h3>
+            <p>El comercio internacional puede ser una excelente oportunidad, pero también trae consigo riesgos. Aquí te contamos cuáles son y cómo protegerte.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(16)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-16">
+                <p><strong>El comercio internacional involucra múltiples actores y factores que pueden generar riesgos para tu empresa.</strong> Desde fluctuaciones económicas hasta barreras políticas, conocer estos riesgos es vital para asegurar el éxito de tus transacciones internacionales.</p>
+            
+                <h3>🔍 Tipos de Riesgos en el Comercio Internacional</h3>
+                <ul>
+                    <li><strong>Riesgo Cambiario:</strong> Las fluctuaciones en las tasas de cambio pueden afectar los márgenes de beneficio si no se gestionan adecuadamente.</li>
+                    <li><strong>Riesgo Político:</strong> Cambios en la política o gobierno de un país pueden alterar los acuerdos comerciales, implementar nuevas barreras arancelarias o incluso nacionalizar empresas extranjeras.</li>
+                    <li><strong>Riesgo Logístico:</strong> Los retrasos en la cadena de suministro, daños en productos durante el transporte o dificultades en la aduana pueden poner en riesgo la entrega o calidad de los productos.</li>
+                    <li><strong>Riesgo de Crédito:</strong> La posibilidad de que un cliente internacional no cumpla con el pago de una deuda, lo que puede generar pérdidas importantes.</li>
+                    <li><strong>Riesgo Jurídico:</strong> Las diferencias en las leyes locales y las regulaciones comerciales pueden crear conflictos contractuales y jurídicos entre las partes involucradas.</li>
+                </ul>
+            
+                <h3>🔐 Estrategias para Mitigar los Riesgos</h3>
+                <p>Existen varias maneras de reducir los riesgos en las operaciones de comercio internacional:</p>
+                <ul>
+                    <li><strong>Seguro de Riesgo Político:</strong> Adquiere pólizas que cubran expropiaciones, cambios en políticas y otros riesgos políticos.</li>
+                    <li><strong>Hedging Cambiario:</strong> Utiliza contratos de cobertura para protegerte de las fluctuaciones en las tasas de cambio.</li>
+                    <li><strong>Verificación de la Solvencia del Cliente:</strong> Antes de realizar operaciones comerciales con nuevos socios, investiga su historial crediticio y asegúrate de que pueden cumplir con sus obligaciones.</li>
+                    <li><strong>Uso de Contratos Claros:</strong> Redacta contratos internacionales que definan claramente las condiciones, responsabilidades y mecanismos de resolución de disputas.</li>
+                    <li><strong>Asesoría Legal Internacional:</strong> Consulta con expertos en derecho internacional para evitar malentendidos y cumplir con las leyes locales.</li>
+                </ul>
+            
+                <h3>📈 ¿Cómo Ayudan los Tratados Internacionales a Reducir los Riesgos?</h3>
+                <p>Los acuerdos comerciales como el <a href="https://www.wto.org/" target="_blank" rel="noopener">OMC</a> o los tratados bilaterales pueden ser claves para reducir los riesgos, especialmente en términos de barreras arancelarias y disputas comerciales. Estos acuerdos proporcionan un marco de seguridad jurídica que facilita el comercio transfronterizo.</p>
+            
+                <h3>📊 Tendencias en la Gestión de Riesgos para 2025</h3>
+                <p>En los próximos años, el comercio internacional estará cada vez más influenciado por tecnologías avanzadas que ayudarán a mitigar los riesgos:</p>
+                <ul>
+                    <li><strong>Inteligencia Artificial (IA):</strong> Herramientas basadas en IA podrán predecir riesgos de mercado, detectar fraudes o automatizar la gestión de riesgos logísticos.</li>
+                    <li><strong>Blockchain:</strong> La tecnología blockchain ayudará a asegurar la trazabilidad de las transacciones y los pagos, disminuyendo los riesgos de fraude.</li>
+                    <li><strong>Big Data:</strong> El análisis de grandes volúmenes de datos puede identificar patrones de comportamiento y prever posibles riesgos en tiempo real.</li>
+                </ul>
+            
+                <h3>🚀 Consejos para Empezar a Minimizar los Riesgos</h3>
+                <p>Implementar un sistema de gestión de riesgos efectivo no es tan difícil. Estos pasos iniciales te ayudarán a reducir la incertidumbre:</p>
+                <ol>
+                    <li>Realiza un análisis exhaustivo de los mercados a los que deseas acceder.</li>
+                    <li>Evalúa las políticas y leyes locales antes de hacer negocios en otro país.</li>
+                    <li>Elige bien tus socios comerciales y realiza estudios de solvencia.</li>
+                    <li>Considera asegurar las mercancías y las transacciones internacionales.</li>
+                    <li>Mantén una comunicación constante con tus agentes de aduana y proveedores logísticos.</li>
+                </ol>
+            
+                <h3>✅ Conclusión</h3>
+                <p><strong>Los riesgos son parte inherente del comercio internacional, pero con las estrategias adecuadas, puedes gestionarlos eficazmente.</strong> Desde la cobertura cambiaria hasta los contratos bien elaborados, hay múltiples formas de proteger tu negocio y minimizar los impactos negativos. La clave está en estar preparado, educado y tener las herramientas correctas para tomar decisiones informadas.</p>
+            
+                <p><strong>¡La internacionalización de tu negocio puede ser más segura de lo que piensas!</strong> ¿Te atreves a gestionar los riesgos y expandir tus horizontes comerciales?</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/16.webp');"></div>
+            <h3>🌍 Cómo exportar un producto paso a paso [Guía 2025]</h3>
+            <p>¿Quieres empezar a exportar pero no sabes por dónde empezar? Esta guía te muestra el proceso completo desde cero.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(17)">Leer más →</button>
+                
+            <div class="articulo-completo" id="articulo-17">
+                <h2>Cómo exportar un producto desde tu país paso a paso (Guía 2025)</h2>
+                <p>Exportar puede parecer complicado, pero con una buena planificación, es un proceso totalmente alcanzable. Aquí tienes los <strong>7 pasos clave</strong> para comenzar:</p>
+            
+                <h3>📝 1. Define tu producto y mercado objetivo</h3>
+                <p>Analiza qué producto vas a exportar, a qué país, y qué requisitos tiene ese mercado (normas, aranceles, competencia).</p>
+            
+                <h3>📄 2. Registra tu empresa como exportadora</h3>
+                <p>Debes estar inscrito en los registros aduaneros nacionales. Por ejemplo, en muchos países necesitas un <strong>RUC exportador</strong> o una habilitación ante la aduana.</p>
+            
+                <h3>📦 3. Clasifica tu producto (código arancelario)</h3>
+                <p>Conoce el <strong>HS Code</strong> de tu producto. Esto definirá los impuestos, requisitos y estadísticas del comercio exterior.</p>
+            
+                <h3>💬 4. Negocia condiciones con tu comprador</h3>
+                <ul>
+                    <li>Escoge el <strong>Incoterm</strong> adecuado</li>
+                    <li>Define el medio de pago (ej. carta de crédito, transferencia, etc.)</li>
+                    <li>Establece plazos, precios y volumen</li>
+                </ul>
+            
+                <h3>📑 5. Prepara la documentación</h3>
+                <ul>
+                    <li>Factura comercial</li>
+                    <li>Lista de empaque</li>
+                    <li>Certificado de origen</li>
+                    <li>Documentos aduaneros</li>
+                </ul>
+            
+                <h3>🚢 6. Coordina la logística y el transporte</h3>
+                <p>Elige una empresa de transporte internacional (freight forwarder), reserva espacio en barco o avión y embala correctamente tu mercancía.</p>
+            
+                <h3>📬 7. Exporta y haz seguimiento</h3>
+                <p>Realiza el despacho aduanero, coordina la entrega en destino y da seguimiento a la operación hasta que el cliente reciba la carga.</p>
+            
+                <div style="background-color: #eafaf1; padding: 15px; margin: 20px 0; border-left: 4px solid #27ae60;">
+                    <h3 style="margin-top: 0;">✅ Tip final:</h3>
+                    <p>Utiliza plataformas como <strong>Trade Map</strong> o <strong>ConnectAmericas</strong> para identificar compradores potenciales y analizar mercados.</p>
+                </div>
+            
+                <p>💡 Exportar no es solo vender al extranjero: es entender las reglas, adaptarse a los mercados y ofrecer valor desde tu país al mundo.</p>
+            </div>
+        </div>
+
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/17.webp');"></div>
+            <h3>📑 Documentos para exportar en 2025 [+ checklist gratuita]</h3>
+            <p>Descubre qué papeles necesitas para una exportación exitosa y descarga nuestra lista gratuita de verificación.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(18)">Leer más →</button>
+        
+            <div class="articulo-completo" id="articulo-18">
+                <h2>Documentos necesarios para exportar en 2025 [+ checklist descargable]</h2>
+                <p>Una exportación exitosa depende en gran parte de tener la <strong>documentación correcta</strong>. Aquí te mostramos los documentos clave que todo exportador debe tener listos en 2025:</p>
+            
+                <h3>📄 1. Factura comercial (Commercial Invoice)</h3>
+                <p>Es el documento principal de venta internacional. Incluye datos del comprador y vendedor, descripción de la mercancía, precio, Incoterm, país de origen y destino.</p>
+            
+                <h3>📦 2. Lista de empaque (Packing List)</h3>
+                <p>Detalla cómo va embalada la carga: peso bruto/neto, dimensiones, tipo de empaque, número de bultos, etc.</p>
+            
+                <h3>🌍 3. Certificado de origen</h3>
+                <p>Demuestra el país donde fue producido el bien. Es obligatorio para acceder a preferencias arancelarias en tratados como el TLC o la UE.</p>
+            
+                <h3>🧾 4. Documento de transporte</h3>
+                <ul>
+                    <li>📦 Marítimo: <strong>BL – Bill of Lading</strong></li>
+                    <li>✈️ Aéreo: <strong>AWB – Air Waybill</strong></li>
+                    <li>🚚 Terrestre: <strong>CMR</strong></li>
+                </ul>
+            
+                <h3>🛃 5. Declaración aduanera de exportación</h3>
+                <p>Documento que se presenta a la aduana para autorizar la salida de mercancía. Generalmente se genera con el agente aduanal.</p>
+            
+                <h3>💳 6. Documentos de pago</h3>
+                <p>Dependiendo del medio elegido: carta de crédito, orden de pago, comprobante de transferencia, etc.</p>
+            
+                <div style="background-color: #fef7e0; padding: 15px; margin: 20px 0; border-left: 4px solid #f39c12;">
+                    <h3 style="margin-top: 0;">🧾 Bonus: Otros documentos posibles</h3>
+                    <ul>
+                        <li>Certificados sanitarios o fitosanitarios</li>
+                        <li>Permisos de exportación</li>
+                        <li>Seguro de carga</li>
+                        <li>Ficha técnica o MSDS (productos químicos)</li>
+                    </ul>
+                </div>
+            
+                <p>📥 <strong>Descarga aquí nuestra checklist de exportación</strong> en PDF para asegurarte de no olvidar nada antes de exportar. [🔗 <a href="fotos/checklist.pdf" download>Descargar ahora</a>]</p>
+            
+                <p>Con estos documentos en regla, puedes exportar con confianza y evitar retrasos o multas. ¡Prepara tus papeles y abre tus fronteras comerciales!</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/18.webp');"></div>
+            <h3>⚠️ 7 errores comunes al exportar (y cómo evitarlos)</h3>
+            <p>¿Estás cometiendo alguno de estos errores en tu proceso de exportación? Aprende cómo evitarlos antes de que cuesten caro.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(19)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-19">
+                <h2>7 errores comunes al exportar (y cómo evitarlos)</h2>
+                <p>Exportar es una excelente forma de hacer crecer tu negocio, pero también puede presentar desafíos si no estás bien preparado. Aquí te compartimos los <strong>7 errores más comunes</strong> que cometen los exportadores —y cómo puedes evitarlos en 2025:</p>
+            
+                <h3>❌ 1. No investigar el mercado de destino</h3>
+                <p>Muchos exportadores envían productos sin conocer a fondo la <strong>demanda, competencia, requisitos legales</strong> o preferencias culturales del país al que exportan.</p>
+                <p><strong>✅ Solución:</strong> Haz estudios de mercado, consulta fuentes como <a href="https://www.trademap.org" target="_blank">Trade Map</a> y habla con posibles distribuidores o compradores locales.</p>
+            
+                <h3>❌ 2. No identificar correctamente el código arancelario</h3>
+                <p>Usar un código HS incorrecto puede generar <strong>multas, retrasos en aduana</strong> o pago excesivo de impuestos.</p>
+                <p><strong>✅ Solución:</strong> Consulta con un agente de aduanas o utiliza herramientas oficiales para identificar correctamente el código arancelario de tu producto.</p>
+            
+                <h3>❌ 3. Elegir mal el Incoterm</h3>
+                <p>Un Incoterm mal elegido puede transferir demasiada responsabilidad o costos a una de las partes.</p>
+                <p><strong>✅ Solución:</strong> Aprende el significado y uso de cada Incoterm y elige el que se ajuste a tu estrategia comercial. ¿No sabes por dónde empezar? Comienza con los más usados: <strong>FOB, CIF, EXW</strong>.</p>
+            
+                <h3>❌ 4. Falta de documentación</h3>
+                <p>Olvidar documentos clave como certificados, licencias o seguros puede causar el rechazo de la mercancía o la pérdida de clientes.</p>
+                <p><strong>✅ Solución:</strong> Usa una <strong>checklist</strong> previa al envío. Asegúrate de tener todos los papeles: factura, lista de empaque, certificado de origen, documento de transporte, etc.</p>
+            
+                <h3>❌ 5. No asegurar la carga</h3>
+                <p>Exportar sin seguro es arriesgarse a <strong>pérdidas económicas importantes</strong> en caso de accidentes, robos o daños durante el transporte.</p>
+                <p><strong>✅ Solución:</strong> Siempre contrata un seguro de carga internacional. Evalúa las coberturas y elige según el tipo de mercancía y ruta.</p>
+            
+                <h3>❌ 6. No verificar al comprador</h3>
+                <p>En ocasiones, los exportadores hacen negocios sin comprobar la <strong>seriedad o solvencia</strong> del cliente extranjero.</p>
+                <p><strong>✅ Solución:</strong> Solicita referencias comerciales, verifica registros empresariales o utiliza servicios como <strong>COFACE</strong> o <strong>Credimundi</strong> para evaluar riesgos.</p>
+            
+                <h3>❌ 7. Improvisar la logística</h3>
+                <p>Una logística mal planificada genera <strong>costos extra, retrasos o pérdida de mercancía</strong>.</p>
+                <p><strong>✅ Solución:</strong> Trabaja con un freight forwarder confiable. Planifica el embalaje, transporte y tiempos de entrega con antelación.</p>
+            
+                <div style="background-color: #fff3f3; padding: 15px; margin: 20px 0; border-left: 4px solid #e74c3c;">
+                    <h3 style="margin-top: 0;">📌 Recomendación final:</h3>
+                    <p>No veas los errores como fracasos, sino como aprendizajes. Con formación y asesoría adecuada, puedes evitarlos desde el inicio.</p>
+                </div>
+            
+                <p>💡 Exportar con éxito no es solo cuestión de vender, sino de anticiparse a los riesgos y optimizar cada etapa del proceso. ¡Prepárate, infórmate y exporta sin tropiezos!</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/19.webp');"></div>
+            <h3>💰 Cómo empezar a invertir: guía para principiantes [2025]</h3>
+            <p>¿Te interesa hacer crecer tu dinero pero no sabes por dónde empezar? Aquí tienes una guía clara, sencilla y práctica para dar tus primeros pasos en el mundo de la inversión.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(20)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-20">
+                <h2>Cómo empezar a invertir: guía para principiantes [2025]</h2>
+                <p>Invertir ya no es solo para expertos en finanzas. Hoy en día, cualquier persona con acceso a internet y algo de información puede comenzar a construir su patrimonio. En esta guía te explicamos cómo empezar a invertir desde cero, sin miedo y paso a paso.</p>
+            
+                <h3>🧠 1. Entiende qué es invertir</h3>
+                <p>Invertir es poner tu dinero a trabajar para ti. A diferencia de ahorrar (que solo guarda el dinero), invertir busca que ese dinero <strong>crezca con el tiempo</strong>. Eso sí, toda inversión implica un nivel de riesgo.</p>
+            
+                <h3>🎯 2. Define tus objetivos financieros</h3>
+                <p>Antes de elegir dónde poner tu dinero, pregúntate: <em>¿para qué quiero invertir?</em> Algunos ejemplos:</p>
+                <ul>
+                    <li>💼 Ahorrar para emprender</li>
+                    <li>🏠 Comprar una casa</li>
+                    <li>🎓 Fondo para estudios</li>
+                    <li>🧓 Preparar tu retiro</li>
+                </ul>
+                <p>Tus objetivos determinarán el plazo y el tipo de inversión más adecuados.</p>
+            
+                <h3>🔍 3. Conoce tu perfil de inversor</h3>
+                <p>Tu perfil depende de tu tolerancia al riesgo. Existen tres perfiles básicos:</p>
+                <ul>
+                    <li>🟢 Conservador: busca seguridad, acepta pocos riesgos.</li>
+                    <li>🟡 Moderado: busca equilibrio entre riesgo y rendimiento.</li>
+                    <li>🔴 Agresivo: está dispuesto a asumir más riesgo por mayor rentabilidad.</li>
+                </ul>
+            
+                <h3>📈 4. Conoce las opciones básicas de inversión</h3>
+                <p>Algunas de las inversiones más comunes para principiantes son:</p>
+                <ul>
+                    <li>🏦 <strong>Cuentas remuneradas:</strong> bajo riesgo, bajo rendimiento.</li>
+                    <li>💳 <strong>Certificados de depósito (CDT):</strong> ahorro con plazo fijo.</li>
+                    <li>📊 <strong>Fondos de inversión:</strong> diversificados y gestionados por expertos.</li>
+                    <li>📱 <strong>Apps de inversión:</strong> como Ualá, Fintual, GBM+, entre otras.</li>
+                    <li>📉 <strong>Acciones y ETFs:</strong> para quienes quieren más control.</li>
+                </ul>
+            
+                <h3>📚 5. Fórmate antes de invertir</h3>
+                <p>No pongas tu dinero en algo que no entiendas. Antes de invertir, dedica tiempo a aprender:</p>
+                <ul>
+                    <li>Lee libros o blogs de finanzas personales</li>
+                    <li>Escucha podcasts o canales de YouTube de inversión</li>
+                    <li>Consulta fuentes oficiales o habla con asesores certificados</li>
+                </ul>
+            
+                <h3>💼 6. Empieza con poco y diversifica</h3>
+                <p>No necesitas grandes cantidades para comenzar. Algunas plataformas permiten invertir desde <strong>10 o 50 dólares</strong>. Y lo más importante: no pongas “todos los huevos en una sola canasta”. Invierte en diferentes instrumentos para reducir riesgos.</p>
+            
+                <h3>🔄 7. Sé constante y piensa a largo plazo</h3>
+                <p>Invertir es una maratón, no una carrera corta. Aporta mensualmente si puedes, reinvierte tus ganancias y evita tomar decisiones impulsivas ante caídas del mercado.</p>
+            
+                <div style="background-color: #e6f9f1; padding: 15px; margin: 20px 0; border-left: 4px solid #2ecc71;">
+                    <h3 style="margin-top: 0;">📌 Recomendaciones finales para nuevos inversores:</h3>
+                    <ul>
+                        <li>Evita caer en promesas de “dinero rápido”</li>
+                        <li>Revisa siempre la seguridad y regulación de la plataforma que uses</li>
+                        <li>No inviertas dinero que puedas necesitar a corto plazo</li>
+                        <li>Haz seguimiento a tus inversiones, pero sin obsesionarte</li>
+                    </ul>
+                </div>
+            
+                <p>💡 <strong>Invertir es una herramienta poderosa</strong> para lograr tus metas financieras y ganar independencia económica. Con paciencia, formación y disciplina, puedes construir un futuro sólido. ¡Empieza hoy!</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/20.webp');"></div>
+            <h3>📄 Documentación obligatoria para exportar en 2025</h3>
+            <p>¿Listo para exportar? Asegúrate de tener todos los documentos en regla para evitar problemas en aduanas o con tus clientes internacionales.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(21)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-21">
+                <h2>Documentación obligatoria para exportar en 2025</h2>
+                <p>Uno de los errores más frecuentes al exportar es no contar con la documentación adecuada. En 2025, los controles aduaneros y comerciales siguen siendo estrictos, por lo que <strong>no puedes darte el lujo de omitir ningún papel</strong>.</p>
+            
+                <p>Aquí tienes la lista esencial de los documentos que toda operación de exportación debe tener:</p>
+            
+                <h3>🧾 1. Factura comercial (Commercial Invoice)</h3>
+                <p>Es el documento clave de la operación. Contiene los <strong>datos del vendedor y comprador, descripción de la mercancía, precios, Incoterm</strong> y condiciones de pago.</p>
+                <p><strong>💡 Tip:</strong> Asegúrate de que coincida exactamente con los datos del resto de los documentos.</p>
+            
+                <h3>📦 2. Lista de empaque (Packing List)</h3>
+                <p>Detalla cómo se embala la mercancía: número de cajas, peso bruto/neto, dimensiones, y contenido. Es útil para el control de inventario y la inspección aduanera.</p>
+                <p><strong>🔍 Importante:</strong> Aunque no siempre es obligatorio, se recomienda en todos los embarques.</p>
+            
+                <h3>📄 3. Certificado de origen</h3>
+                <p>Certifica el país de fabricación del producto. Es obligatorio en acuerdos comerciales (como TLCs) para acceder a aranceles preferenciales.</p>
+                <p><strong>✅ Consejo:</strong> Solicítalo en la cámara de comercio o entidad autorizada en tu país.</p>
+            
+                <h3>🛃 4. Documento de transporte</h3>
+                <p>Depende del medio utilizado:</p>
+                <ul>
+                    <li>🚢 Marítimo: <strong>Bill of Lading (B/L)</strong></li>
+                    <li>✈️ Aéreo: <strong>Air Waybill (AWB)</strong></li>
+                    <li>🚛 Terrestre: <strong>Carta de porte</strong></li>
+                </ul>
+                <p>Este documento sirve como comprobante del envío, contrato de transporte y, en algunos casos, título de propiedad.</p>
+            
+                <h3>📝 5. Declaración aduanera de exportación</h3>
+                <p>Es el documento que se presenta ante la aduana de salida para declarar formalmente la exportación. Incluye datos fiscales y logísticos.</p>
+                <p><strong>⚠️ Requisito legal:</strong> No presentar esta declaración puede acarrear multas o bloqueos.</p>
+            
+                <h3>🔒 6. Certificados adicionales (si aplica)</h3>
+                <p>Según el producto y país destino, pueden requerirse:</p>
+                <ul>
+                    <li>🌱 Certificados sanitarios o fitosanitarios</li>
+                    <li>🔬 Certificados de calidad o conformidad</li>
+                    <li>🧯 Certificados de seguridad o etiquetado</li>
+                </ul>
+                <p><strong>🌍 Verifica:</strong> Consulta con el importador o un agente de aduanas del país de destino.</p>
+            
+                <div style="background-color: #fffde6; padding: 15px; margin: 20px 0; border-left: 4px solid #f1c40f;">
+                    <h3 style="margin-top: 0;">📌 Recomendación final:</h3>
+                    <p>No dejes la documentación para el último momento. Usa una checklist, trabaja con un agente de aduanas o un freight forwarder, y mantente actualizado con los requisitos de cada país.</p>
+                </div>
+            
+                <p>💡 <strong>Una exportación exitosa comienza en el papel.</strong> Ten tu documentación al día y asegúrate de que todo coincida: eso te evitará retrasos, sanciones o incluso la pérdida de clientes.</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/21.webp');"></div>
+            <h3>🌍 Cómo empezar a exportar internacionalmente paso a paso [Guía 2025]</h3>
+            <p>¿Te gustaría llevar tus productos al extranjero pero no sabes por dónde empezar? En esta guía práctica te explicamos cómo iniciarte en el mundo de la exportación paso a paso, sin complicaciones.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(22)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-22">
+                <h2>Cómo empezar a exportar internacionalmente paso a paso [Guía 2025]</h2>
+                <p>Exportar tus productos a otros países puede abrirte nuevas oportunidades de negocio, aumentar tus ingresos y posicionar tu marca globalmente. Pero para hacerlo correctamente necesitas <strong>planificación, conocimiento y cumplimiento legal</strong>.</p>
+            
+                <h3>🔍 1. Investiga si tu producto es exportable</h3>
+                <p>Antes de iniciar trámites o buscar clientes, pregúntate:</p>
+                <ul>
+                    <li>📦 ¿Tiene demanda internacional?</li>
+                    <li>📋 ¿Cumple con normas técnicas, sanitarias o de etiquetado en otros países?</li>
+                    <li>💸 ¿Es rentable considerando los costos de envío, impuestos y trámites?</li>
+                </ul>
+                <p>Haz un análisis de mercado y estudia a tu competencia internacional.</p>
+            
+                <h3>🌎 2. Elige a qué país exportar</h3>
+                <p>No todos los mercados son iguales. Evalúa países según:</p>
+                <ul>
+                    <li>📈 Demanda potencial</li>
+                    <li>🤝 Tratados de libre comercio (TLC)</li>
+                    <li>📊 Requisitos regulatorios</li>
+                    <li>🛃 Barreras arancelarias y no arancelarias</li>
+                </ul>
+                <p><strong>💡 Tip:</strong> Comienza con mercados cercanos o con afinidad cultural/lenguaje.</p>
+            
+                <h3>📝 3. Cumple con la documentación básica</h3>
+                <p>Para exportar legalmente necesitas varios documentos esenciales:</p>
+                <ul>
+                    <li>🧾 Factura comercial</li>
+                    <li>📦 Lista de empaque</li>
+                    <li>📄 Certificado de origen</li>
+                    <li>🚛 Documento de transporte (B/L, AWB, etc.)</li>
+                    <li>🛃 Declaración aduanera</li>
+                </ul>
+                <p>Algunos productos pueden requerir certificados especiales (sanitarios, fitosanitarios, etc.).</p>
+            
+                <h3>🏗️ 4. Define tu modelo logístico</h3>
+                <p>Debes decidir cómo vas a exportar:</p>
+                <ul>
+                    <li>✈️ Transporte aéreo (rápido pero costoso)</li>
+                    <li>🚢 Transporte marítimo (económico para grandes volúmenes)</li>
+                    <li>🚚 Transporte terrestre (para países vecinos)</li>
+                </ul>
+                <p>También debes elegir si lo harás <strong>por cuenta propia</strong> o a través de un <strong>freight forwarder</strong> o agente de carga.</p>
+            
+                <h3>📣 5. Busca clientes o distribuidores internacionales</h3>
+                <p>Algunas formas de encontrar compradores en el exterior:</p>
+                <ul>
+                    <li>🌐 Plataformas B2B (Alibaba, Global Sources, etc.)</li>
+                    <li>📧 Ferias internacionales y ruedas de negocios</li>
+                    <li>📲 Redes sociales o LinkedIn</li>
+                    <li>🤝 Contacto directo con distribuidores</li>
+                </ul>
+                <p>No olvides ofrecer fichas técnicas y catálogos en inglés u otros idiomas según el mercado.</p>
+            
+                <h3>💰 6. Establece precios de exportación</h3>
+                <p>Exportar no es solo sumar el precio local + envío. Debes considerar:</p>
+                <ul>
+                    <li>🚚 Costos logísticos</li>
+                    <li>📑 Impuestos y aranceles</li>
+                    <li>💵 Margen de ganancia</li>
+                    <li>📦 Empaque internacional</li>
+                </ul>
+                <p>Define también el Incoterm con tu cliente (ej: EXW, FOB, CIF, etc.)</p>
+            
+                <h3>✅ 7. Regístrate como exportador</h3>
+                <p>En la mayoría de países necesitas:</p>
+                <ul>
+                    <li>📌 Estar formalizado (como empresa o persona natural con RUC)</li>
+                    <li>🗂️ Registrarte en la entidad aduanera</li>
+                    <li>🧾 Emitir facturas de exportación</li>
+                </ul>
+            
+                <div style="background-color: #eaf4ff; padding: 15px; margin: 20px 0; border-left: 4px solid #3498db;">
+                    <h3 style="margin-top: 0;">📌 Consejos clave para nuevos exportadores:</h3>
+                    <ul>
+                        <li>Investiga bien antes de enviar tu primer producto</li>
+                        <li>Comienza con volúmenes pequeños y escala poco a poco</li>
+                        <li>Apóyate en cámaras de comercio, agencias de promoción o consultores</li>
+                        <li>Mantén toda la documentación ordenada y respaldada</li>
+                        <li>Ofrece un buen servicio postventa y atención al cliente</li>
+                    </ul>
+                </div>
+            
+                <p>🌟 <strong>Exportar puede transformar tu negocio</strong>. No necesitas ser una gran empresa para empezar. Con el conocimiento adecuado y una buena estrategia, puedes llevar tus productos al mundo. ¡Da el primer paso hoy!</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/22.webp');"></div>
+            <h3>🌱 Requisitos sanitarios y fitosanitarios para exportar alimentos</h3>
+            <p>¿Quieres exportar frutas, vegetales, carnes u otros alimentos? Cada país exige que estos productos cumplan con normas sanitarias estrictas. Aquí te explicamos lo esencial.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(23)">Leer más →</button>
+
+            <div class="articulo-completo" id="articulo-23">
+                <h2>Requisitos sanitarios y fitosanitarios para exportar alimentos y productos agrícolas</h2>
+            
+                <p>Cuando se exportan productos agrícolas o alimentos, cada país impone controles estrictos para proteger la salud de su población y evitar la propagación de plagas. Por eso, los <strong>requisitos sanitarios y fitosanitarios</strong> son esenciales en toda operación internacional de este tipo.</p>
+            
+                <h3>📋 ¿Qué son los requisitos sanitarios y fitosanitarios?</h3>
+                <p>Son <strong>normas técnicas</strong> que regulan la inocuidad de los alimentos, la sanidad animal y vegetal, y los controles de plagas. Su cumplimiento es obligatorio para ingresar productos al país de destino.</p>
+            
+                <h3>🧾 Documentos que podrías necesitar</h3>
+                <ul>
+                    <li>✅ <strong>Certificado Fitosanitario</strong>: requerido para frutas, vegetales, semillas y otros productos vegetales.</li>
+                    <li>✅ <strong>Certificado Sanitario</strong>: para carnes, pescados, lácteos y otros productos de origen animal.</li>
+                    <li>🔬 <strong>Certificados de análisis</strong>: pruebas de laboratorio que demuestran que el producto no contiene residuos prohibidos.</li>
+                    <li>📦 <strong>Etiquetado nutricional</strong>: obligatorio en muchos países. Revisa idioma, ingredientes y sellos.</li>
+                </ul>
+            
+                <h3>🌍 ¿Dónde se obtienen estos certificados?</h3>
+                <p>Los emiten <strong>autoridades sanitarias oficiales</strong> en tu país, como los ministerios de agricultura, salud o agencias especializadas.</p>
+                <p><strong>💡 Tip:</strong> Debes solicitarlos con anticipación, ya que pueden incluir inspecciones físicas o controles previos al embarque.</p>
+            
+                <h3>📦 Países con normas más exigentes</h3>
+                <p>Países como EE. UU., la Unión Europea, Japón y Canadá tienen <strong>altos estándares sanitarios</strong>. Si exportas allí, prepárate con tiempo y verifica:</p>
+                <ul>
+                    <li>🚫 Límite máximo de residuos químicos</li>
+                    <li>📑 Requisitos de empaque y trazabilidad</li>
+                    <li>🐛 Certificados de ausencia de plagas específicas</li>
+                </ul>
+            
+                <div style="background-color: #fffbe6; padding: 15px; margin: 20px 0; border-left: 4px solid #f1c40f;">
+                    <h3 style="margin-top: 0;">📌 Consejo final:</h3>
+                    <p>No esperes a tener el cliente para informarte. Investiga los requisitos del país destino <strong>antes de producir o empacar</strong>. Puedes consultar con un agente de aduanas o directamente en el sitio web de la autoridad sanitaria del país receptor.</p>
+                </div>
+            
+                <p>🌟 <strong>Exportar alimentos o productos agrícolas es posible</strong>, pero exige orden, prevención y cumplimiento normativo. Si cumples con todos los requisitos, tus productos ganarán confianza y acceso preferencial en mercados exigentes.</p>
+            </div>
+        </div>
+        <div class="recurso">
+            <div class="recurso-imagen" style="background-image: url('fotos/23.webp');"></div>
+            <h3>💸 Cómo calcular el precio de exportación correctamente</h3>
+            <p>¿Sabes si realmente estás ganando dinero al exportar? Aprende a calcular el precio de exportación incluyendo todos los costos ocultos.</p>
+            <button class="btn-leer" onclick="mostrarArticulo(24)">Leer más →</button>
+        
+            <div class="articulo-completo" id="articulo-24">
+                <h2>Cómo calcular el precio de exportación correctamente</h2>
+            
+                <p>Uno de los errores más comunes al empezar a exportar es <strong>subestimar los costos reales</strong>. Un mal cálculo puede significar pérdidas, pérdida de competitividad o incluso rechazo de los productos.</p>
+            
+                <h3>🔢 Elementos clave del precio de exportación</h3>
+                <p>Tu precio debe cubrir todos los siguientes componentes:</p>
+                <ul>
+                    <li>🏭 <strong>Costos de producción</strong>: materia prima, mano de obra, energía, etc.</li>
+                    <li>📦 <strong>Empaque internacional</strong>: embalaje resistente y etiquetado adecuado.</li>
+                    <li>🚛 <strong>Transporte interno</strong>: desde tu planta hasta el punto de salida (puerto o aeropuerto).</li>
+                    <li>🛃 <strong>Costos aduaneros</strong>: trámites, certificaciones, inspecciones.</li>
+                    <li>🚢 <strong>Flete internacional</strong>: transporte marítimo, aéreo o terrestre hasta el destino.</li>
+                    <li>🔒 <strong>Seguro de carga</strong> (si aplica)</li>
+                    <li>💵 <strong>Márgenes de utilidad</strong></li>
+                    <li>💱 <strong>Tipo de cambio</strong> y comisiones bancarias</li>
+                </ul>
+            
+                <h3>📦 ¿Qué Incoterm estás usando?</h3>
+                <p>El Incoterm elegido define hasta dónde llegan tus costos. Por ejemplo:</p>
+                <ul>
+                    <li><strong>FOB</strong>: cubres hasta que el producto está en el puerto de salida.</li>
+                    <li><strong>CIF</strong>: cubres también el flete y el seguro hasta el puerto de destino.</li>
+                    <li><strong>EXW</strong>: el cliente asume todos los costos desde tu almacén.</li>
+                </ul>
+            
+                <h3>💡 Cómo hacer un cálculo básico</h3>
+                <p>Ejemplo: vendes un producto a $10 FOB. Debes sumar:</p>
+                <ul>
+                    <li>Empaque: $0.50</li>
+                    <li>Transporte interno: $0.80</li>
+                    <li>Trámites aduaneros: $0.40</li>
+                    <li>Margen de ganancia: $2.00</li>
+                </ul>
+                <p><strong>Total FOB sugerido:</strong> $13.70</p>
+            
+                <h3>📊 Revisa la rentabilidad</h3>
+                <p>Calcula tu rentabilidad real considerando también:</p>
+                <ul>
+                    <li>⏱️ Lead time (tiempo entre producción y pago)</li>
+                    <li>💱 Fluctuación cambiaria</li>
+                    <li>💸 Costos adicionales no previstos (multas, retrasos, etc.)</li>
+                </ul>
+            
+                <div style="background-color: #eaf4ff; padding: 15px; margin: 20px 0; border-left: 4px solid #3498db;">
+                    <h3 style="margin-top: 0;">📌 Consejo práctico:</h3>
+                    <p>No uses el mismo precio que en el mercado local. Haz una hoja de costos específica para exportación. Utiliza simuladores o herramientas de Excel con fórmulas automáticas para evitar errores.</p>
+                </div>
+            
+                <p>📈 <strong>Un buen precio de exportación te permite ser competitivo y rentable</strong>. No lo dejes al azar: calcula bien, ajusta por mercado y negocia con conocimiento.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-legal">
+        <a href="#" onclick="openModal('privacidad', event)">Política de Privacidad</a> |
+        <a href="#" onclick="openModal('cookies', event)">Política de Cookies</a> |
+        <a href="#" onclick="openModal('terminos', event)">Términos y Condiciones</a> |
+        <a href="#" onclick="openModal('preferencias', event)">Preferencias de Cookies</a>
+    </div>
+
+        <!-- MODALES -->
+    <div id="modal-privacidad" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacidad')">&times;</span>
+            <div class="modal-text">
+                <h2>Política de Privacidad</h2>
+
+                <p>En <strong>Calcula Incoterms</strong>, respetamos su privacidad y nos comprometemos a proteger sus datos personales. Esta política describe cómo recopilamos, usamos y protegemos la información que usted nos facilita al usar nuestro sitio web.</p>
+
+                <h3>Responsable del tratamiento de datos</h3>
+                <p>Nombre: Calcula Incoterms<br>
+                Email: calculaincoterms@gmail.com<br>
+                Ubicación: Madrid, España</p>
+                
+                <h3>Datos personales que recogemos</h3>
+                <ul>
+                    <li>Datos que usted nos proporciona directamente, por ejemplo, a través del formulario de contacto (nombre, correo electrónico, mensaje).</li>
+                    <li>Datos recogidos automáticamente mediante cookies y herramientas de análisis, como Google Analytics.</li>
+                </ul>
+
+                <h3>Finalidad del tratamiento</h3>
+                <ul>
+                    <li>Atender sus consultas y comunicaciones.</li>
+                    <li>Mejorar la experiencia y el funcionamiento del sitio web.</li>
+                    <li>Analizar el uso del sitio para optimizar contenidos y servicios.</li>
+                </ul>
+
+                <h3>Base legal para el tratamiento</h3>
+                <ul>
+                    <li>Consentimiento: para el envío de comunicaciones o cuando usted acepte las cookies.</li>
+                    <li>Interés legítimo: para mejorar el sitio web y analizar su uso.</li>
+                </ul>
+
+                <h3>Uso de cookies y tecnologías similares</h3>
+                <p>En <strong>Calcula Incoterms</strong> utilizamos cookies y otras tecnologías similares para mejorar su experiencia en nuestro sitio web, analizar el uso que se hace del mismo y personalizar contenidos. Algunas cookies son esenciales para el funcionamiento del sitio, mientras que otras nos permiten obtener información estadística mediante herramientas como Google Analytics.</p>
+                <p>Al acceder a nuestro sitio, usted puede aceptar o rechazar el uso de cookies a través de la configuración de su navegador o mediante el aviso de cookies que aparece en la página. Para más información sobre las cookies que utilizamos, puede consultar nuestra Política de Cookies.</p>
+
+                <h3>Transferencias internacionales de datos</h3>
+                <p>Al utilizar servicios como Google Analytics, sus datos pueden ser transferidos y almacenados en servidores ubicados fuera del Espacio Económico Europeo (EEE), en países que pueden no contar con un nivel de protección de datos equivalente al de la Unión Europea. En estos casos, nos aseguramos de que dichas transferencias se realicen conforme a lo establecido en la normativa vigente, adoptando las medidas adecuadas para garantizar la seguridad y confidencialidad de sus datos personales.</p>
+
+                <h3>Plazo de conservación de los datos</h3>
+                <p>Los datos proporcionados se conservarán mientras dure la relación y durante los años necesarios para cumplir con obligaciones legales.</p>
+
+                <h3>Destinatarios de los datos</h3>
+                <p>Los datos personales no se ceden a terceros, salvo obligación legal o proveedores autorizados como Google Analytics, que garantiza la protección de los datos conforme a sus políticas.</p>
+
+                <h3>Derechos de los usuarios</h3>
+                <ul>
+                    <li>Acceder, rectificar o suprimir sus datos personales.</li>
+                    <li>Limitar u oponerse al tratamiento de sus datos.</li>
+                    <li>Portabilidad de sus datos.</li>
+                    <li>Retirar el consentimiento en cualquier momento.</li>
+                    <li>Presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD).</li>
+                </ul>
+
+                <h3>Cómo ejercer sus derechos</h3>
+                <p>Puede ejercer sus derechos enviando un correo a <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a> con una copia de su DNI o documento equivalente.</p>
+
+                <h3>Medidas de seguridad</h3>
+                <p>Se adoptan medidas técnicas y organizativas para garantizar la seguridad de los datos personales y evitar su alteración, pérdida o acceso no autorizado.</p>
+
+                <h3>Modificaciones en la política</h3>
+                <p>Esta política puede actualizarse. Se recomienda revisarla periódicamente para estar informado de posibles cambios.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cookies" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cookies')">&times;</span>
+            <div class="modal-text">
+                <h2>Política de Cookies</h2>
+
+                <p>En <strong>Calcula Incoterms</strong> utilizamos cookies propias y de terceros para mejorar su experiencia como usuario, analizar el tráfico y personalizar contenidos y publicidad. A continuación, le informamos de qué son las cookies, qué tipos usamos, para qué sirven, y cómo puede gestionarlas o desactivarlas.</p>
+
+                <h3>¿Qué son las cookies?</h3>
+                <p>Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (ordenador, móvil, tableta) cuando visita un sitio web. Permiten que el sitio recuerde información sobre su visita, como sus preferencias o la sesión iniciada, y así mejorar su experiencia de navegación.</p>
+
+                <h3>Tipos de cookies que utilizamos</h3>
+                <ul>
+                    <li><strong>Cookies técnicas:</strong> Son necesarias para el funcionamiento básico del sitio web, como la navegación y acceso a áreas seguras. Sin estas cookies, algunos servicios no pueden funcionar correctamente.</li>
+                    <li><strong>Cookies de personalización:</strong> Permiten recordar sus elecciones para ofrecer una experiencia personalizada (por ejemplo, idioma o región).</li>
+                    <li><strong>Cookies de análisis:</strong> Recogen información sobre cómo los usuarios usan el sitio web, ayudándonos a mejorar su funcionamiento. Utilizamos Google Analytics para este fin.</li>
+                    <li><strong>Cookies publicitarias y de terceros:</strong> Se utilizan para mostrar anuncios relevantes para usted, basados en sus hábitos de navegación y preferencias.</li>
+                </ul>
+
+                <p><strong>Cookies estrictamente necesarias:</strong> Estas cookies son imprescindibles para que el sitio web funcione correctamente y no se pueden desactivar en nuestros sistemas. Sin ellas, no se pueden proporcionar servicios esenciales como la navegación segura o el acceso a áreas protegidas.</p>
+
+                <h3>Cookies propias y de terceros</h3>
+                <p>Las cookies propias son las que se envían al dispositivo del usuario desde un equipo o dominio gestionado por <strong>Calcula Incoterms</strong>. Las cookies de terceros son las que se envían desde un equipo o dominio no gestionado por nosotros, sino por otra entidad que trata los datos obtenidos mediante cookies.</p>
+
+                <h3>Cookies que utiliza esta web</h3>
+                <table border="1" cellpadding="5" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Finalidad</th>
+                            <th>Duración</th>
+                            <th>Proveedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>_ga</td>
+                            <td>Analítica</td>
+                            <td>Google Analytics: distinguir usuarios únicos.</td>
+                            <td>2 años</td>
+                            <td>Google LLC</td>
+                        </tr>
+                        <tr>
+                            <td>_gid</td>
+                            <td>Analítica</td>
+                            <td>Google Analytics: distinguir usuarios únicos.</td>
+                            <td>24 horas</td>
+                            <td>Google LLC</td>
+                        </tr>
+                        <tr>
+                            <td>_gat</td>
+                            <td>Analítica</td>
+                            <td>Google Analytics: limitar el porcentaje de solicitudes.</td>
+                            <td>1 minuto</td>
+                            <td>Google LLC</td>
+                        </tr>
+                        <!-- Añade aquí las cookies propias o de terceros que uses -->
+                    </tbody>
+                </table>
+
+                <h3>Cómo gestionar y desactivar las cookies</h3>
+                <p>Usted puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador que utiliza. A continuación, le facilitamos los enlaces a la configuración de los navegadores más comunes:</p>
+                <ul>
+                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+                    <li><a href="https://support.microsoft.com/es-es/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank" rel="noopener noreferrer">Internet Explorer</a></li>
+                    <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari (Mac)</a></li>
+                    <li><a href="https://support.microsoft.com/es-es/help/4027947/windows-delete-cookies" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+                </ul>
+                <p>Si decide bloquear o eliminar algunas cookies, es posible que algunas funciones de la web no estén disponibles o no funcionen correctamente, lo que podría afectar su experiencia de usuario.</p>
+
+                <h3>Consentimiento</h3>
+                <p>Cuando accede por primera vez a nuestro sitio web, se muestra un aviso de cookies para informarle y solicitar su consentimiento para la instalación de las mismas, salvo aquellas estrictamente necesarias para el funcionamiento del sitio.</p>
+                <p>Si desea retirar su consentimiento, puede hacerlo en cualquier momento mediante la configuración de su navegador o eliminando las cookies instaladas.</p>
+
+                <h3>Actualización de la política de cookies</h3>
+                <p>Podemos actualizar esta política para adaptarla a novedades legislativas o cambios en nuestras prácticas. Se recomienda revisarla periódicamente.</p>
+
+                <h3>Contacto</h3>
+                <p>Si tiene dudas o consultas sobre nuestra política de cookies, puede contactarnos en <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-terminos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('terminos')">&times;</span>
+            <div class="modal-text">
+                <h2>Términos y Condiciones</h2>
+
+                <p>Bienvenido a <strong>Calcula Incoterms</strong>. Antes de utilizar nuestro sitio web, por favor lea detenidamente estos Términos y Condiciones. Al acceder y usar este sitio, usted acepta quedar vinculado por estas condiciones en su totalidad. Si no está de acuerdo, le rogamos no utilizar este sitio web.</p>
+
+                <h3>1. Identificación del prestador</h3>
+                <p>El responsable del sitio web es <strong>Calcula Incoterms</strong>, con domicilio en Madrid, España. Puede contactarnos a través del correo electrónico <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>.</p>
+
+                <h3>2. Objeto</h3>
+                <p>Estos términos regulan el acceso y uso de los contenidos, productos y servicios que <strong>Calcula Incoterms</strong> ofrece a través de su sitio web.</p>
+
+                <h3>3. Propiedad intelectual e industrial</h3>
+                <p>Todos los contenidos del sitio web, incluyendo textos, imágenes, gráficos, logos, diseño, software y marcas son propiedad de <strong>Calcula Incoterms</strong> o de terceros que han autorizado su uso. Queda prohibida su reproducción, distribución, comunicación pública, transformación o cualquier uso no autorizado.</p>
+
+                <h3>4. Uso del sitio web</h3>
+                <ul>
+                    <li>El usuario se compromete a usar el sitio web de forma lícita, respetando la legislación vigente y los derechos de terceros.</li>
+                    <li>Queda prohibido el uso del sitio para actividades ilegales o que puedan dañar o inutilizar la página o sistemas asociados.</li>
+                    <li>El usuario no intentará acceder sin autorización a sistemas o áreas privadas.</li>
+                </ul>
+
+                <h3>5. Registro y acceso</h3>
+                <p>Para algunos servicios específicos, podrá ser necesario registrarse y crear una cuenta. El usuario se compromete a facilitar información veraz y mantener la confidencialidad de sus datos de acceso. Calcula Incoterms no se responsabiliza del uso indebido de las cuentas de usuario.</p>
+
+                <h3>6. Servicios ofrecidos</h3>
+                <p>El sitio web ofrece herramientas y contenido relacionado con Incoterms para facilitar cálculos y consultas. Estos servicios se ofrecen de forma gratuita salvo indicación contraria.</p>
+
+                <h3>7. Responsabilidad</h3>
+                <p><strong>Calcula Incoterms</strong> no será responsable de daños o perjuicios que puedan derivarse del uso incorrecto de la información o herramientas disponibles en el sitio. No garantizamos la disponibilidad continua y libre de errores del sitio ni la exactitud completa de los contenidos.</p>
+
+                <h3>8. Protección de datos y cookies</h3>
+                <p>El tratamiento de sus datos personales se realiza conforme a nuestra Política de Privacidad. Asimismo, puede consultar nuestra Política de Cookies para más detalles sobre el uso de tecnologías de seguimiento.</p>
+
+                <h3>9. Enlaces a terceros</h3>
+                <p>El sitio puede contener enlaces a páginas web de terceros. Calcula Incoterms no se responsabiliza del contenido, políticas de privacidad o prácticas de estos sitios externos.</p>
+
+                <h3>10. Modificaciones</h3>
+                <p>Nos reservamos el derecho a modificar en cualquier momento y sin previo aviso estos términos, así como los contenidos y servicios ofrecidos.</p>
+
+                <h3>11. Duración y terminación</h3>
+                <p>El acceso al sitio y servicios tiene una duración indefinida mientras no se suspenda por incumplimiento de estos términos o por decisión de Calcula Incoterms. Nos reservamos el derecho a limitar o cancelar el acceso a usuarios que incumplan las condiciones.</p>
+
+                <h3>12. Contenidos generados por usuarios</h3>
+                <p>Si el sitio permite la publicación de contenidos por parte de los usuarios, estos serán responsables de sus propios contenidos, comprometiéndose a no publicar material ilegal, ofensivo o que infrinja derechos de terceros. Calcula Incoterms se reserva el derecho a eliminar cualquier contenido que considere inapropiado.</p>
+
+                <h3>13. Procedimiento de reclamaciones</h3>
+                <p>Para cualquier reclamación o disputa relacionada con el uso del sitio web, puede contactarnos a través del correo <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>. Intentaremos resolver cualquier conflicto de forma amistosa.</p>
+
+                <h3>14. Seguridad</h3>
+                <p>Adoptamos medidas técnicas y organizativas para proteger la seguridad de los datos y sistemas, aunque no podemos garantizar la absoluta invulnerabilidad frente a accesos no autorizados.</p>
+
+                <h3>15. Legislación aplicable y jurisdicción</h3>
+                <p>Estos términos se rigen por la legislación española. Para cualquier controversia derivada de estos términos y condiciones, las partes se someten a la jurisdicción de los juzgados y tribunales de Madrid, salvo disposición legal en contrario.</p>
+
+                <h3>16. Contacto</h3>
+                <p>Si tiene preguntas o necesita más información, puede contactarnos en <a href="mailto:calculaincoterms@gmail.com">calculaincoterms@gmail.com</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-preferencias" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('preferencias')">&times;</span>
+            <div class="modal-text">
+                <h2>Preferencias de Cookies</h2>
+                <p>Puede gestionar aquí qué tipos de cookies desea aceptar o rechazar.</p>
+            
+            <form id="cookie-preferences-form">
+                <label>
+                    <input type="checkbox" id="cookies-analiticas" checked>
+                    Cookies Analíticas (Google Analytics, etc.)
+                </label>
+            
+                <label>
+                    <input type="checkbox" id="cookies-marketing" checked>
+                    Cookies de Marketing y Publicidad
+                </label>
+            
+                <label>
+                    <input type="checkbox" id="cookies-necesarias" disabled checked>
+                    Cookies Necesarias (siempre activas)
+                </label>
+            
+                <div style="margin-top: 20px;" class="botones">
+                    <button type="button" onclick="savePreferences()">Guardar Preferencias</button>
+                    <button type="button" onclick="closeModal('preferencias')">Cancelar</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="distancias.js"></script>
+</body>
+</html>
